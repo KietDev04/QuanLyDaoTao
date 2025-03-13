@@ -1,0 +1,124 @@
+@model QuanLyDaoTao.Models.Khoa
+
+<h2>Chi tiết khóa học: @Model.TenKhoa</h2>
+<p>@Model.MoTa</p>
+
+<h3>Đề cương</h3>
+@if (Model.DeCuongs != null && Model.DeCuongs.Any())
+{
+    <div class="accordion" id="deCuongAccordion">
+        @foreach (var deCuong in Model.DeCuongs)
+        {
+            <div class="card mb-3">
+                <div class="card-header" id="heading-@deCuong.Id">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@deCuong.Id" aria-expanded="true" aria-controls="collapse-@deCuong.Id">
+                            @deCuong.TenDeCuong
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapse-@deCuong.Id" class="collapse @(Model.DeCuongs.First() == deCuong ? "show" : "")" aria-labelledby="heading-@deCuong.Id" data-bs-parent="#deCuongAccordion">
+                    <div class="card-body">
+                        <h6>Bài giảng</h6>
+                        @if (deCuong.BaiGiangs != null && deCuong.BaiGiangs.Any())
+                        {
+                            <div class="accordion" id="baiGiangAccordion-@deCuong.Id">
+                                @foreach (var baiGiang in deCuong.BaiGiangs)
+                                {
+                                    <div class="card mb-2">
+                                        <div class="card-header" id="heading-@baiGiang.Id">
+                                            <h6 class="mb-0">
+                                                <button class="btn btn-link text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@baiGiang.Id" aria-expanded="false" aria-controls="collapse-@baiGiang.Id">
+                                                    @baiGiang.TenBaiGiang
+                                                </button>
+                                            </h6>
+                                        </div>
+
+                                        <div id="collapse-@baiGiang.Id" class="collapse" aria-labelledby="heading-@baiGiang.Id" data-bs-parent="#baiGiangAccordion-@deCuong.Id">
+                                            <div class="card-body">
+                                                <p>@baiGiang.NoiDung</p>
+                                                <!-- Nút và nội dung file PDF -->
+                                                @if (!string.IsNullOrEmpty(baiGiang.FilePDF))
+                                                {
+                                                    <button class="btn btn-primary btn-sm mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#pdf-@baiGiang.Id" aria-expanded="false" aria-controls="pdf-@baiGiang.Id">
+                                                        Xem File PDF
+                                                    </button>
+                                                    <div id="pdf-@baiGiang.Id" class="collapse">
+                                                        <div class="mt-2">
+                                                            <a href="@baiGiang.FilePDF" class="btn btn-secondary btn-sm" target="_blank">Mở File PDF</a>
+                                                            <!-- Embed PDF viewer -->
+                                                            <div class="mt-2">
+                                                                <embed src="@baiGiang.FilePDF" type="application/pdf" width="100%" height="400px" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <p>Không có file PDF.</p>
+                                                }
+
+                                                <!-- Nút và nội dung video -->
+                                                @if (!string.IsNullOrEmpty(baiGiang.VideoUrl))
+                                                {
+                                                    <button class="btn btn-primary btn-sm mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#video-@baiGiang.Id" aria-expanded="false" aria-controls="video-@baiGiang.Id">
+                                                        Xem Video
+                                                    </button>
+                                                    <div id="video-@baiGiang.Id" class="collapse">
+                                                        <div class="mt-2">
+                                                            <a href="@baiGiang.VideoUrl" class="btn btn-secondary btn-sm" target="_blank">Mở Video</a>
+                                                            <!-- Embed video player -->
+                                                            <div class="mt-2">
+                                                                @if (baiGiang.VideoUrl.Contains("youtube.com") || baiGiang.VideoUrl.Contains("youtu.be"))
+                                                                {
+                                                                    var videoId = baiGiang.VideoUrl.Contains("youtu.be") 
+                                                                        ? baiGiang.VideoUrl.Split('/').Last().Split('?')[0] 
+                                                                        : baiGiang.VideoUrl.Split("v=").Last().Split('&')[0].Split('?')[0];
+                                                                    if (!string.IsNullOrEmpty(videoId))
+                                                                    {
+                                                                        var embedUrl = $"https://www.youtube.com/embed/{videoId}";
+                                                                        <iframe width="100%" height="315" src="@embedUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <p>Không thể nhúng video. URL không hợp lệ.</p>
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    <video width="100%" height="315" controls>
+                                                                        <source src="@baiGiang.VideoUrl" type="video/mp4">
+                                                                        Trình duyệt của bạn không hỗ trợ video.
+                                                                    </video>
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <p>Không có video.</p>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <p>Chưa có bài giảng.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>Chưa có đề cương.</p>
+}
+
+<a href="/Khoas" class="btn btn-secondary">Quay lại</a>

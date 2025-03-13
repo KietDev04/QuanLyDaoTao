@@ -1,0 +1,29 @@
+﻿@model List<QuanLyDaoTao.Models.Khoa>
+
+<h2>Danh sách khóa học</h2>
+<a href="/Khoas/Create">Thêm khóa học</a>
+
+@if (Model == null || !Model.Any())
+{
+    <p>Không có khóa học nào.</p>
+}
+else
+{
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên khóa học</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var khoa in Model)
+            {
+                <tr>
+                    <td>@khoa.Id</td>
+                    <td>@khoa.TenKhoa</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
