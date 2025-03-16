@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using QuanLyDaoTao.Models;
 
@@ -16,9 +17,15 @@ namespace QuanLyDaoTao.Controllers
 
         public IActionResult Index()
         {
-            var khoas = _context.Khoas.ToList();
-            return View(khoas);
+            var danhSachKhoa = _context.Khoas.ToList();
+            if (danhSachKhoa == null || !danhSachKhoa.Any())
+            {
+                // Log hoặc debug để kiểm tra
+                Console.WriteLine("Danh sách rỗng hoặc null");
+            }
+            return View(danhSachKhoa);
         }
+        
 
         [Authorize(Roles = "Admin")]
         public IActionResult Create()
@@ -28,6 +35,7 @@ namespace QuanLyDaoTao.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(Khoa khoa)
         {
             if (ModelState.IsValid)

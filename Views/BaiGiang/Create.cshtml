@@ -1,0 +1,39 @@
+@model QuanLyDaoTao.Models.BaiGiang
+@using Microsoft.AspNetCore.Mvc.Rendering;
+<h2>Thêm bài giảng mới</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="TenBaiGiang" class="control-label">Tên bài giảng</label>
+        <input asp-for="TenBaiGiang" class="form-control" />
+        <span asp-validation-for="TenBaiGiang" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NoiDung" class="control-label">Nội dung</label>
+        <textarea asp-for="NoiDung" class="form-control"></textarea>
+        <span asp-validation-for="NoiDung" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FilePDF" class="control-label">Đường dẫn file PDF</label>
+        <input asp-for="FilePDF" class="form-control" />
+        <span asp-validation-for="FilePDF" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="VideoUrl" class="control-label">Đường dẫn video</label>
+        <input asp-for="VideoUrl" class="form-control" />
+        <span asp-validation-for="VideoUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DeCuongId" class="control-label">Đề cương</label>
+        <select asp-for="DeCuongId" class="form-control" asp-items="@(new SelectList(ViewBag.DeCuongId, "Id", "TenDeCuong"))"></select>
+        <span asp-validation-for="DeCuongId" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <input type="submit" value="Thêm" class="btn btn-success" />
+        <a asp-action="Index" asp-controller="Khoas" class="btn btn-secondary">Quay lại</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

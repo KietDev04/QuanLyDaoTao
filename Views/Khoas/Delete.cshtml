@@ -1,0 +1,22 @@
+@model QuanLyDaoTao.Models.Khoa
+
+<h2>Xóa khóa học</h2>
+
+<h3>Bạn có chắc chắn muốn xóa khóa học này?</h3>
+<div>
+    <h4>@Model.TenKhoa</h4>
+    <dl class="row">
+        <dt class="col-sm-2">ID</dt>
+        <dd class="col-sm-10">@Model.Id</dd>
+        <dt class="col-sm-2">Tên khóa học</dt>
+        <dd class="col-sm-10">@Model.TenKhoa</dd>
+        <dt class="col-sm-2">Mô tả</dt>
+        <dd class="col-sm-10">@Model.MoTa</dd>
+    </dl>
+    
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Xóa" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+    </form>
+</div>

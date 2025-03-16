@@ -1,7 +1,12 @@
 ﻿@model List<QuanLyDaoTao.Models.Khoa>
 
 <h2>Danh sách khóa học</h2>
-<a href="/Khoas/Create">Thêm khóa học</a>
+@if (User.IsInRole("Admin"))
+{
+    <div class="mt-3">
+        <a href="/Khoas/Create" class="btn btn-success">Thêm khóa học</a>
+    </div>
+}
 
 @if (Model == null || !Model.Any())
 {
