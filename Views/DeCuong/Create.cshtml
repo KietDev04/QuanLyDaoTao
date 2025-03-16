@@ -1,0 +1,24 @@
+@model QuanLyDaoTao.Models.DeCuong
+
+<h2>Thêm đề cương mới</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="TenDeCuong" class="control-label">Tên đề cương</label>
+        <input asp-for="TenDeCuong" class="form-control" />
+        <span asp-validation-for="TenDeCuong" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="KhoaId" class="control-label">Khóa học</label>
+        <select asp-for="KhoaId" class="form-control" asp-items="@(new SelectList(ViewBag.KhoaId, "Id", "TenKhoa"))"></select>
+        <span asp-validation-for="KhoaId" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <input type="submit" value="Thêm" class="btn btn-success" />
+        <a asp-action="Index" asp-controller="Khoas" class="btn btn-secondary">Quay lại</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
