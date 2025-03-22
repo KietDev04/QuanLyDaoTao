@@ -1,0 +1,38 @@
+@model QuanLyDaoTaoWeb.Models.Khoa
+
+@{
+    ViewData["Title"] = "Chỉnh sửa Khoa";
+}
+
+<h1>Chỉnh sửa Khoa</h1>
+
+<form asp-action="EditKhoa" method="post">
+    <div class="form-group">
+        <label asp-for="MaKhoa" class="control-label"></label>
+        <input asp-for="MaKhoa" class="form-control" readonly="readonly" />
+        <span asp-validation-for="MaKhoa" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TenKhoa" class="control-label"></label>
+        <input asp-for="TenKhoa" class="form-control" />
+        <span asp-validation-for="TenKhoa" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DiaChi" class="control-label"></label>
+        <input asp-for="DiaChi" class="form-control" />
+        <span asp-validation-for="DiaChi" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DienThoai" class="control-label"></label>
+        <input asp-for="DienThoai" class="form-control" />
+        <span asp-validation-for="DienThoai" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Lưu" class="btn btn-primary" />
+        <a asp-action="KhoaIndex" class="btn btn-secondary">Quay lại</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

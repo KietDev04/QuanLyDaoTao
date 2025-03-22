@@ -1,0 +1,44 @@
+@model QuanLyDaoTaoWeb.Models.TaiLieu
+
+@{
+    ViewData["Title"] = "Xóa Tài liệu";
+}
+
+<h1>Xóa Tài liệu</h1>
+
+<h3>Bạn có chắc chắn muốn xóa tài liệu này không?</h3>
+<div>
+    <h4>Thông tin Tài liệu</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaTL)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaTL)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaBG)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaBG)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TenTL)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TenTL)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DuongDan)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DuongDan)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteTaiLieu" method="post">
+        <input type="hidden" asp-for="MaTL" />
+        <input type="submit" value="Xóa" class="btn btn-danger" />
+        <a asp-action="TaiLieuIndex" class="btn btn-secondary">Quay lại</a>
+    </form>
+</div>

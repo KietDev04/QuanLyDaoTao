@@ -1,0 +1,38 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.MonHoc>
+
+@{
+    ViewData["Title"] = "Danh sách Môn học";
+}
+
+<h1>Danh sách Môn học</h1>
+
+<p>
+    <a asp-action="CreateMonHoc" class="btn btn-primary">Thêm mới Môn học</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.MaMH)</th>
+            <th>@Html.DisplayNameFor(model => model.TenMH)</th>
+            <th>@Html.DisplayNameFor(model => model.SoTinChi)</th>
+            <th>@Html.DisplayNameFor(model => model.MaKhoa)</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MaMH)</td>
+                <td>@Html.DisplayFor(modelItem => item.TenMH)</td>
+                <td>@Html.DisplayFor(modelItem => item.SoTinChi)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaKhoa)</td>
+                <td>
+                    <a asp-action="EditMonHoc" asp-route-id="@item.MaMH" class="btn btn-warning">Sửa</a> |
+                    <a asp-action="DeleteMonHoc" asp-route-id="@item.MaMH" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+@model QuanLyDaoTaoWeb.Models.DangKyLopHoc
+
+@{
+    ViewData["Title"] = "Xóa Đăng ký Lớp học";
+}
+
+<h1>Xóa Đăng ký Lớp học</h1>
+
+<h3>Bạn có chắc chắn muốn xóa đăng ký này không?</h3>
+<div>
+    <h4>Thông tin Đăng ký Lớp học</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaSV)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaSV)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaLopHoc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaLopHoc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NgayDangKy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NgayDangKy)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteDangKyLopHoc" method="post">
+        <input type="hidden" asp-for="MaSV" />
+        <input type="hidden" asp-for="MaLopHoc" />
+        <input type="submit" value="Xóa" class="btn btn-danger" />
+        <a asp-action="DangKyLopHocIndex" class="btn btn-secondary">Quay lại</a>
+    </form>
+</div>

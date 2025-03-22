@@ -1,0 +1,42 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.DanhGia>
+
+@{
+    ViewData["Title"] = "Danh sách Đánh giá";
+}
+
+<h1>Danh sách Đánh giá</h1>
+
+<p>
+    <a asp-action="CreateDanhGia" class="btn btn-primary">Thêm mới Đánh giá</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.MaDG)</th>
+            <th>@Html.DisplayNameFor(model => model.MaSV)</th>
+            <th>@Html.DisplayNameFor(model => model.MaMH)</th>
+            <th>@Html.DisplayNameFor(model => model.DiemDanhGia)</th>
+            <th>@Html.DisplayNameFor(model => model.NhanXet)</th>
+            <th>@Html.DisplayNameFor(model => model.NgayDanhGia)</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MaDG)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaSV)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaMH)</td>
+                <td>@Html.DisplayFor(modelItem => item.DiemDanhGia)</td>
+                <td>@Html.DisplayFor(modelItem => item.NhanXet)</td>
+                <td>@Html.DisplayFor(modelItem => item.NgayDanhGia)</td>
+                <td>
+                    <a asp-action="EditDanhGia" asp-route-id="@item.MaDG" class="btn btn-warning">Sửa</a> |
+                    <a asp-action="DeleteDanhGia" asp-route-id="@item.MaDG" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.BaiGiang>
+
+@{
+    ViewData["Title"] = "Bai Giang";
+}
+
+<h2>Bài Giảng</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>MaBG</th>
+            <th>MaMH</th>
+            <th>TieuDe</th>
+            <th>NoiDung</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaBG</td>
+                <td>@item.MaMH</td>
+                <td>@item.TieuDe</td>
+                <td>@item.NoiDung</td>
+            </tr>
+        }
+    </tbody>
+</table>

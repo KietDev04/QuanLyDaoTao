@@ -1,0 +1,38 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.TaiLieu>
+
+@{
+    ViewData["Title"] = "Danh sách Tài liệu";
+}
+
+<h1>Danh sách Tài liệu</h1>
+
+<p>
+    <a asp-action="CreateTaiLieu" class="btn btn-primary">Thêm mới Tài liệu</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.MaTL)</th>
+            <th>@Html.DisplayNameFor(model => model.MaBG)</th>
+            <th>@Html.DisplayNameFor(model => model.TenTL)</th>
+            <th>@Html.DisplayNameFor(model => model.DuongDan)</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MaTL)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaBG)</td>
+                <td>@Html.DisplayFor(modelItem => item.TenTL)</td>
+                <td>@Html.DisplayFor(modelItem => item.DuongDan)</td>
+                <td>
+                    <a asp-action="EditTaiLieu" asp-route-id="@item.MaTL" class="btn btn-warning">Sửa</a> |
+                    <a asp-action="DeleteTaiLieu" asp-route-id="@item.MaTL" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

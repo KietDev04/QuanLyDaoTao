@@ -1,0 +1,26 @@
+@model QuanLyDaoTaoWeb.Models.DangKyLopHoc
+
+@{
+    ViewData["Title"] = "Edit Dang Ky Lop Hoc";
+}
+
+<h2>Edit Dang Ky Lop Hoc</h2>
+
+<form asp-action="EditDangKyLopHoc">
+    <div class="form-group">
+        <label asp-for="MaSV" class="control-label"></label>
+        <input asp-for="MaSV" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="MaLopHoc" class="control-label"></label>
+        <input asp-for="MaLopHoc" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="NgayDangKy" class="control-label"></label>
+        <input asp-for="NgayDangKy" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Lưu" class="btn btn-primary" />
+        <a asp-action="DangKyLopHocIndex" class="btn btn-secondary">Quay lại</a>
+    </div>
+</form>

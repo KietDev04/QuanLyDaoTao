@@ -1,0 +1,36 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.LopHoc>
+
+@{
+    ViewData["Title"] = "Danh sách Lớp học";
+}
+
+<h1>Danh sách Lớp học</h1>
+
+<p>
+    <a asp-action="CreateLopHoc" class="btn btn-primary">Thêm mới Lớp học</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.MaLop)</th>
+            <th>@Html.DisplayNameFor(model => model.TenLop)</th>
+            <th>@Html.DisplayNameFor(model => model.MaCTDT)</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MaLop)</td>
+                <td>@Html.DisplayFor(modelItem => item.TenLop)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaCTDT)</td>
+                <td>
+                    <a asp-action="EditLopHoc" asp-route-id="@item.MaLop" class="btn btn-warning">Sửa</a> |
+                    <a asp-action="DeleteLopHoc" asp-route-id="@item.MaLop" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

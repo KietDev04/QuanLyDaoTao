@@ -1,0 +1,33 @@
+@model QuanLyDaoTaoWeb.Models.DangKyLopHoc
+
+@{
+    ViewData["Title"] = "Thêm mới Đăng ký Lớp học";
+}
+
+<h1>Thêm mới Đăng ký Lớp học</h1>
+
+<form asp-action="CreateDangKyLopHoc" method="post">
+    <div class="form-group">
+        <label asp-for="MaSV" class="control-label"></label>
+        <input asp-for="MaSV" class="form-control" />
+        <span asp-validation-for="MaSV" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaLopHoc" class="control-label"></label>
+        <input asp-for="MaLopHoc" class="form-control" />
+        <span asp-validation-for="MaLopHoc" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NgayDangKy" class="control-label"></label>
+        <input asp-for="NgayDangKy" class="form-control" type="date" />
+        <span asp-validation-for="NgayDangKy" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Thêm" class="btn btn-primary" />
+        <a asp-action="DangKyLopHocIndex" class="btn btn-secondary">Quay lại</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

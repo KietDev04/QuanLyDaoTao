@@ -1,0 +1,36 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.DangKyLopHoc>
+
+@{
+    ViewData["Title"] = "Danh sách Đăng ký Lớp học";
+}
+
+<h1>Danh sách Đăng ký Lớp học</h1>
+
+<p>
+    <a asp-action="CreateDangKyLopHoc" class="btn btn-primary">Thêm mới Đăng ký</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.MaSV)</th>
+            <th>@Html.DisplayNameFor(model => model.MaLopHoc)</th>
+            <th>@Html.DisplayNameFor(model => model.NgayDangKy)</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MaSV)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaLopHoc)</td>
+                <td>@Html.DisplayFor(modelItem => item.NgayDangKy)</td>
+                <td>
+                    <a asp-action="EditDangKyLopHoc" asp-route-MaSV="@item.MaSV" asp-route-MaLopHoc="@item.MaLopHoc" class="btn btn-warning">Sửa</a> |
+                    <a asp-action="DeleteDangKyLopHoc" asp-route-MaSV="@item.MaSV" asp-route-MaLopHoc="@item.MaLopHoc" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

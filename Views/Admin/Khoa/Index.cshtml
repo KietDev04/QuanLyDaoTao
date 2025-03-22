@@ -1,0 +1,39 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.Khoa>
+
+@{
+    ViewData["Title"] = "Danh sách Khoa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Danh sách Khoa</h1>
+
+<p>
+    <a asp-action="CreateKhoa" class="btn btn-primary">Thêm mới Khoa</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.MaKhoa)</th>
+            <th>@Html.DisplayNameFor(model => model.TenKhoa)</th>
+            <th>@Html.DisplayNameFor(model => model.DiaChi)</th>
+            <th>@Html.DisplayNameFor(model => model.DienThoai)</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MaKhoa)</td>
+                <td>@Html.DisplayFor(modelItem => item.TenKhoa)</td>
+                <td>@Html.DisplayFor(modelItem => item.DiaChi)</td>
+                <td>@Html.DisplayFor(modelItem => item.DienThoai)</td>
+                <td>
+                    <a asp-action="EditKhoa" asp-route-id="@item.MaKhoa" class="btn btn-warning">Sửa</a> |
+                    <a asp-action="DeleteKhoa" asp-route-id="@item.MaKhoa" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

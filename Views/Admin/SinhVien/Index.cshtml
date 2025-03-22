@@ -1,0 +1,41 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.SinhVien>
+
+@{
+    ViewData["Title"] = "Danh sách Sinh viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Danh sách Sinh viên</h1>
+
+<p>
+    <a asp-action="CreateSinhVien" class="btn btn-primary">Thêm mới Sinh viên</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.MaSV)</th>
+            <th>@Html.DisplayNameFor(model => model.HoTen)</th>
+            <th>@Html.DisplayNameFor(model => model.NgaySinh)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.MaKhoa)</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MaSV)</td>
+                <td>@Html.DisplayFor(modelItem => item.HoTen)</td>
+                <td>@Html.DisplayFor(modelItem => item.NgaySinh)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaKhoa)</td>
+                <td>
+                    <a asp-action="EditSinhVien" asp-route-id="@item.MaSV" class="btn btn-warning">Sửa</a> |
+                    <a asp-action="DeleteSinhVien" asp-route-id="@item.MaSV" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+@model QuanLyDaoTaoWeb.Models.ChuongTrinhDaoTao
+
+@{
+    ViewData["Title"] = "Chỉnh sửa Chương trình Đào tạo";
+}
+
+<h1>Chỉnh sửa Chương trình Đào tạo</h1>
+
+<form asp-action="EditChuongTrinhDaoTao" method="post">
+    <div class="form-group">
+        <label asp-for="MaCTDT" class="control-label"></label>
+        <input asp-for="MaCTDT" class="form-control" readonly="readonly" />
+        <span asp-validation-for="MaCTDT" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TenCTDT" class="control-label"></label>
+        <input asp-for="TenCTDT" class="form-control" />
+        <span asp-validation-for="TenCTDT" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NamBatDau" class="control-label"></label>
+        <input asp-for="NamBatDau" class="form-control" type="number" />
+        <span asp-validation-for="NamBatDau" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaKhoa" class="control-label"></label>
+        <input asp-for="MaKhoa" class="form-control" />
+        <span asp-validation-for="MaKhoa" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Lưu" class="btn btn-primary" />
+        <a asp-action="ChuongTrinhDaoTaoIndex" class="btn btn-secondary">Quay lại</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,50 @@
+@model QuanLyDaoTaoWeb.Models.DeCuong
+
+@{
+    ViewData["Title"] = "Xóa Đề cương";
+}
+
+<h1>Xóa Đề cương</h1>
+
+<h3>Bạn có chắc chắn muốn xóa đề cương này không?</h3>
+<div>
+    <h4>Thông tin Đề cương</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaDC)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaDC)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaMH)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaMH)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MucTieu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MucTieu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NgayCapNhat)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NgayCapNhat)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteDeCuong" method="post">
+        <input type="hidden" asp-for="MaDC" />
+        <input type="submit" value="Xóa" class="btn btn-danger" />
+        <a asp-action="DeCuongIndex" class="btn btn-secondary">Quay lại</a>
+    </form>
+</div>

@@ -1,0 +1,146 @@
+@model dynamic
+
+@{
+    ViewData["Title"] = "Trang Quản Lý";
+}
+
+<div class="container">
+    <h2>Trang Quản Lý Đào Tạo</h2>
+    <p>Chào mừng Admin! Chọn mục quản lý bên dưới:</p>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Khoa</h5>
+                    <p class="card-text">Xem và quản lý danh sách các khoa.</p>
+                    <a asp-action="KhoaIndex" asp-controller="Admin" class="btn btn-primary">Xem Khoa</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Sinh Viên</h5>
+                    <p class="card-text">Xem và quản lý danh sách sinh viên.</p>
+                    <a asp-action="SinhVienIndex" asp-controller="Admin" class="btn btn-primary">Xem Sinh Viên</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Môn Học</h5>
+                    <p class="card-text">Xem và quản lý danh sách môn học.</p>
+                    <a asp-action="MonHocIndex" asp-controller="Admin" class="btn btn-primary">Xem Môn Học</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Lớp Học</h5>
+                    <p class="card-text">Xem và quản lý danh sách lớp học.</p>
+                    <a asp-action="LopHocIndex" asp-controller="Admin" class="btn btn-primary">Xem Lớp Học</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Chương Trình Đào Tạo</h5>
+                    <p class="card-text">Xem và quản lý chương trình đào tạo.</p>
+                    <a asp-action="ChuongTrinhDaoTaoIndex" asp-controller="Admin" class="btn btn-primary">Xem Chương Trình Đào Tạo</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Đánh Giá</h5>
+                    <p class="card-text">Xem và quản lý đánh giá.</p>
+                    <a asp-action="DanhGiaIndex" asp-controller="Admin" class="btn btn-primary">Xem Đánh Giá</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Đề Cương</h5>
+                    <p class="card-text">Xem và quản lý đề cương.</p>
+                    <a asp-action="DeCuongIndex" asp-controller="Admin" class="btn btn-primary">Xem Đề Cương</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Phân Công Giảng Dạy</h5>
+                    <p class="card-text">Xem và quản lý phân công giảng dạy.</p>
+                    <a asp-action="PhanCongGiangDayIndex" asp-controller="Admin" class="btn btn-primary">Xem Phân Công Giảng Dạy</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Tài Liệu</h5>
+                    <p class="card-text">Xem và quản lý tài liệu.</p>
+                    <a asp-action="TaiLieuIndex" asp-controller="Admin" class="btn btn-primary">Xem Tài Liệu</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Đăng Ký Lớp Học</h5>
+                    <p class="card-text">Xem và quản lý đăng ký lớp học.</p>
+                    <a asp-action="DangKyLopHocIndex" asp-controller="Admin" class="btn btn-primary">Xem Đăng Ký Lớp Học</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Giảng Viên</h5>
+                    <p class="card-text">Xem và quản lý giảng viên.</p>
+                    <a asp-action="GiangVienIndex" asp-controller="Admin" class="btn btn-primary">Xem Giảng Viên</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Bài Giảng</h5>
+                    <p class="card-text">Xem và quản lý bài giảng.</p>
+                    <a asp-action="BaiGiangIndex" asp-controller="Admin" class="btn btn-primary">Xem Bài Giảng</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a asp-action="ApproveGiangVien" asp-controller="Admin">Phê duyệt tài khoản Giảng viên</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+}

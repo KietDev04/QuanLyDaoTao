@@ -1,0 +1,55 @@
+@model dynamic
+
+@{
+    ViewData["Title"] = "Trang Quản Lý Giảng Viên";
+}
+
+<div class="container">
+    <h2>Trang Quản Lý Giảng Viên</h2>
+    <p>Chào mừng Giảng Viên! Chọn mục quản lý bên dưới:</p>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Bài Giảng</h5>
+                    <p class="card-text">Xem và quản lý danh sách bài giảng.</p>
+                    <a asp-action="BaiGiangIndex" asp-controller="GiangVien" class="btn btn-primary">Xem Bài Giảng</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Đánh Giá</h5>
+                    <p class="card-text">Xem và quản lý danh sách đánh giá.</p>
+                    <a asp-action="DanhGiaIndex" asp-controller="GiangVien" class="btn btn-primary">Xem Đánh Giá</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Quản Lý Chương Trình Đào Tạo</h5>
+                    <p class="card-text">Xem và quản lý chương trình đào tạo.</p>
+                    <a asp-action="ChuongTrinhDaoTaoIndex" asp-controller="GiangVien" class="btn btn-primary">Xem Chương Trình Đào Tạo</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more sections as needed -->
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+}

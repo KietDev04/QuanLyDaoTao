@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Giang Vien";
+}
+
+<h2>Giảng Viên</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>MaGV</th>
+            <th>HoTen</th>
+            <th>Email</th>
+            <th>MaKhoa</th>
+            <th>NgayNhanViec</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaGV</td>
+                <td>@item.HoTen</td>
+                <td>@item.Email</td>
+                <td>@item.MaKhoa</td>
+                <td>@item.NgayNhanViec</td>>
+            </tr>
+        }
+    </tbody>
+</table>

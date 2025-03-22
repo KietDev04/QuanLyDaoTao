@@ -1,0 +1,40 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.DeCuong>
+
+@{
+    ViewData["Title"] = "Danh sách Đề cương";
+}
+
+<h1>Danh sách Đề cương</h1>
+
+<p>
+    <a asp-action="CreateDeCuong" class="btn btn-primary">Thêm mới Đề cương</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.MaDC)</th>
+            <th>@Html.DisplayNameFor(model => model.MaMH)</th>
+            <th>@Html.DisplayNameFor(model => model.MoTa)</th>
+            <th>@Html.DisplayNameFor(model => model.MucTieu)</th>
+            <th>@Html.DisplayNameFor(model => model.NgayCapNhat)</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MaDC)</td>
+                <td>@Html.DisplayFor(modelItem => item.MaMH)</td>
+                <td>@Html.DisplayFor(modelItem => item.MoTa)</td>
+                <td>@Html.DisplayFor(modelItem => item.MucTieu)</td>
+                <td>@Html.DisplayFor(modelItem => item.NgayCapNhat)</td>
+                <td>
+                    <a asp-action="EditDeCuong" asp-route-id="@item.MaDC" class="btn btn-warning">Sửa</a> |
+                    <a asp-action="DeleteDeCuong" asp-route-id="@item.MaDC" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

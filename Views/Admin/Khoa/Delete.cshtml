@@ -1,0 +1,44 @@
+@model QuanLyDaoTaoWeb.Models.Khoa
+
+@{
+    ViewData["Title"] = "Xóa Khoa";
+}
+
+<h1>Xóa Khoa</h1>
+
+<h3>Bạn có chắc chắn muốn xóa khoa này không?</h3>
+<div>
+    <h4>Thông tin Khoa</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaKhoa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaKhoa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TenKhoa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TenKhoa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DienThoai)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DienThoai)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteKhoa" method="post">
+        <input type="hidden" asp-for="MaKhoa" />
+        <input type="submit" value="Xóa" class="btn btn-danger" />
+        <a asp-action="KhoaIndex" class="btn btn-secondary">Quay lại</a>
+    </form>
+</div>

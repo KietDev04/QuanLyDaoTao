@@ -1,0 +1,38 @@
+@model QuanLyDaoTaoWeb.Models.LopHoc
+
+@{
+    ViewData["Title"] = "Xóa Lớp học";
+}
+
+<h1>Xóa Lớp học</h1>
+
+<h3>Bạn có chắc chắn muốn xóa lớp học này không?</h3>
+<div>
+    <h4>Thông tin Lớp học</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaLop)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaLop)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TenLop)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TenLop)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaCTDT)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaCTDT)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteLopHoc" method="post">
+        <input type="hidden" asp-for="MaLop" />
+        <input type="submit" value="Xóa" class="btn btn-danger" />
+        <a asp-action="LopHocIndex" class="btn btn-secondary">Quay lại</a>
+    </form>
+</div>

@@ -1,0 +1,52 @@
+@model QuanLyDaoTaoWeb.Models.BaiGiang
+
+@{
+    ViewData["Title"] = "Xóa Bài giảng";
+}
+
+<h2>Xóa Bài giảng</h2>
+
+<h3>Bạn có chắc chắn muốn xóa bài giảng này không?</h3>
+
+<div>
+    <h4>Thông tin Bài giảng</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaBG)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaBG)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaMH)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaMH)
+        </dd>
+        <dt class="col-sm-2">
+             @Html.DisplayNameFor(model => model.TieuDe)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TieuDe)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteBaiGiang" method="post">
+        <input type="hidden" asp-for="MaBG" />
+        <input type="submit" value="Xóa" class="btn btn-danger" />
+        <a asp-action="BaiGiangIndex" class="btn btn-secondary">Quay Lại</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,43 @@
+@model QuanLyDaoTaoWeb.Models.GiangVien
+
+@{
+    ViewData["Title"] = "Thêm mới Giảng viên";
+}
+
+<h1>Thêm mới Giảng viên</h1>
+
+<form asp-action="CreateGiangVien" method="post">
+    <div class="form-group">
+        <label asp-for="MaGV" class="control-label"></label>
+        <input asp-for="MaGV" class="form-control" />
+        <span asp-validation-for="MaGV" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HoTen" class="control-label"></label>
+        <input asp-for="HoTen" class="form-control" />
+        <span asp-validation-for="HoTen" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaKhoa" class="control-label"></label>
+        <input asp-for="MaKhoa" class="form-control" />
+        <span asp-validation-for="MaKhoa" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NgayNhanViec" class="control-label"></label>
+        <input asp-for="NgayNhanViec" class="form-control" type="date" />
+        <span asp-validation-for="NgayNhanViec" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Thêm" class="btn btn-primary" />
+        <a asp-action="GiangVienIndex" class="btn btn-secondary">Quay lại</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

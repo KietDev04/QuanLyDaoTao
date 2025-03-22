@@ -1,0 +1,48 @@
+@model QuanLyDaoTaoWeb.Models.DanhGia
+
+@{
+    ViewData["Title"] = "Thêm mới Đánh giá";
+}
+
+<h1>Thêm mới Đánh giá</h1>
+
+<form asp-action="CreateDanhGia" method="post">
+    <div class="form-group">
+        <label asp-for="MaDG" class="control-label"></label>
+        <input asp-for="MaDG" class="form-control" />
+        <span asp-validation-for="MaDG" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaSV" class="control-label"></label>
+        <input asp-for="MaSV" class="form-control" />
+        <span asp-validation-for="MaSV" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaMH" class="control-label"></label>
+        <input asp-for="MaMH" class="form-control" />
+        <span asp-validation-for="MaMH" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DiemDanhGia" class="control-label"></label>
+        <input asp-for="DiemDanhGia" class="form-control" type="number" min="1" max="10" />
+        <span asp-validation-for="DiemDanhGia" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NhanXet" class="control-label"></label>
+        <textarea asp-for="NhanXet" class="form-control"></textarea>
+        <span asp-validation-for="NhanXet" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NgayDanhGia" class="control-label"></label>
+        <input asp-for="NgayDanhGia" class="form-control" type="date" />
+        <span asp-validation-for="NgayDanhGia" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Thêm" class="btn btn-primary" />
+        <a asp-action="DanhGiaIndex" class="btn btn-secondary">Quay lại</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

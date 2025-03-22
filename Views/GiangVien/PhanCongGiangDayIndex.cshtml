@@ -1,0 +1,37 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.PhanCongGiangDay>
+
+@{
+    ViewData["Title"] = "Danh sách Phân công Giảng dạy";
+}
+
+<h1>Danh sách Phân công Giảng dạy</h1>
+
+<p>
+    <a asp-action="CreatePhanCongGiangDay" class="btn btn-primary">Thêm mới Phân công</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>MaPCGD</th>
+            <th>MaGV</th>
+            <th>MaMH</th>
+            <th>MaLop</th>
+            <th>HocKy</th>
+            <th>NamHoc</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaPCGD</td>
+                <td>@item.MaGV</td>
+                <td>@item.MaMH</td>
+                <td>@item.MaLop</td>
+                <td>@item.HocKy</td>
+                <td>@item.NamHoc</td>
+            </tr>
+        }
+    </tbody>
+</table>

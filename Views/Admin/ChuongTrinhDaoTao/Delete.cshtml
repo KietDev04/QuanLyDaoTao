@@ -1,0 +1,44 @@
+@model QuanLyDaoTaoWeb.Models.ChuongTrinhDaoTao
+
+@{
+    ViewData["Title"] = "Xóa Chương trình Đào tạo";
+}
+
+<h1>Xóa Chương trình Đào tạo</h1>
+
+<h3>Bạn có chắc chắn muốn xóa chương trình này không?</h3>
+<div>
+    <h4>Thông tin Chương trình Đào tạo</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaCTDT)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaCTDT)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TenCTDT)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TenCTDT)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NamBatDau)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NamBatDau)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaKhoa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaKhoa)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteChuongTrinhDaoTao" method="post">
+        <input type="hidden" asp-for="MaCTDT" />
+        <input type="submit" value="Xóa" class="btn btn-danger" />
+        <a asp-action="ChuongTrinhDaoTaoIndex" class="btn btn-secondary">Quay lại</a>
+    </form>
+</div>

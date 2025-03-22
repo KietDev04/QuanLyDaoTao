@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Dang Ky Lop Hoc";
+}
+
+<h2>Đăng Ký Lớp Học</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>MaSV</th>
+            <th>MaLopHoc</th>
+            <th>NgayDangKy</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaSV</td>
+                <td>@item.MaLopHoc</td>
+                <td>@item.NgayDangKy</td>
+                <td>
+                    <a asp-action="EditDangKyLopHoc" asp-route-MaSV="@item.MaSV" asp-route-MaLopHoc="@item.MaLopHoc" class="btn btn-warning">Sửa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

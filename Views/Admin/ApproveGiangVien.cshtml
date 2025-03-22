@@ -1,0 +1,30 @@
+@model List<QuanLyDaoTaoWeb.Models.ApplicationUser>
+
+@{
+    ViewData["Title"] = "Phê duyệt Giảng viên";
+}
+
+<h2>Phê duyệt Giảng viên</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>
+                    <form asp-action="ApproveGiangVien" method="post">
+                        <input type="hidden" name="id" value="@user.Id" />
+                        <button type="submit" class="btn btn-success">Phê duyệt</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

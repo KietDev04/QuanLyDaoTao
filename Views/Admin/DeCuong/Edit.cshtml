@@ -1,0 +1,43 @@
+@model QuanLyDaoTaoWeb.Models.DeCuong
+
+@{
+    ViewData["Title"] = "Chỉnh sửa Đề cương";
+}
+
+<h1>Chỉnh sửa Đề cương</h1>
+
+<form asp-action="EditDeCuong" method="post">
+    <div class="form-group">
+        <label asp-for="MaDC" class="control-label"></label>
+        <input asp-for="MaDC" class="form-control" readonly="readonly" />
+        <span asp-validation-for="MaDC" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaMH" class="control-label"></label>
+        <input asp-for="MaMH" class="form-control" />
+        <span asp-validation-for="MaMH" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MoTa" class="control-label"></label>
+        <textarea asp-for="MoTa" class="form-control"></textarea>
+        <span asp-validation-for="MoTa" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MucTieu" class="control-label"></label>
+        <textarea asp-for="MucTieu" class="form-control"></textarea>
+        <span asp-validation-for="MucTieu" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NgayCapNhat" class="control-label"></label>
+        <input asp-for="NgayCapNhat" class="form-control" type="date" />
+        <span asp-validation-for="NgayCapNhat" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Lưu" class="btn btn-primary" />
+        <a asp-action="DeCuongIndex" class="btn btn-secondary">Quay lại</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
