@@ -1,0 +1,68 @@
+@model QuanLyDaoTaoWeb.Models.TaiLieu
+
+@{
+    ViewData["Title"] = "Chỉnh Sửa Tài Liệu";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-warning text-dark">
+            <h5 class="mb-0">Chỉnh Sửa Tài Liệu</h5>
+        </div>
+        <div class="card-body">
+            <form asp-action="EditTaiLieu" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="MaTL" />
+                <input type="hidden" asp-for="DuongDan" />
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="TenTL" class="form-label"></label>
+                        <input asp-for="TenTL" class="form-control" maxlength="50" />
+                        <span asp-validation-for="TenTL" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="BaiGiang" class="form-label">Bài Giảng</label>
+                        <select asp-for="MaBG" asp-items="ViewBag.BaiGiangList" class="form-select">
+                            <option value="">-- Chọn Bài Giảng --</option>
+                        </select>
+                        <span asp-validation-for="MaBG" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Tệp tài liệu hiện tại</label>
+                        <div class="input-group">
+                            <a href="@Model.DuongDan" target="_blank" class="form-control">
+                                <i class="fas fa-file"></i> @Model.DuongDan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Tải lên tệp mới (nếu muốn thay đổi)</label>
+                        <input type="file" name="fileUpload" class="form-control" />
+                        <small class="text-muted">Định dạng hỗ trợ: .pdf, .doc, .docx, .ppt, .pptx</small>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-warning">
+                        <i class="fas fa-save"></i> Cập nhật
+                    </button>
+                    <a asp-action="TaiLieuIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

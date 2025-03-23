@@ -1,0 +1,45 @@
+@model QuanLyDaoTaoWeb.Models.LopHoc
+
+@{
+    ViewData["Title"] = "Xóa Lớp Học";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">Xác Nhận Xóa Lớp Học</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                Bạn có chắc chắn muốn xóa lớp học này? Việc xóa sẽ ảnh hưởng đến các sinh viên đã đăng ký.
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MaLop)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MaLop)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.TenLop)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.TenLop)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.ChuongTrinhDaoTao.TenCTDT)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.ChuongTrinhDaoTao.TenCTDT)</dd>
+
+                <dt class="col-sm-3">Số sinh viên đăng ký</dt>
+                <dd class="col-sm-9">@Model.DangKyLopHocs?.Count()</dd>
+            </dl>
+
+            <form asp-action="DeleteLopHoc" method="post">
+                <input type="hidden" asp-for="MaLop" />
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Xác nhận xóa
+                    </button>
+                    <a asp-action="LopHocIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

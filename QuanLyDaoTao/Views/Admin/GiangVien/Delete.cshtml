@@ -1,0 +1,48 @@
+@model QuanLyDaoTaoWeb.Models.GiangVien
+
+@{
+    ViewData["Title"] = "Xóa Giảng Viên";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">Xác Nhận Xóa Giảng Viên</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                Bạn có chắc chắn muốn xóa giảng viên này?
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MaGV)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MaGV)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.HoTen)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.HoTen)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Email)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.Email)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Khoa.TenKhoa)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.Khoa.TenKhoa)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.NgayNhanViec)</dt>
+                <dd class="col-sm-9">@Model.NgayNhanViec.ToString("dd/MM/yyyy")</dd>
+            </dl>
+
+            <form asp-action="DeleteGiangVien" method="post">
+                <input type="hidden" asp-for="MaGV" />
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Xác nhận xóa
+                    </button>
+                    <a asp-action="GiangVienIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+@model QuanLyDaoTaoWeb.Models.DanhGia
+
+@{
+    ViewData["Title"] = "Xóa Đánh Giá";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">Xác Nhận Xóa Đánh Giá</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                Bạn có chắc chắn muốn xóa đánh giá này?
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MaDG)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MaDG)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.SinhVien.HoTen)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.SinhVien.HoTen)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MonHoc.TenMH)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MonHoc.TenMH)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.DiemDanhGia)</dt>
+                <dd class="col-sm-9">
+                    <span class="badge bg-@(Model.DiemDanhGia >= 5 ? "success" : "danger")">
+                        @Model.DiemDanhGia
+                    </span>
+                </dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.NhanXet)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.NhanXet)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.NgayDanhGia)</dt>
+                <dd class="col-sm-9">@Model.NgayDanhGia.ToString("dd/MM/yyyy HH:mm")</dd>
+            </dl>
+
+            <form asp-action="DeleteDanhGia" method="post">
+                <input type="hidden" asp-for="MaDG" />
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Xác nhận xóa
+                    </button>
+                    <a asp-action="DanhGiaIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+@model QuanLyDaoTaoWeb.Models.DangKyLopHoc
+
+@{
+    ViewData["Title"] = "Chỉnh Sửa Đăng Ký Lớp Học";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-warning text-dark">
+            <h5 class="mb-0">Chỉnh Sửa Đăng Ký Lớp Học</h5>
+        </div>
+        <div class="card-body">
+            <form asp-action="EditDangKyLopHoc" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="MaSV" />
+                <input type="hidden" asp-for="MaLopHoc" />
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Sinh Viên</label>
+                        <input type="text" class="form-control" value="@Model.SinhVien?.HoTen" readonly />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Lớp Học</label>
+                        <input type="text" class="form-control" value="@Model.LopHoc?.TenLop" readonly />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label asp-for="NgayDangKy" class="form-label"></label>
+                        <input asp-for="NgayDangKy" class="form-control" type="datetime-local" />
+                        <span asp-validation-for="NgayDangKy" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-warning">
+                        <i class="fas fa-save"></i> Cập nhật
+                    </button>
+                    <a asp-action="DangKyLopHocIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

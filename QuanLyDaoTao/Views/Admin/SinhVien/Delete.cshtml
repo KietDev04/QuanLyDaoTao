@@ -1,0 +1,51 @@
+@model QuanLyDaoTaoWeb.Models.SinhVien
+
+@{
+    ViewData["Title"] = "Xóa Sinh Viên";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">Xác Nhận Xóa Sinh Viên</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                Bạn có chắc chắn muốn xóa sinh viên này? Việc xóa sẽ ảnh hưởng đến các đăng ký lớp học và đánh giá.
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MaSV)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MaSV)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.HoTen)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.HoTen)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.NgaySinh)</dt>
+                <dd class="col-sm-9">@Model.NgaySinh.ToString("dd/MM/yyyy")</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Email)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.Email)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Khoa.TenKhoa)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.Khoa.TenKhoa)</dd>
+
+                <dt class="col-sm-3">Số lớp học đã đăng ký</dt>
+                <dd class="col-sm-9">@Model.DangKyLopHocs?.Count()</dd>
+            </dl>
+
+            <form asp-action="DeleteSinhVien" method="post">
+                <input type="hidden" asp-for="MaSV" />
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Xác nhận xóa
+                    </button>
+                    <a asp-action="SinhVienIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

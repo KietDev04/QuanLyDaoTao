@@ -1,0 +1,58 @@
+@model QuanLyDaoTaoWeb.Models.DeCuong
+
+@{
+    ViewData["Title"] = "Chỉnh Sửa Đề Cương";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-warning text-dark">
+            <h5 class="mb-0">Chỉnh Sửa Đề Cương</h5>
+        </div>
+        <div class="card-body">
+            <form asp-action="EditDeCuong" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="MaDC" />
+
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="MaMH" class="form-label">Môn Học</label>
+                        <select asp-for="MaMH" asp-items="ViewBag.MonHocList" class="form-select">
+                            <option value="">-- Chọn Môn Học --</option>
+                        </select>
+                        <span asp-validation-for="MaMH" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="MoTa" class="form-label"></label>
+                        <textarea asp-for="MoTa" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="MoTa" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="MucTieu" class="form-label"></label>
+                        <textarea asp-for="MucTieu" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="MucTieu" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-warning">
+                        <i class="fas fa-save"></i> Cập nhật
+                    </button>
+                    <a asp-action="DeCuongIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,48 @@
+@model QuanLyDaoTaoWeb.Models.MonHoc
+
+@{
+    ViewData["Title"] = "Xóa Môn Học";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">Xác Nhận Xóa Môn Học</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                Bạn có chắc chắn muốn xóa môn học này? Việc xóa sẽ ảnh hưởng đến các phân công giảng dạy và đánh giá.
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MaMH)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MaMH)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.TenMH)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.TenMH)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.SoTinChi)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.SoTinChi)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Khoa.TenKhoa)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.Khoa.TenKhoa)</dd>
+
+                <dt class="col-sm-3">Số lớp phân công</dt>
+                <dd class="col-sm-9">@Model.PhanCongGiangDays?.Count()</dd>
+            </dl>
+
+            <form asp-action="DeleteMonHoc" method="post">
+                <input type="hidden" asp-for="MaMH" />
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Xác nhận xóa
+                    </button>
+                    <a asp-action="MonHocIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

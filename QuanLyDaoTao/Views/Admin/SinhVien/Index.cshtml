@@ -1,0 +1,73 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.SinhVien>
+
+@{
+    ViewData["Title"] = "Quản Lý Sinh Viên";
+}
+
+<div class="container-fluid py-4">
+    <a asp-action="IndexAdmin" class="btn btn-info">
+                <i class="fas fa-plus"></i> Quay lại
+            </a>
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Danh Sách Sinh Viên</h5>
+            <a asp-action="CreateSinhVien" class="btn btn-light">
+                <i class="fas fa-plus"></i> Thêm mới
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover datatable">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(m => m.MaSV)</th>
+                            <th>@Html.DisplayNameFor(m => m.HoTen)</th>
+                            <th>@Html.DisplayNameFor(m => m.NgaySinh)</th>
+                            <th>@Html.DisplayNameFor(m => m.Email)</th>
+                            <th>@Html.DisplayNameFor(m => m.Khoa.TenKhoa)</th>
+                            <th>Số lớp học</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.MaSV</td>
+                                <td>@item.HoTen</td>
+                                <td>@item.NgaySinh.ToString("dd/MM/yyyy")</td>
+                                <td>@item.Email</td>
+                                <td>@item.Khoa?.TenKhoa</td>
+                                <td>@item.DangKyLopHocs?.Count()</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a asp-action="EditSinhVien" asp-route-id="@item.MaSV" 
+                                           class="btn btn-sm btn-warning" title="Sửa">
+                                            <i class="fas fa-edit"></i> Sửa
+                                        </a>
+                                        <a asp-action="DeleteSinhVien" asp-route-id="@item.MaSV" 
+                                           class="btn btn-sm btn-danger" title="Xóa">
+                                            <i class="fas fa-trash"></i> Xóa
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.datatable').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Vietnamese.json'
+                }
+            });
+        });
+    </script>
+}
