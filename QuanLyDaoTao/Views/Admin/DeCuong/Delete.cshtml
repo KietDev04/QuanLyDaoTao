@@ -1,0 +1,48 @@
+@model QuanLyDaoTaoWeb.Models.DeCuong
+
+@{
+    ViewData["Title"] = "Xóa Đề Cương";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">Xác Nhận Xóa Đề Cương</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                Bạn có chắc chắn muốn xóa đề cương này?
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MaDC)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MaDC)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MonHoc.TenMH)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MonHoc.TenMH)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MoTa)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MoTa)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MucTieu)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MucTieu)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.NgayCapNhat)</dt>
+                <dd class="col-sm-9">@Model.NgayCapNhat.ToString("dd/MM/yyyy")</dd>
+            </dl>
+
+            <form asp-action="DeleteDeCuong" method="post">
+                <input type="hidden" asp-for="MaDC" />
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Xác nhận xóa
+                    </button>
+                    <a asp-action="DeCuongIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

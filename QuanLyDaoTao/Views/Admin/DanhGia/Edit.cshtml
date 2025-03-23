@@ -1,0 +1,70 @@
+@model QuanLyDaoTaoWeb.Models.DanhGia
+
+@{
+    ViewData["Title"] = "Chỉnh Sửa Đánh Giá";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-warning text-dark">
+            <h5 class="mb-0">Chỉnh Sửa Đánh Giá</h5>
+        </div>
+        <div class="card-body">
+            <form asp-action="EditDanhGia" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="MaDG" />
+                <input type="hidden" asp-for="MaSV" />
+                <input type="hidden" asp-for="MaMH" />
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="MaSV" class="form-label"></label>
+                        <select asp-for="MaSV" asp-items="ViewBag.SinhVienList" class="form-select select2" disabled>
+                        </select>
+                        <span asp-validation-for="MaSV" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="MaMH" class="form-label"></label>
+                        <select asp-for="MaMH" asp-items="ViewBag.MonHocList" class="form-select select2" disabled>
+                        </select>
+                        <span asp-validation-for="MaMH" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="DiemDanhGia" class="form-label"></label>
+                        <input asp-for="DiemDanhGia" class="form-control" type="number" min="1" max="10" />
+                        <span asp-validation-for="DiemDanhGia" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="NgayDanhGia" class="form-label"></label>
+                        <input asp-for="NgayDanhGia" class="form-control" type="datetime-local" />
+                        <span asp-validation-for="NgayDanhGia" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="NhanXet" class="form-label"></label>
+                    <textarea asp-for="NhanXet" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="NhanXet" class="text-danger"></span>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-warning">
+                        <i class="fas fa-save"></i> Cập nhật
+                    </button>
+                    <a asp-action="DanhGiaIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

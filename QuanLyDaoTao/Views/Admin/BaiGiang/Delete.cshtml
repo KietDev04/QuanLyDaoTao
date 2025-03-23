@@ -1,0 +1,42 @@
+@model QuanLyDaoTaoWeb.Models.BaiGiang
+
+@{
+    ViewData["Title"] = "Xóa Bài Giảng";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">Xác Nhận Xóa Bài Giảng</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                Bạn có chắc chắn muốn xóa bài giảng này?
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MaBG)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MaBG)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.TieuDe)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.TieuDe)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MonHoc.TenMH)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MonHoc.TenMH)</dd>
+            </dl>
+
+            <form asp-action="DeleteBaiGiang" method="post">
+                <input type="hidden" asp-for="MaBG" />
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Xác nhận xóa
+                    </button>
+                    <a asp-action="BaiGiangIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.ChuongTrinhDaoTao>
+
+@{
+    ViewData["Title"] = "Quản Lý Chương Trình Đào Tạo";
+}
+
+<div class="container-fluid py-4">
+    <a asp-action="IndexSinhVien" class="btn btn-info">
+                <i class="fas fa-plus"></i> Quay lại
+            </a>    
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Danh Sách Chương Trình Đào Tạo</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover datatable">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(m => m.MaCTDT)</th>
+                            <th>@Html.DisplayNameFor(m => m.TenCTDT)</th>
+                            <th>@Html.DisplayNameFor(m => m.NamBatDau)</th>
+                            <th>@Html.DisplayNameFor(m => m.Khoa.TenKhoa)</th>
+                            <th>@Html.DisplayNameFor(m => m.TrangThai)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.MaCTDT</td>
+                                <td>@item.TenCTDT</td>
+                                <td>@item.NamBatDau</td>
+                                <td>@item.Khoa?.TenKhoa</td>
+                                <td>
+                                    <span class="badge @(item.TrangThai ? "bg-success" : "bg-danger")">
+                                        @(item.TrangThai ? "Đang áp dụng" : "Ngừng áp dụng")
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.datatable').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Vietnamese.json'
+                }
+            });
+        });
+    </script>
+}

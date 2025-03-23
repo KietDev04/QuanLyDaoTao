@@ -1,0 +1,49 @@
+@model QuanLyDaoTaoWeb.Models.TaiLieu
+
+@{
+    ViewData["Title"] = "Xóa Tài Liệu";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">Xác Nhận Xóa Tài Liệu</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                Bạn có chắc chắn muốn xóa tài liệu này? Tệp tài liệu sẽ bị xóa khỏi hệ thống.
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MaTL)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MaTL)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.TenTL)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.TenTL)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.BaiGiang.MaBG)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.BaiGiang.MaBG)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.DuongDan)</dt>
+                <dd class="col-sm-9">
+                    <a href="@Model.DuongDan" target="_blank">
+                        <i class="fas fa-file"></i> Xem tài liệu
+                    </a>
+                </dd>
+            </dl>
+
+            <form asp-action="DeleteTaiLieu" method="post">
+                <input type="hidden" asp-for="MaTL" />
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Xác nhận xóa
+                    </button>
+                    <a asp-action="TaiLieundex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

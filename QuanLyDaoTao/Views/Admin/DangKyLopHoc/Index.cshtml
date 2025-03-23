@@ -1,0 +1,70 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.DangKyLopHoc>
+
+@{
+    ViewData["Title"] = "Quản Lý Đăng Ký Lớp Học";
+}
+
+<div class="container-fluid py-4">
+    <a asp-action="IndexAdmin" class="btn btn-info">
+                <i class="fas fa-plus"></i> Quay lại
+            </a>
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Danh Sách Đăng Ký Lớp Học</h5>
+            <a asp-action="CreateDangKyLopHoc" class="btn btn-light">
+                <i class="fas fa-plus"></i> Thêm mới
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover datatable">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(m => m.SinhVien.MaSV)</th>
+                            <th>@Html.DisplayNameFor(m => m.LopHoc.MaLop)</th>
+                            <th>@Html.DisplayNameFor(m => m.NgayDangKy)</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.SinhVien.MaSV</td>
+                                <td>@item.LopHoc.MaLop</td>
+                                <td>@item.NgayDangKy.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a asp-action="EditDangKyLopHoc" asp-route-maSV="@item.MaSV" 
+                                           asp-route-maLop="@item.MaLopHoc"
+                                           class="btn btn-sm btn-warning" title="Sửa">
+                                            <i class="fas fa-edit"></i> Sửa
+                                        </a>
+                                        <a asp-action="DeleteDangKyLopHoc" asp-route-maSV="@item.MaSV" 
+                                           asp-route-maLop="@item.MaLopHoc"
+                                           class="btn btn-sm btn-danger" title="Xóa">
+                                            <i class="fas fa-trash"></i> Xóa
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.datatable').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Vietnamese.json'
+                },
+                order: [[3, 'desc']]
+            });
+        });
+    </script>
+}

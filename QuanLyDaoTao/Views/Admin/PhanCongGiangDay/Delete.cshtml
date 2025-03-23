@@ -1,0 +1,56 @@
+@model QuanLyDaoTaoWeb.Models.PhanCongGiangDay
+
+@{
+    ViewData["Title"] = "Xóa Phân công Giảng dạy";
+}
+
+<h1>Xóa Phân công Giảng dạy</h1>
+
+<h3>Bạn có chắc chắn muốn xóa phân công này không?</h3>
+<div>
+    <h4>Thông tin Phân công Giảng dạy</h4>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaPCGD)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaPCGD)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaGV)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaGV)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaMH)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaMH)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaLop)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaLop)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HocKy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HocKy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NamHoc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NamHoc)
+        </dd>
+    </dl>
+
+    <form asp-action="DeletePhanCongGiangDay" method="post">
+        <input type="hidden" asp-for="MaPCGD" />
+        <input type="submit" value="Xóa" class="btn btn-danger" />
+        <a asp-action="PhanCongGiangDayIndex" class="btn btn-secondary">Quay lại</a>
+    </form>
+</div>

@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Chào mừng đến với Khoa Công Nghệ Thông Tin</h1>
+<p>Đây là ứng dụng MVC đầu tiên của bạn.</p>
+
+@if (User.IsInRole("Admin"))
+{
+    <p><a asp-action="IndexAdmin" asp-controller="Admin">Trang Quản Lý Admin</a></p>
+}
+else if (User.IsInRole("GiangVien"))
+{
+    <p><a asp-action="IndexGiangVien" asp-controller="GiangVien">Trang Quản Lý Giảng Viên</a></p>
+}
+else if (User.IsInRole("SinhVien"))
+{
+    <p><a asp-action="IndexSinhVien" asp-controller="SinhVien">Trang Quản Lý Sinh Viên</a></p>
+}
+else
+{
+    <p>Bạn không có quyền truy cập vào bất kỳ trang quản lý nào.</p>
+}

@@ -1,0 +1,52 @@
+@model QuanLyDaoTaoWeb.Models.ChuongTrinhDaoTao
+
+@{
+    ViewData["Title"] = "Xóa Chương Trình Đào Tạo";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">Xác Nhận Xóa Chương Trình Đào Tạo</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                Bạn có chắc chắn muốn xóa chương trình đào tạo này?
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MaCTDT)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MaCTDT)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.TenCTDT)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.TenCTDT)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Khoa.TenKhoa)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.Khoa.TenKhoa)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.NamBatDau)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.NamBatDau)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.TrangThai)</dt>
+                <dd class="col-sm-9">
+                    <span class="badge @(Model.TrangThai ? "bg-success" : "bg-danger")">
+                        @(Model.TrangThai ? "Đang áp dụng" : "Ngừng áp dụng")
+                    </span>
+                </dd>
+            </dl>
+
+            <form asp-action="DeleteChuongTrinhDaoTao" method="post">
+                <input type="hidden" asp-for="MaCTDT" />
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Xác nhận xóa
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

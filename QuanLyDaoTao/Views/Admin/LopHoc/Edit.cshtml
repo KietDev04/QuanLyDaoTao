@@ -1,0 +1,48 @@
+@model QuanLyDaoTaoWeb.Models.LopHoc
+
+@{
+    ViewData["Title"] = "Chỉnh Sửa Lớp Học";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-warning text-dark">
+            <h5 class="mb-0">Chỉnh Sửa Lớp Học</h5>
+        </div>
+        <div class="card-body">
+            <form asp-action="EditLopHoc" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="MaLop" />
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="TenLop" class="form-label"></label>
+                        <input asp-for="TenLop" class="form-control" />
+                        <span asp-validation-for="TenLop" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="MaCTDT" class="form-label"></label>
+                        <select asp-for="MaCTDT" asp-items="ViewBag.ChuongTrinhDaoTaoList" class="form-select">
+                            <option value="">-- Chọn Chương Trình Đào Tạo --</option>
+                        </select>
+                        <span asp-validation-for="MaCTDT" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-warning">
+                        <i class="fas fa-save"></i> Cập nhật
+                    </button>
+                    <a asp-action="LopHocIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

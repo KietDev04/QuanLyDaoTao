@@ -1,0 +1,53 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.LopHoc>
+
+@{
+    ViewData["Title"] = "Quản Lý Lớp Học";
+}
+
+<div class="container-fluid py-4">
+    <a asp-action="IndexGiangVien" class="btn btn-info">
+        <i class="fas fa-plus"></i> Quay lại
+    </a>
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Danh Sách Lớp Học</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover datatable">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(m => m.MaLop)</th>
+                            <th>@Html.DisplayNameFor(m => m.TenLop)</th>
+                            <th>@Html.DisplayNameFor(m => m.ChuongTrinhDaoTao.TenCTDT)</th>
+                            <th>@Html.DisplayNameFor(m => m.DangKyLopHocs.Count)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.MaLop</td>
+                                <td>@item.TenLop</td>
+                                <td>@item.ChuongTrinhDaoTao?.TenCTDT</td>
+                                <td>@item.DangKyLopHocs?.Count()</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.datatable').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Vietnamese.json'
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - QuanLyDaoTao</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">QuanLyDaoTao</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Admin" asp-action="IndexAdmin">
+                                <i class="fas fa-home"></i> Trang Chủ Admin
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+                                <i class="fas fa-graduation-cap"></i> Quản Lý Đào Tạo
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="KhoaIndex">
+                                        <i class="fas fa-university"></i> Quản Lý Khoa
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="ChuongTrinhDaoTaoIndex">
+                                        <i class="fas fa-book-reader"></i> Chương Trình Đào Tạo
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="MonHocIndex">
+                                        <i class="fas fa-book"></i> Quản Lý Môn Học
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="LopHocIndex">
+                                        <i class="fas fa-chalkboard"></i> Quản Lý Lớp Học
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+                                <i class="fas fa-users"></i> Quản Lý Người Dùng
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="GiangVienIndex">
+                                        <i class="fas fa-chalkboard-teacher"></i> Quản Lý Giảng Viên
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="SinhVienIndex">
+                                        <i class="fas fa-user-graduate"></i> Quản Lý Sinh Viên
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="PhanCongGiangDayIndex">
+                                        <i class="fas fa-tasks"></i> Phân Công Giảng Dạy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="DangKyLopHocIndex">
+                                        <i class="fas fa-clipboard-list"></i> Đăng Ký Lớp Học
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+                                <i class="fas fa-file-alt"></i> Quản Lý Tài Liệu
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="BaiGiangIndex">
+                                        <i class="fas fa-file-powerpoint"></i> Quản Lý Bài Giảng
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="TaiLieuIndex">
+                                        <i class="fas fa-file-pdf"></i> Quản Lý Tài Liệu
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="DeCuongIndex">
+                                        <i class="fas fa-file-word"></i> Quản Lý Đề Cương
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+                                <i class="fas fa-chart-bar"></i> Đánh Giá & Thống Kê
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="DanhGiaIndex">
+                                        <i class="fas fa-star"></i> Quản Lý Đánh Giá
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Admin" asp-action="ApproveGiangVien">
+                                <i class="fas fa-user-check"></i> Phê Duyệt GV
+                            </a>
+                        </li>
+                    }
+                    else if (User.IsInRole("SinhVien"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="SinhVien" asp-action="IndexSinhVien">
+                                <i class="fas fa-home"></i> Trang Chủ Sinh Viên
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+                                <i class="fas fa-graduation-cap"></i> Quản Lý Đào Tạo
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="SinhVien" asp-action="KhoaIndex">
+                                        <i class="fas fa-university"></i> Xem Khoa
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="SinhVien" asp-action="MonHocIndex">
+                                        <i class="fas fa-book"></i> Xem Môn Học
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="SinhVien" asp-action="LopHocIndex">
+                                        <i class="fas fa-chalkboard"></i> Xem Lớp Học
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="SinhVien" asp-action="DangKyLopHocIndex">
+                                        <i class="fas fa-clipboard-list"></i> Xem Đăng Ký Lớp Học
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+                                <i class="fas fa-users"></i> Quản Lý Người Dùng
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="SinhVien" asp-action="GiangVienIndex">
+                                        <i class="fas fa-chalkboard-teacher"></i> Xem Giảng Viên
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+                                <i class="fas fa-file-alt"></i> Quản Lý Tài Liệu
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="SinhVien" asp-action="BaiGiangIndex">
+                                        <i class="fas fa-file-powerpoint"></i> Xem Bài Giảng
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="SinhVien" asp-action="TaiLieuIndex">
+                                        <i class="fas fa-file-pdf"></i> Xem Tài Liệu
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="SinhVien" asp-action="DeCuongIndex">
+                                        <i class="fas fa-file-word"></i> Xem Đề Cương
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+                                <i class="fas fa-chart-bar"></i> Đánh Giá & Thống Kê
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="SinhVien" asp-action="DanhGiaIndex">
+                                        <i class="fas fa-star"></i> Xem Đánh Giá
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    else if (User.IsInRole("GiangVien"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="GiangVien" asp-action="IndexGiangVien">
+                                <i class="fas fa-home"></i> Trang Chủ Giảng Viên
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+                                <i class="fas fa-graduation-cap"></i> Quản Lý Đào Tạo
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="GiangVien" asp-action="KhoaIndex">
+                                        <i class="fas fa-university"></i> Xem Khoa
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="GiangVien" asp-action="MonHocIndex">
+                                        <i class="fas fa-book"></i> Xem Môn Học
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="GiangVien" asp-action="LopHocIndex">
+                                        <i class="fas fa-chalkboard"></i> Xem Lớp Học
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="GiangVien" asp-action="ChuongTrinhDaoTaoIndex">
+                                        <i class="fas fa-book-open"></i> Xem Chương Trình Đào Tạo
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="GiangVien" asp-action="PhanCongGiangDayIndex">
+                                        <i class="fas fa-tasks"></i> Xem Phân Công Giảng Dạy
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+                                <i class="fas fa-file-alt"></i> Quản Lý Tài Liệu
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="GiangVien" asp-action="BaiGiangIndex">
+                                        <i class="fas fa-file-powerpoint"></i> Xem Bài Giảng
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="GiangVien" asp-action="TaiLieuIndex">
+                                        <i class="fas fa-file-pdf"></i> Xem Tài Liệu
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="GiangVien" asp-action="DeCuongIndex">
+                                        <i class="fas fa-file-word"></i> Xem Đề Cương
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">
+                                <i class="fas fa-chart-bar"></i> Đánh Giá & Thống Kê
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="GiangVien" asp-action="DanhGiaIndex">
+                                        <i class="fas fa-star"></i> Xem Đánh Giá
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="" asp-controller="GiangVien" asp-action="CreateDanhGia">
+                                        <i class="fas fa-plus"></i> Thêm Đánh Giá
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <form asp-controller="Account" asp-action="Logout" method="post" class="form-inline">
+                                <button type="submit" class="btn btn-link nav-link" style="color: white;">Đăng Xuất</button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="btn btn-primary nav-link text-white" asp-controller="Account" asp-action="Login">Đăng Nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-secondary nav-link text-white" asp-controller="Account" asp-action="Register">Đăng Ký</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - QuanLyDaoTao
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

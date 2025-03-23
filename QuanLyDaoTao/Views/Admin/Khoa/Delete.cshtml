@@ -1,0 +1,51 @@
+@model QuanLyDaoTaoWeb.Models.Khoa
+
+@{
+    ViewData["Title"] = "Xóa Khoa";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">Xác Nhận Xóa Khoa</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                Bạn có chắc chắn muốn xóa khoa này? Việc xóa sẽ ảnh hưởng đến các giảng viên và môn học thuộc khoa.
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.MaKhoa)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.MaKhoa)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.TenKhoa)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.TenKhoa)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.DiaChi)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.DiaChi)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(m => m.DienThoai)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(m => m.DienThoai)</dd>
+
+                <dt class="col-sm-3">Số giảng viên</dt>
+                <dd class="col-sm-9">@Model.GiangViens?.Count()</dd>
+
+                <dt class="col-sm-3">Số môn học</dt>
+                <dd class="col-sm-9">@Model.MonHocs?.Count()</dd>
+            </dl>
+
+            <form asp-action="DeleteKhoa" method="post">
+                <input type="hidden" asp-for="MaKhoa" />
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Xác nhận xóa
+                    </button>
+                    <a asp-action="KhoaIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

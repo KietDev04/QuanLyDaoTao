@@ -1,0 +1,54 @@
+@model IEnumerable<QuanLyDaoTaoWeb.Models.Khoa>
+
+@{
+    ViewData["Title"] = "Quản Lý Khoa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid py-4">
+    <a asp-action="IndexGiangVien" class="btn btn-info">
+                <i class="fas fa-plus"></i> Quay lại
+            </a>
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Danh Sách Khoa</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover datatable">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(m => m.MaKhoa)</th>
+                            <th>@Html.DisplayNameFor(m => m.TenKhoa)</th>
+                            <th>@Html.DisplayNameFor(m => m.DiaChi)</th>
+                            <th>@Html.DisplayNameFor(m => m.DienThoai)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.MaKhoa</td>
+                                <td>@item.TenKhoa</td>
+                                <td>@item.DiaChi</td>
+                                <td>@item.DienThoai</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.datatable').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Vietnamese.json'
+                }
+            });
+        });
+    </script>
+}

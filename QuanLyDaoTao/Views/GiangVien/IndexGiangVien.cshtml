@@ -1,0 +1,145 @@
+@{
+    ViewData["Title"] = "Trang Sinh Viên";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Trang Chủ Giảng Viên</h5>
+        </div>
+
+        <div class="card-body">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-university fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Trang Chủ Khoa</h5>
+                            <p class="card-text">Thông tin Khoa</p>
+                            <a asp-action="KhoaIndex" asp-controller="GiangVien" class="btn btn-warning">
+                                <i class="fas fa-arrow-right"></i> Truy cập
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-university fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Trang Bài Giảng</h5>
+                            <p class="card-text">Bài Giảng</p>
+                            <a asp-action="BaiGiangIndex" asp-controller="GiangVien" class="btn btn-warning">
+                                <i class="fas fa-arrow-right"></i> Truy cập
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-university fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Trang Tài Liệu</h5>
+                            <p class="card-text">Tài Liệu</p>
+                            <a asp-action="TaiLieuIndex" asp-controller="GiangVien" class="btn btn-warning">
+                                <i class="fas fa-arrow-right"></i> Truy cập
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-university fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Trang Đề Cương</h5>
+                            <p class="card-text">Đề Cương</p>
+                            <a asp-action="DeCuongIndex" asp-controller="GiangVien" class="btn btn-warning">
+                                <i class="fas fa-arrow-right"></i> Truy cập
+                            </a>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-university fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Trang Môn Học</h5>
+                            <p class="card-text">Môn Học</p>
+                            <a asp-action="MonHocIndex" asp-controller="GiangVien" class="btn btn-warning">
+                                <i class="fas fa-arrow-right"></i> Truy cập
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-university fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Trang Lớp Học</h5>
+                            <p class="card-text">Thông tin lớp học</p>
+                            <a asp-action="LopHocIndex" asp-controller="GiangVien" class="btn btn-warning">
+                                <i class="fas fa-arrow-right"></i> Truy cập
+                            </a>
+                        </div>
+                    </div>
+                </div>       
+
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-university fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Trang Chương Trình Đào Tạo</h5>
+                            <p class="card-text">Chương Trình Đào Tạo</p>
+                            <a asp-action="ChuongTrinhDaoTaoIndex" asp-controller="GiangVien" class="btn btn-warning">
+                                <i class="fas fa-arrow-right"></i> Truy cập
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-university fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Trang Phân Công Giảng Dạy</h5>
+                            <p class="card-text">Phân Công Giảng Dạy</p>
+                            <a asp-action="DangKyLopHocIndex" asp-controller="GiangVien" class="btn btn-warning">
+                                <i class="fas fa-arrow-right"></i> Truy cập
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-university fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Trang Đánh Giá</h5>
+                            <p class="card-text">Đánh Giá</p>
+                            <a asp-action="DanhGiaIndex" asp-controller="GiangVien" class="btn btn-warning">
+                                <i class="fas fa-arrow-right"></i> Truy cập
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Các card khác tương tự -->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        .card {
+            transition: transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+}

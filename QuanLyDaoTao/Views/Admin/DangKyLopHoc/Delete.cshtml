@@ -1,0 +1,44 @@
+@model QuanLyDaoTaoWeb.Models.DangKyLopHoc
+
+@{
+    ViewData["Title"] = "Xóa Đăng Ký Lớp Học";
+}
+
+<div class="container-fluid py-4">
+    <div class="card shadow">
+        <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">Xác Nhận Xóa Đăng Ký Lớp Học</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                Bạn có chắc chắn muốn xóa đăng ký lớp học này?
+            </div>
+
+            <dl class="row">
+                <dt class="col-sm-3">Sinh Viên</dt>
+                <dd class="col-sm-9">@Model.SinhVien?.HoTen (@Model.MaSV)</dd>
+
+                <dt class="col-sm-3">Lớp Học</dt>
+                <dd class="col-sm-9">@Model.LopHoc?.TenLop (@Model.MaLopHoc)</dd>
+
+                <dt class="col-sm-3">Ngày Đăng Ký</dt>
+                <dd class="col-sm-9">@Model.NgayDangKy.ToString("dd/MM/yyyy HH:mm")</dd>
+            </dl>
+
+            <form asp-action="DeleteDangKyLopHoc" method="post">
+                <input type="hidden" asp-for="MaSV" />
+                <input type="hidden" asp-for="MaLopHoc" />
+                
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Xác nhận xóa
+                    </button>
+                    <a asp-action="DangKyLopHocIndex" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
