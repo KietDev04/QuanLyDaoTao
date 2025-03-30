@@ -12,8 +12,8 @@ using QuanLyDaoTaoWeb.Models;
 namespace QuanLyDaoTao.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250322162818_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250330075115_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -318,22 +318,12 @@ namespace QuanLyDaoTao.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<string>("LopHocMaLop")
-                        .HasColumnType("nvarchar(10)");
-
                     b.Property<DateTime>("NgayDangKy")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SinhVienMaSV")
-                        .HasColumnType("nvarchar(10)");
-
                     b.HasKey("MaSV", "MaLopHoc");
 
-                    b.HasIndex("LopHocMaLop");
-
                     b.HasIndex("MaLopHoc");
-
-                    b.HasIndex("SinhVienMaSV");
 
                     b.ToTable("DangKyLopHoc");
                 });
@@ -431,9 +421,6 @@ namespace QuanLyDaoTao.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("KhoaMaKhoa")
-                        .HasColumnType("nvarchar(10)");
-
                     b.Property<string>("MaKhoa")
                         .IsRequired()
                         .HasMaxLength(10)
@@ -443,8 +430,6 @@ namespace QuanLyDaoTao.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("MaGV");
-
-                    b.HasIndex("KhoaMaKhoa");
 
                     b.HasIndex("MaKhoa");
 
@@ -483,9 +468,6 @@ namespace QuanLyDaoTao.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<string>("ChuongTrinhDaoTaoMaCTDT")
-                        .HasColumnType("nvarchar(10)");
-
                     b.Property<string>("MaCTDT")
                         .IsRequired()
                         .HasMaxLength(10)
@@ -498,8 +480,6 @@ namespace QuanLyDaoTao.Migrations
 
                     b.HasKey("MaLop");
 
-                    b.HasIndex("ChuongTrinhDaoTaoMaCTDT");
-
                     b.HasIndex("MaCTDT");
 
                     b.ToTable("LopHoc");
@@ -509,9 +489,6 @@ namespace QuanLyDaoTao.Migrations
                 {
                     b.Property<string>("MaMH")
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("KhoaMaKhoa")
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("MaKhoa")
@@ -528,8 +505,6 @@ namespace QuanLyDaoTao.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("MaMH");
-
-                    b.HasIndex("KhoaMaKhoa");
 
                     b.HasIndex("MaKhoa");
 
@@ -727,27 +702,17 @@ namespace QuanLyDaoTao.Migrations
 
             modelBuilder.Entity("QuanLyDaoTaoWeb.Models.DangKyLopHoc", b =>
                 {
-                    b.HasOne("QuanLyDaoTaoWeb.Models.LopHoc", null)
-                        .WithMany("DangKyLopHocs")
-                        .HasForeignKey("LopHocMaLop")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("QuanLyDaoTaoWeb.Models.LopHoc", "LopHoc")
-                        .WithMany()
+                        .WithMany("DangKyLopHocs")
                         .HasForeignKey("MaLopHoc")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("QuanLyDaoTaoWeb.Models.SinhVien", "SinhVien")
-                        .WithMany()
+                        .WithMany("DangKyLopHocs")
                         .HasForeignKey("MaSV")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("QuanLyDaoTaoWeb.Models.SinhVien", null)
-                        .WithMany("DangKyLopHocs")
-                        .HasForeignKey("SinhVienMaSV")
-                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("LopHoc");
 
@@ -796,13 +761,8 @@ namespace QuanLyDaoTao.Migrations
 
             modelBuilder.Entity("QuanLyDaoTaoWeb.Models.GiangVien", b =>
                 {
-                    b.HasOne("QuanLyDaoTaoWeb.Models.Khoa", null)
-                        .WithMany("GiangViens")
-                        .HasForeignKey("KhoaMaKhoa")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("QuanLyDaoTaoWeb.Models.Khoa", "Khoa")
-                        .WithMany()
+                        .WithMany("GiangViens")
                         .HasForeignKey("MaKhoa")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -812,13 +772,8 @@ namespace QuanLyDaoTao.Migrations
 
             modelBuilder.Entity("QuanLyDaoTaoWeb.Models.LopHoc", b =>
                 {
-                    b.HasOne("QuanLyDaoTaoWeb.Models.ChuongTrinhDaoTao", null)
-                        .WithMany("LopHocs")
-                        .HasForeignKey("ChuongTrinhDaoTaoMaCTDT")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("QuanLyDaoTaoWeb.Models.ChuongTrinhDaoTao", "ChuongTrinhDaoTao")
-                        .WithMany()
+                        .WithMany("LopHocs")
                         .HasForeignKey("MaCTDT")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -828,13 +783,8 @@ namespace QuanLyDaoTao.Migrations
 
             modelBuilder.Entity("QuanLyDaoTaoWeb.Models.MonHoc", b =>
                 {
-                    b.HasOne("QuanLyDaoTaoWeb.Models.Khoa", null)
-                        .WithMany("MonHocs")
-                        .HasForeignKey("KhoaMaKhoa")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("QuanLyDaoTaoWeb.Models.Khoa", "Khoa")
-                        .WithMany()
+                        .WithMany("MonHocs")
                         .HasForeignKey("MaKhoa")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -887,7 +837,7 @@ namespace QuanLyDaoTao.Migrations
             modelBuilder.Entity("QuanLyDaoTaoWeb.Models.SinhVien", b =>
                 {
                     b.HasOne("QuanLyDaoTaoWeb.Models.Khoa", "Khoa")
-                        .WithMany()
+                        .WithMany("SinhViens")
                         .HasForeignKey("MaKhoa")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -921,6 +871,8 @@ namespace QuanLyDaoTao.Migrations
                     b.Navigation("GiangViens");
 
                     b.Navigation("MonHocs");
+
+                    b.Navigation("SinhViens");
                 });
 
             modelBuilder.Entity("QuanLyDaoTaoWeb.Models.LopHoc", b =>

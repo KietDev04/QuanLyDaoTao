@@ -123,13 +123,13 @@ namespace QuanLyDaoTaoWeb.Controllers
             var baiGiangList = _context.BaiGiang
             .Include(bg => bg.MonHoc) // Lấy thông tin môn học
             .ToList();
-            return View("BaiGiang/Index", baiGiangList);
+            return View("~/Views/Shared/BaiGiang/Index.cshtml", baiGiangList);
         }
 
         public IActionResult CreateBaiGiang()
         {
             ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH");
-            return View("BaiGiang/Create");
+            return View("~/Views/Shared/BaiGiang/Create.cshtml");
         }
 
         [HttpPost]
@@ -138,7 +138,7 @@ namespace QuanLyDaoTaoWeb.Controllers
             if (_context.BaiGiang.Any(b => b.MaBG == baiGiang.MaBG))
             {
                 ModelState.AddModelError("MaSV", "Mã sinh viên này đã tồn tại");
-                return View("GiangVien/Create", baiGiang);
+                return View("~/Views/Shared/BaiGiang/Create.cshtml", baiGiang);
             }
             try
             {

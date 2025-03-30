@@ -24,17 +24,17 @@
                             <th>@Html.DisplayNameFor(m => m.DienThoai)</th>
                         </tr>
                     </thead>
-                    <tbody>
+                <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>@item.MaKhoa</td>
-                                <td>@item.TenKhoa</td>
-                                <td>@item.DiaChi</td>
-                                <td>@item.DienThoai</td>
-                            </tr>
+                          <tr>
+                             <td>@item.MaKhoa</td>
+                            <td>@item.TenKhoa</td>
+                             <td>@item.DiaChi</td>
+                            <td>@item.DienThoai</td>
+                         </tr>
                         }
-                    </tbody>
+                </tbody>
                 </table>
             </div>
         </div>

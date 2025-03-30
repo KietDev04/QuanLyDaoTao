@@ -5277,23 +5277,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\WINDOWS 1O\\.nuget\\packages\\": {},
+    "C:\\Users\\Trananh\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DoAnMonHoc\\QuanLyDaoTao\\QuanLyDaoTao.csproj",
+      "projectUniqueName": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\QuanLyDaoTao.csproj",
       "projectName": "QuanLyDaoTao",
-      "projectPath": "D:\\DoAnMonHoc\\QuanLyDaoTao\\QuanLyDaoTao.csproj",
-      "packagesPath": "C:\\Users\\WINDOWS 1O\\.nuget\\packages\\",
-      "outputPath": "D:\\DoAnMonHoc\\QuanLyDaoTao\\obj\\",
+      "projectPath": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\QuanLyDaoTao.csproj",
+      "packagesPath": "C:\\Users\\Trananh\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\WINDOWS 1O\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Trananh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5302,7 +5302,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace QuanLyDaoTao.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -202,18 +202,11 @@ namespace QuanLyDaoTao.Migrations
                     HoTen = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     MaKhoa = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    NgayNhanViec = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    KhoaMaKhoa = table.Column<string>(type: "nvarchar(10)", nullable: true)
+                    NgayNhanViec = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_GiangVien", x => x.MaGV);
-                    table.ForeignKey(
-                        name: "FK_GiangVien_Khoa_KhoaMaKhoa",
-                        column: x => x.KhoaMaKhoa,
-                        principalTable: "Khoa",
-                        principalColumn: "MaKhoa",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_GiangVien_Khoa_MaKhoa",
                         column: x => x.MaKhoa,
@@ -229,18 +222,11 @@ namespace QuanLyDaoTao.Migrations
                     MaMH = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     TenMH = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     SoTinChi = table.Column<int>(type: "int", nullable: false),
-                    MaKhoa = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    KhoaMaKhoa = table.Column<string>(type: "nvarchar(10)", nullable: true)
+                    MaKhoa = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MonHoc", x => x.MaMH);
-                    table.ForeignKey(
-                        name: "FK_MonHoc_Khoa_KhoaMaKhoa",
-                        column: x => x.KhoaMaKhoa,
-                        principalTable: "Khoa",
-                        principalColumn: "MaKhoa",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_MonHoc_Khoa_MaKhoa",
                         column: x => x.MaKhoa,
@@ -276,18 +262,11 @@ namespace QuanLyDaoTao.Migrations
                 {
                     MaLop = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     TenLop = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    MaCTDT = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    ChuongTrinhDaoTaoMaCTDT = table.Column<string>(type: "nvarchar(10)", nullable: true)
+                    MaCTDT = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LopHoc", x => x.MaLop);
-                    table.ForeignKey(
-                        name: "FK_LopHoc_ChuongTrinhDaoTao_ChuongTrinhDaoTaoMaCTDT",
-                        column: x => x.ChuongTrinhDaoTaoMaCTDT,
-                        principalTable: "ChuongTrinhDaoTao",
-                        principalColumn: "MaCTDT",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_LopHoc_ChuongTrinhDaoTao_MaCTDT",
                         column: x => x.MaCTDT,
@@ -392,19 +371,11 @@ namespace QuanLyDaoTao.Migrations
                 {
                     MaSV = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     MaLopHoc = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    NgayDangKy = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    LopHocMaLop = table.Column<string>(type: "nvarchar(10)", nullable: true),
-                    SinhVienMaSV = table.Column<string>(type: "nvarchar(10)", nullable: true)
+                    NgayDangKy = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DangKyLopHoc", x => new { x.MaSV, x.MaLopHoc });
-                    table.ForeignKey(
-                        name: "FK_DangKyLopHoc_LopHoc_LopHocMaLop",
-                        column: x => x.LopHocMaLop,
-                        principalTable: "LopHoc",
-                        principalColumn: "MaLop",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_DangKyLopHoc_LopHoc_MaLopHoc",
                         column: x => x.MaLopHoc,
@@ -414,12 +385,6 @@ namespace QuanLyDaoTao.Migrations
                     table.ForeignKey(
                         name: "FK_DangKyLopHoc_SinhVien_MaSV",
                         column: x => x.MaSV,
-                        principalTable: "SinhVien",
-                        principalColumn: "MaSV",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_DangKyLopHoc_SinhVien_SinhVienMaSV",
-                        column: x => x.SinhVienMaSV,
                         principalTable: "SinhVien",
                         principalColumn: "MaSV",
                         onDelete: ReferentialAction.Restrict);
@@ -561,19 +526,9 @@ namespace QuanLyDaoTao.Migrations
                 column: "MaKhoa");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DangKyLopHoc_LopHocMaLop",
-                table: "DangKyLopHoc",
-                column: "LopHocMaLop");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_DangKyLopHoc_MaLopHoc",
                 table: "DangKyLopHoc",
                 column: "MaLopHoc");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DangKyLopHoc_SinhVienMaSV",
-                table: "DangKyLopHoc",
-                column: "SinhVienMaSV");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DanhGia_MaMH",
@@ -601,29 +556,14 @@ namespace QuanLyDaoTao.Migrations
                 column: "MaMH");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GiangVien_KhoaMaKhoa",
-                table: "GiangVien",
-                column: "KhoaMaKhoa");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_GiangVien_MaKhoa",
                 table: "GiangVien",
                 column: "MaKhoa");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LopHoc_ChuongTrinhDaoTaoMaCTDT",
-                table: "LopHoc",
-                column: "ChuongTrinhDaoTaoMaCTDT");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_LopHoc_MaCTDT",
                 table: "LopHoc",
                 column: "MaCTDT");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MonHoc_KhoaMaKhoa",
-                table: "MonHoc",
-                column: "KhoaMaKhoa");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MonHoc_MaKhoa",

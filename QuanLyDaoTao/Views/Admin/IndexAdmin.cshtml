@@ -2,171 +2,47 @@
     ViewData["Title"] = "Trang Quản Lý";
 }
 
+@{
+    var menuItems = new[] {
+        new { Icon = "fas fa-university", Title = "Quản Lý Khoa", Text = "Quản lý thông tin các khoa", Action = "KhoaIndex" },
+        new { Icon = "fas fa-user-graduate", Title = "Quản Lý Sinh Viên", Text = "Quản lý thông tin sinh viên", Action = "SinhVienIndex" },
+        new { Icon = "fas fa-chalkboard-teacher", Title = "Quản Lý Giảng Viên", Text = "Quản lý thông tin giảng viên", Action = "GiangVienIndex" },
+        new { Icon = "fas fa-book", Title = "Quản Lý Lớp Học", Text = "Quản lý thông tin lớp học", Action = "LopHocIndex" },
+        new { Icon = "fas fa-book", Title = "Quản Lý Môn Học", Text = "Quản lý thông tin môn học", Action = "MonHocIndex" },
+        new { Icon = "fas fa-book", Title = "Quản Lý Tài Liệu", Text = "Quản lý thông tin tài liệu", Action = "TaiLieuIndex" },
+        new { Icon = "fas fa-book", Title = "Quản Lý Đề Cương", Text = "Quản lý thông tin đề cương", Action = "DeCuongIndex" },
+        new { Icon = "fas fa-book", Title = "Quản Lý Bài Giảng", Text = "Quản lý thông tin bài giảng", Action = "BaiGiangIndex" },
+        new { Icon = "fas fa-book", Title = "Quản Lý Chương Trình Đào Tạo", Text = "Quản lý thông tin chương trình đào tạo", Action = "ChuongTrinhDaoTaoIndex" },
+        new { Icon = "fas fa-book", Title = "Quản Lý Đăng Ký Lớp Học", Text = "Quản lý thông tin đăng ký lớp học", Action = "DangKyLopHocIndex" },
+        new { Icon = "fas fa-book", Title = "Quản Lý Phân Công Giảng Dạy", Text = "Quản lý thông tin phân công giảng dạy", Action = "PhanCongGiangDayIndex" },
+        new { Icon = "fas fa-book", Title = "Quản Lý Đánh Giá", Text = "Quản lý thông tin đánh giá", Action = "DanhGiaIndex" }
+    };
+}
+
 <div class="container-fluid py-4">
     <div class="card shadow mb-4">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Trang Quản Lý Hệ Thống Đào Tạo</h5>
+            <input type="text" id="searchInput" class="form-control w-25" placeholder="Tìm kiếm danh mục...">
         </div>
         <div class="card-body">
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-university fa-3x mb-3 text-primary"></i>
-                            <h5 class="card-title">Quản Lý Khoa</h5>
-                            <p class="card-text">Quản lý thông tin các khoa</p>
-                            <a asp-action="KhoaIndex" asp-controller="Admin" class="btn btn-warning">
-                                <i class="fas fa-arrow-right"></i> Truy cập
-                            </a>
+            <div class="row g-4" id="menuContainer">
+                @foreach (var item in menuItems)
+                {
+                    <div class="col-md-3 menu-item">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="@item.Icon fa-3x mb-3 text-primary"></i>
+                                <h5 class="card-title">@item.Title</h5>
+                                <p class="card-text">@item.Text</p>
+                                <a asp-action="@item.Action" asp-controller="Admin" class="btn btn-warning">
+                                    <i class="fas fa-arrow-right"></i> Truy cập
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-user-graduate fa-3x mb-3 text-success"></i>
-                            <h5 class="card-title">Quản Lý Sinh Viên</h5>
-                            <p class="card-text">Quản lý thông tin sinh viên</p>
-                            <a asp-action="SinhVienIndex" asp-controller="Admin" class="btn btn-warning">
-                                <i class="fas fa-arrow-right"></i> Truy cập
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-chalkboard-teacher fa-3x mb-3 text-info"></i>
-                            <h5 class="card-title">Quản Lý Giảng Viên</h5>
-                            <p class="card-text">Quản lý thông tin giảng viên</p>
-                            <a asp-action="GiangVienIndex" asp-controller="Admin" class="btn btn-warning">
-                                <i class="fas fa-arrow-right"></i> Truy cập
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-book fa-3x mb-3 text-warning"></i>
-                            <h5 class="card-title">Quản Lý Lớp Học</h5>
-                            <p class="card-text">Quản lý thông tin lớp học</p>
-                            <a asp-action="LopHocIndex" asp-controller="Admin" class="btn btn-warning">
-                                <i class="fas fa-arrow-right"></i> Truy cập
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-book fa-3x mb-3 text-warning"></i>
-                            <h5 class="card-title">Quản Lý Môn Học</h5>
-                            <p class="card-text">Quản lý thông tin môn học</p>
-                            <a asp-action="MonHocIndex" asp-controller="Admin" class="btn btn-warning">
-                                <i class="fas fa-arrow-right"></i> Truy cập
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-3">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-book fa-3x mb-3 text-warning"></i>
-                            <h5 class="card-title">Quản Lý Tài Liệu</h5>
-                            <p class="card-text">Quản lý thông tin tài liệu</p>
-                            <a asp-action="TaiLieuIndex" asp-controller="Admin" class="btn btn-warning">
-                                <i class="fas fa-arrow-right"></i> Truy cập
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-book fa-3x mb-3 text-warning"></i>
-                            <h5 class="card-title">Quản Lý Đề Cương</h5>
-                            <p class="card-text">Quản lý thông tin đề cương</p>
-                            <a asp-action="DeCuongIndex" asp-controller="Admin" class="btn btn-warning">
-                                <i class="fas fa-arrow-right"></i> Truy cập
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-book fa-3x mb-3 text-warning"></i>
-                            <h5 class="card-title">Quản Lý Bài Giảng</h5>
-                            <p class="card-text">Quản lý thông tin bài giảng</p>
-                            <a asp-action="BaiGiangIndex" asp-controller="Admin" class="btn btn-warning">
-                                <i class="fas fa-arrow-right"></i> Truy cập
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-book fa-3x mb-3 text-warning"></i>
-                            <h5 class="card-title">Quản Lý Chương Trình Đào Tạo</h5>
-                            <p class="card-text">Quản lý thông tin chương trình đào tạo</p>
-                            <a asp-action="ChuongTrinhDaoTaoIndex" asp-controller="Admin" class="btn btn-warning">
-                                <i class="fas fa-arrow-right"></i> Truy cập
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-book fa-3x mb-3 text-warning"></i>
-                            <h5 class="card-title">Quản Lý Đăng Ký Lớp Học</h5>
-                            <p class="card-text">Quản lý thông tin đăng ký lớp học</p>
-                            <a asp-action="DangKyLopHocIndex" asp-controller="Admin" class="btn btn-warning">
-                                <i class="fas fa-arrow-right"></i> Truy cập
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-book fa-3x mb-3 text-warning"></i>
-                            <h5 class="card-title">Quản Lý Phân Công Giảng Dạy</h5>
-                            <p class="card-text">Quản lý thông tin phân công giảng dạy</p>
-                            <a asp-action="PhanCongGiangDayIndex" asp-controller="Admin" class="btn btn-warning">
-                                <i class="fas fa-arrow-right"></i> Truy cập
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-book fa-3x mb-3 text-warning"></i>
-                            <h5 class="card-title">Quản Lý Đánh Giá</h5>
-                            <p class="card-text">Quản lý thông tin đánh giá</p>
-                            <a asp-action="DanhGiaIndex" asp-controller="Admin" class="btn btn-warning">
-                                <i class="fas fa-arrow-right"></i> Truy cập
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Các card khác tương tự -->
+                }
             </div>
-
             <div class="mt-4">
                 <a asp-action="ApproveGiangVien" class="btn btn-outline-primary">
                     <i class="fas fa-user-check"></i> Phê duyệt tài khoản Giảng viên
@@ -177,9 +53,26 @@
 </div>
 
 @section Scripts {
+    <script>
+        document.getElementById("searchInput").addEventListener("input", function () {
+            let searchValue = this.value.toLowerCase();
+            let items = document.querySelectorAll(".menu-item");
+            
+            items.forEach(item => {
+                let title = item.querySelector(".card-title").innerText.toLowerCase();
+                let text = item.querySelector(".card-text").innerText.toLowerCase();
+                
+                if (title.includes(searchValue) || text.includes(searchValue)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+    </script>
     <style>
         .card {
-            transition: transform 0.2s;
+            transition: transform 0.2s;box-shadow 0.2s;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .card:hover {
