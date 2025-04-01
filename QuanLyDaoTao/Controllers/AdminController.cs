@@ -54,12 +54,12 @@ namespace QuanLyDaoTaoWeb.Controllers
             {
                 return Content("Khoa list is null");
             }
-            return View("Khoa/Index", khoaList);
+            return View("~/Views/Shared/Khoa/Index.cshtml", khoaList);
         }
 
         public IActionResult CreateKhoa()
         {
-            return View("Khoa/Create");
+            return View("~/Views/Shared/Khoa/Create.cshtml");
         }
 
         [HttpPost]
@@ -239,13 +239,13 @@ namespace QuanLyDaoTaoWeb.Controllers
             var sinhVienList = _context.SinhVien
             .Include(s => s.Khoa) // Lấy thông tin khoa
             .ToList();
-            return View("SinhVien/Index", sinhVienList);
+            return View("~/Views/Shared/SinhVien/Index.cshtml", sinhVienList);
         }
 
         public IActionResult CreateSinhVien()
         {
             ViewBag.KhoaList = new SelectList(_context.Khoa, "MaKhoa", "TenKhoa");
-            return View("SinhVien/Create");
+            return View("~/Views/Shared/SinhVien/Create.cshtml");
         }
 
         [HttpPost]
@@ -358,13 +358,13 @@ namespace QuanLyDaoTaoWeb.Controllers
             var monHocList = _context.MonHoc
             .Include(m => m.Khoa) // Lấy thông tin khoa
             .ToList();
-            return View("MonHoc/Index", monHocList);
+            return View("~/Views/Shared/MonHoc/Index.cshtml", monHocList);
         }
 
         public IActionResult CreateMonHoc()
         {
             ViewBag.KhoaList = new SelectList(_context.Khoa, "MaKhoa", "TenKhoa");
-            return View("MonHoc/Create");
+            return View("~/Views/Shared/MonHoc/Create.cshtml");
         }
 
         [HttpPost]
@@ -480,13 +480,14 @@ namespace QuanLyDaoTaoWeb.Controllers
             .Include(l => l.ChuongTrinhDaoTao) // Include ChuongTrinhDaoTao
             .Include(l => l.DangKyLopHocs) // Include DangKyLopHocs
             .ToList();
-            return View("LopHoc/Index", lopHocList);
+            return View("~/Views/Shared/LopHoc/Index.cshtml", lopHocList);
         }
+
 
         public IActionResult CreateLopHoc()
         {
             ViewBag.chuongTrinhDaoTaoList = new SelectList(_context.ChuongTrinhDaoTao, "MaCTDT", "TenCTDT");
-            return View("LopHoc/Create");
+            return View("~/Views/Shared/LopHoc/Create.cshtml");
         }
 
         [HttpPost]
@@ -599,13 +600,13 @@ namespace QuanLyDaoTaoWeb.Controllers
             var chuongTrinhDaoTaoList = _context.ChuongTrinhDaoTao
             .Include(ct => ct.Khoa) // Lấy thông tin Khoa
             .ToList();
-            return View("ChuongTrinhDaoTao/Index", chuongTrinhDaoTaoList);
+            return View("~/Views/Shared/ChuongTrinhDaoTao/Index.cshtml", chuongTrinhDaoTaoList);
         }
 
         public IActionResult CreateChuongTrinhDaoTao()
         {
             ViewBag.KhoaList = new SelectList(_context.Khoa, "MaKhoa", "TenKhoa");
-            return View("ChuongTrinhDaoTao/Create");
+            return View("~/Views/Shared/ChuongTrinhDaoTao/Create.cshtml");
         }
 
         [HttpPost]
@@ -717,14 +718,14 @@ namespace QuanLyDaoTaoWeb.Controllers
             .Include(d => d.SinhVien) // Lấy thông tin sinh viên
             .Include(d => d.MonHoc) // Lấy thông tin môn học
             .ToList();
-            return View("DanhGia/Index", danhGiaList);
+            return View("~/Views/Shared/DanhGia/Index.cshtml", danhGiaList);
         }
 
         public IActionResult CreateDanhGia()
         {   
             ViewBag.SinhVienList = new SelectList(_context.SinhVien, "MaSV", "HoTen");
             ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH");
-            return View("DanhGia/Create");
+            return View("~/Views/Shared/DanhGia/Create.cshtml");
         }
 
         [HttpPost]
@@ -852,13 +853,13 @@ namespace QuanLyDaoTaoWeb.Controllers
             var deCuongList = _context.DeCuong
             .Include(d => d.MonHoc) // Lấy thông tin môn học
             .ToList();
-            return View("DeCuong/Index", deCuongList);
+            return View("~/Views/Shared/DeCuong/Index.cshtml", deCuongList);
         }
 
         public IActionResult CreateDeCuong()
         {
             ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH");
-            return View("DeCuong/Create");
+            return View("~/Views/Shared/DeCuong/Create.cshtml");
         }
 
         [HttpPost]
@@ -965,7 +966,7 @@ namespace QuanLyDaoTaoWeb.Controllers
         public IActionResult PhanCongGiangDayIndex()
         {
             var phanCongGiangDayList = _context.PhanCongGiangDay.ToList();
-            return View("PhanCongGiangDay/Index", phanCongGiangDayList);
+            return View("~/Views/Shared/PhanCongGiangDay/Index.cshtml", phanCongGiangDayList);
         }
 
         public IActionResult CreatePhanCongGiangDay()
@@ -973,7 +974,7 @@ namespace QuanLyDaoTaoWeb.Controllers
             ViewBag.GiangVienList = new SelectList(_context.GiangVien, "MaGV", "HoTen");
             ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH");
             ViewBag.LopHocList = new SelectList(_context.LopHoc, "MaLop", "TenLop");
-            return View("PhanCongGiangDay/Create");
+            return View("~/Views/Shared/PhanCongGiangDay/Create.cshtml");
         }
 
         [HttpPost]
@@ -1113,13 +1114,13 @@ namespace QuanLyDaoTaoWeb.Controllers
             var taiLieuList = _context.TaiLieu
             .Include(t => t.BaiGiang) // Lấy thông tin bài giảng
             .ToList();
-            return View("TaiLieu/Index", taiLieuList);
+            return View("~/Views/Shared/TaiLieu/Index.cshtml", taiLieuList);
         }
 
         public IActionResult CreateTaiLieu()
         {  
             ViewBag.BaiGiangList = new SelectList(_context.BaiGiang, "MaBG", "TieuDe");
-            return View("TaiLieu/Create");
+            return View("~/Views/Shared/TaiLieu/Create.cshtml");
         }
 
         [HttpPost]
@@ -1228,14 +1229,14 @@ namespace QuanLyDaoTaoWeb.Controllers
             .Include(d => d.SinhVien) // Lấy thông tin sinh viên
             .Include(d => d.LopHoc) // Lấy thông tin lớp học
             .ToList();
-            return View("DangKyLopHoc/Index", dangKyLopHocList);
+            return View("~/Views/Shared/DangKyLopHoc/Index.cshtml", dangKyLopHocList);
         }
 
         public IActionResult CreateDangKyLopHoc()
         {   
             ViewBag.SinhVienList = new SelectList(_context.SinhVien, "MaSV", "HoTen");
             ViewBag.LopHocList = new SelectList(_context.LopHoc, "MaLop", "TenLop");
-            return View("DangKyLopHoc/Create");
+            return View("~/Views/Shared/DangKyLopHoc/Create.cshtml");
         }
 
         [HttpPost]
@@ -1353,14 +1354,14 @@ namespace QuanLyDaoTaoWeb.Controllers
             var giangVienList = _context.GiangVien
             .Include(g => g.Khoa) // Lấy thông tin khoa
             .ToList();
-            return View("GiangVien/Index", giangVienList);
+            return View("~/Views/Shared/GiangVien/Index.cshtml", giangVienList);
         }
 
         public IActionResult CreateGiangVien()
         {
             // Chuyển đổi List<Khoa> thành IEnumerable<SelectListItem>
             ViewBag.KhoaList = new SelectList(_context.Khoa, "MaKhoa", "TenKhoa");
-            return View("GiangVien/Create");
+            return View("~/Views/Shared/GiangVien/Create.cshtml");
         }
 
         [HttpPost]

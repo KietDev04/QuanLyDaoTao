@@ -1,4 +1,9 @@
 @model IEnumerable<QuanLyDaoTaoWeb.Models.DangKyLopHoc>
+@using Microsoft.AspNetCore.Identity
+@using QuanLyDaoTao.Controllers
+@using QuanLyDaoTaoWeb.Models
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
 
 @{
     ViewData["Title"] = "Quản Lý Đăng Ký Lớp Học";
@@ -11,9 +16,11 @@
     <div class="card shadow">
         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Danh Sách Đăng Ký Lớp Học</h5>
+            
             <a asp-action="CreateDangKyLopHoc" class="btn btn-light">
                 <i class="fas fa-plus"></i> Thêm mới
             </a>
+            
         </div>
         <div class="card-body">
             <div class="table-responsive">
