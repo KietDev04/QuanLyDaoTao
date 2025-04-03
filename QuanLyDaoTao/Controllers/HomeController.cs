@@ -20,18 +20,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        if (User.IsInRole("Admin"))
-        {
-            return RedirectToAction("IndexAdmin", "Admin");
-        }
-        else if (User.IsInRole("GiangVien"))
-        {
-            return RedirectToAction("IndexGiangVien", "GiangVien");
-        }
-        else if (User.IsInRole("SinhVien"))
-        {
-            return RedirectToAction("IndexSinhVien", "SinhVien");
-        }
+        
         return View();
     }
 

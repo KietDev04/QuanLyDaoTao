@@ -1,55 +1,218 @@
+@using Microsoft.AspNetCore.Identity
+@using QuanLyDaoTao.Controllers
+@using QuanLyDaoTaoWeb.Models
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
 @{
     ViewData["Title"] = "Quản Lý Đào Tạo";
 }
 
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewData["Title"]</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+<div class="home-container">
+    <header class="home-header">
+        <h1>Chào mừng đến với Khoa Công Nghệ Thông Tin</h1>
+        <p>Hệ thống Quản Lý Đào Tạo</p>
+        <link rel="stylesheet" href="~/css/Index.css">
+    </header>
 
-<div class="container mt-5">
-    <div class="text-center">
-        <h1 class="display-4 text-primary">Chào mừng đến với Khoa Công Nghệ Thông Tin</h1>
-        <p class="lead">Đây là ứng dụng hệ thống Quản Lý Đào Tạo.</p>
-    </div>
-
-    <div class="card mt-4 shadow-sm">
-        <div class="card-body text-center">
-            @if (User.IsInRole("Admin"))
-            {
-                <a asp-action="IndexAdmin" asp-controller="Admin" class="btn btn-primary btn-lg">
-                    <i class="fas fa-user-shield"></i> Trang Quản Lý Admin
-                </a>
-            }
-            else if (User.IsInRole("GiangVien"))
-            {
-                <a asp-action="IndexGiangVien" asp-controller="GiangVien" class="btn btn-success btn-lg">
-                    <i class="fas fa-chalkboard-teacher"></i> Trang Quản Lý Giảng Viên
-                </a>
-            }
-            else if (User.IsInRole("SinhVien"))
-            {
-                <a asp-action="IndexSinhVien" asp-controller="SinhVien" class="btn btn-warning btn-lg">
-                    <i class="fas fa-user-graduate"></i> Trang Quản Lý Sinh Viên
-                </a>
-            }
-            else
-            {
-                <div class="alert alert-danger mt-3">
-                    <i class="fas fa-exclamation-triangle"></i> Vui lòng đăng nhập để sử dụng hệ thống Quản Lý Đào Tạo.
+    <main class="dashboard">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="user-info">
+                <div class="avatar">
+                    <i class="fas @(User.IsInRole("Admin") ? "fa-user-shield" : 
+                                  User.IsInRole("GiangVien") ? "fa-chalkboard-teacher" : 
+                                  "fa-user-graduate")"></i>
                 </div>
-            }
-        </div>
-    </div>
+                <h2>Xin chào, @User.Identity.Name!</h2>
+                <p>@(User.IsInRole("Admin") ? "Quản trị viên" : 
+                     User.IsInRole("GiangVien") ? "Giảng viên" : 
+                     "Sinh viên")</p>
+            </div>
+
+            <nav class="feature-grid">
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="KhoaIndex" asp-controller="Admin" class="feature-card">
+                        <i class="fas fa-university"></i>
+                        <h3>Quản Lý Khoa</h3>
+                    </a>
+                    <a asp-action="SinhVienIndex" asp-controller="Admin" class="feature-card">
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>Quản Lý Sinh Viên</h3>
+                    </a>
+                    <a asp-action="GiangVienIndex" asp-controller="Admin" class="feature-card">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Quản Lý Giảng Viên</h3>
+                    </a>
+                    <a asp-action="MonHocIndex" asp-controller="Admin" class="feature-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Quản Lý Môn Học</h3>
+                    </a>
+                }
+                @if (User.IsInRole("GiangVien"))
+                {
+                    <a asp-action="BaiGiangIndex" asp-controller="GiangVien" class="feature-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Quản Lý Bài Giảng</h3>
+                    </a>
+                    <a asp-action="DeCuongIndex" asp-controller="GiangVien" class="feature-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Quản Lý Đề Cương</h3>
+                    </a>
+                    <a asp-action="LopHocIndex" asp-controller="GiangVien" class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Lớp Học</h3>
+                    </a>
+                }
+                @if (User.IsInRole("SinhVien"))
+                {
+                    <a asp-action="DangKyLopHocIndex" asp-controller="SinhVien" class="feature-card">
+                        <i class="fas fa-edit"></i>
+                        <h3>Đăng Ký Lớp Học</h3>
+                    </a>
+                    <a asp-action="TaiLieuIndex" asp-controller="SinhVien" class="feature-card">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Tài Liệu Học Tập</h3>
+                    </a>
+                    <a asp-action="DanhGiaIndex" asp-controller="SinhVien" class="feature-card">
+                        <i class="fas fa-star"></i>
+                        <h3>Đánh Giá</h3>
+                    </a>
+                }
+            </nav>
+        }
+        else
+        {
+            <div class="login-prompt">
+                <i class="fas fa-lock"></i>
+                <p>Vui lòng đăng nhập để sử dụng hệ thống Quản Lý Đào Tạo</p>
+                <a asp-action="Login" asp-controller="Account" class="login-button">Đăng nhập</a>
+            </div>
+        }
+    </main>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+@* {<style>
+    .home-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
 
-</body>
-</html>
+    .home-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .home-header h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .home-header p {
+        color: #7f8c8d;
+        font-size: 1.2rem;
+    }
+
+    .dashboard {
+        background: #f8f9fa;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-info {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+        background: #3498db;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+    }
+
+    .avatar i {
+        font-size: 2rem;
+        color: white;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .feature-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        text-decoration: none;
+        color: #2c3e50;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card i {
+        font-size: 2rem;
+        color: #3498db;
+        margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    .login-prompt {
+        text-align: center;
+        padding: 3rem;
+    }
+
+    .login-prompt i {
+        font-size: 3rem;
+        color: #95a5a6;
+        margin-bottom: 1rem;
+    }
+
+    .login-button {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 2rem;
+        text-decoration: none;
+        margin-top: 1rem;
+        transition: background 0.3s ease;
+    }
+
+    .login-button:hover {
+        background: #2980b9;
+    }
+
+    @* @media (max-width: 768px) {
+        .home-container {
+            padding: 1rem;
+        }
+
+        .home-header h1 {
+            font-size: 2rem;
+        }
+
+        .feature-grid {
+            grid-template-columns: 1fr;
+        }
+    } 
+</style> }*@

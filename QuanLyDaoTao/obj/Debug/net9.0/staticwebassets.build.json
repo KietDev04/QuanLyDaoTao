@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tzabBJ2eWs1CLDfKPEXVlH0KbnXutNks9R0JMcswRdI=",
+  "Hash": "HDNxgJUlg9MWBeZJLsf2niYnBvklZNhqLZt/fFRQ7tE=",
   "Source": "QuanLyDaoTao",
   "BasePath": "_content/QuanLyDaoTao",
   "Mode": "Default",
@@ -1487,12 +1487,12 @@
       "OriginalItemSpec": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\289r32wx08-mq7a9lmh32.gz",
+      "Identity": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\289r32wx08-7boid7meu1.gz",
       "SourceId": "QuanLyDaoTao",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/QuanLyDaoTao",
-      "RelativePath": "QuanLyDaoTao#[.{fingerprint=mq7a9lmh32}]!.bundle.scp.css.gz",
+      "RelativePath": "QuanLyDaoTao#[.{fingerprint=7boid7meu1}]!.bundle.scp.css.gz",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Alternative",
@@ -1501,8 +1501,8 @@
       "RelatedAsset": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\QuanLyDaoTao.bundle.scp.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "9q9gpuyss6",
-      "Integrity": "Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0=",
+      "Fingerprint": "9b71ve12ku",
+      "Integrity": "ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\QuanLyDaoTao.bundle.scp.css"
@@ -2390,12 +2390,12 @@
       "OriginalItemSpec": "C:\\Users\\Trananh\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.3\\staticwebassets\\V5\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\hg7yrnw2ud-mq7a9lmh32.gz",
+      "Identity": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\hg7yrnw2ud-7boid7meu1.gz",
       "SourceId": "QuanLyDaoTao",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/QuanLyDaoTao",
-      "RelativePath": "QuanLyDaoTao#[.{fingerprint=mq7a9lmh32}]?.styles.css.gz",
+      "RelativePath": "QuanLyDaoTao#[.{fingerprint=7boid7meu1}]?.styles.css.gz",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Alternative",
@@ -2404,8 +2404,8 @@
       "RelatedAsset": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\scopedcss\\bundle\\QuanLyDaoTao.styles.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "9q9gpuyss6",
-      "Integrity": "Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0=",
+      "Fingerprint": "9b71ve12ku",
+      "Integrity": "ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\scopedcss\\bundle\\QuanLyDaoTao.styles.css"
@@ -4000,8 +4000,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "mq7a9lmh32",
-      "Integrity": "Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY=",
+      "Fingerprint": "7boid7meu1",
+      "Integrity": "bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\scopedcss\\bundle\\QuanLyDaoTao.styles.css"
@@ -4021,8 +4021,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "mq7a9lmh32",
-      "Integrity": "Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY=",
+      "Fingerprint": "7boid7meu1",
+      "Integrity": "bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\QuanLyDaoTao.bundle.scp.css"
@@ -34876,13 +34876,13 @@
       ]
     },
     {
-      "Route": "QuanLyDaoTao.bundle.scp.css",
-      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\289r32wx08-mq7a9lmh32.gz",
+      "Route": "QuanLyDaoTao.7boid7meu1.bundle.scp.css",
+      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\289r32wx08-7boid7meu1.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001831501832"
+          "Quality": "0.000799360512"
         }
       ],
       "ResponseHeaders": [
@@ -34892,19 +34892,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "545"
+          "Value": "1250"
         },
         {
           "Name": "ETag",
-          "Value": "\"Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0=\""
+          "Value": "\"ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 10:02:01 GMT"
+          "Value": "Thu, 03 Apr 2025 09:00:50 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -34920,18 +34920,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY=\""
+          "Value": "W/\"bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "7boid7meu1"
+        },
+        {
+          "Name": "label",
+          "Value": "QuanLyDaoTao.bundle.scp.css"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY="
+          "Value": "sha256-bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE="
         }
       ]
     },
     {
-      "Route": "QuanLyDaoTao.bundle.scp.css",
+      "Route": "QuanLyDaoTao.7boid7meu1.bundle.scp.css",
       "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\QuanLyDaoTao.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -34941,7 +34949,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1130"
+          "Value": "4497"
         },
         {
           "Name": "Content-Type",
@@ -34949,121 +34957,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY=\""
+          "Value": "\"bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 10:02:01 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY="
-        }
-      ]
-    },
-    {
-      "Route": "QuanLyDaoTao.bundle.scp.css.gz",
-      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\289r32wx08-mq7a9lmh32.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "545"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 10:02:01 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0="
-        }
-      ]
-    },
-    {
-      "Route": "QuanLyDaoTao.mq7a9lmh32.bundle.scp.css",
-      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\289r32wx08-mq7a9lmh32.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001831501832"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "545"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 10:02:01 GMT"
+          "Value": "Thu, 03 Apr 2025 09:00:50 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "mq7a9lmh32"
+          "Value": "7boid7meu1"
         },
         {
           "Name": "label",
@@ -35071,13 +34979,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY="
+          "Value": "sha256-bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE="
         }
       ]
     },
     {
-      "Route": "QuanLyDaoTao.mq7a9lmh32.bundle.scp.css",
-      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\QuanLyDaoTao.bundle.scp.css",
+      "Route": "QuanLyDaoTao.7boid7meu1.bundle.scp.css.gz",
+      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\289r32wx08-7boid7meu1.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -35086,7 +34994,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1130"
+          "Value": "1250"
         },
         {
           "Name": "Content-Type",
@@ -35094,56 +35002,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY=\""
+          "Value": "\"ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 10:02:01 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "mq7a9lmh32"
-        },
-        {
-          "Name": "label",
-          "Value": "QuanLyDaoTao.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY="
-        }
-      ]
-    },
-    {
-      "Route": "QuanLyDaoTao.mq7a9lmh32.bundle.scp.css.gz",
-      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\289r32wx08-mq7a9lmh32.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "545"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 10:02:01 GMT"
+          "Value": "Thu, 03 Apr 2025 09:00:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35161,7 +35024,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "mq7a9lmh32"
+          "Value": "7boid7meu1"
         },
         {
           "Name": "label",
@@ -35169,18 +35032,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0="
+          "Value": "sha256-ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ="
         }
       ]
     },
     {
-      "Route": "QuanLyDaoTao.mq7a9lmh32.styles.css",
-      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\hg7yrnw2ud-mq7a9lmh32.gz",
+      "Route": "QuanLyDaoTao.7boid7meu1.styles.css",
+      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\hg7yrnw2ud-7boid7meu1.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001831501832"
+          "Quality": "0.000799360512"
         }
       ],
       "ResponseHeaders": [
@@ -35190,15 +35053,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "545"
+          "Value": "1250"
         },
         {
           "Name": "ETag",
-          "Value": "\"Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0=\""
+          "Value": "\"ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 10:02:01 GMT"
+          "Value": "Thu, 03 Apr 2025 09:00:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35218,13 +35081,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY=\""
+          "Value": "W/\"bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "mq7a9lmh32"
+          "Value": "7boid7meu1"
         },
         {
           "Name": "label",
@@ -35232,12 +35095,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY="
+          "Value": "sha256-bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE="
         }
       ]
     },
     {
-      "Route": "QuanLyDaoTao.mq7a9lmh32.styles.css",
+      "Route": "QuanLyDaoTao.7boid7meu1.styles.css",
       "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\scopedcss\\bundle\\QuanLyDaoTao.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -35247,7 +35110,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1130"
+          "Value": "4497"
         },
         {
           "Name": "Content-Type",
@@ -35255,11 +35118,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY=\""
+          "Value": "\"bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 10:02:01 GMT"
+          "Value": "Thu, 03 Apr 2025 09:00:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35269,7 +35132,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "mq7a9lmh32"
+          "Value": "7boid7meu1"
         },
         {
           "Name": "label",
@@ -35277,13 +35140,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY="
+          "Value": "sha256-bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE="
         }
       ]
     },
     {
-      "Route": "QuanLyDaoTao.mq7a9lmh32.styles.css.gz",
-      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\hg7yrnw2ud-mq7a9lmh32.gz",
+      "Route": "QuanLyDaoTao.7boid7meu1.styles.css.gz",
+      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\hg7yrnw2ud-7boid7meu1.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -35292,7 +35155,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "545"
+          "Value": "1250"
         },
         {
           "Name": "Content-Type",
@@ -35300,11 +35163,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0=\""
+          "Value": "\"ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 10:02:01 GMT"
+          "Value": "Thu, 03 Apr 2025 09:00:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35322,7 +35185,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "mq7a9lmh32"
+          "Value": "7boid7meu1"
         },
         {
           "Name": "label",
@@ -35330,18 +35193,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0="
+          "Value": "sha256-ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ="
         }
       ]
     },
     {
-      "Route": "QuanLyDaoTao.styles.css",
-      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\hg7yrnw2ud-mq7a9lmh32.gz",
+      "Route": "QuanLyDaoTao.bundle.scp.css",
+      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\289r32wx08-7boid7meu1.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001831501832"
+          "Quality": "0.000799360512"
         }
       ],
       "ResponseHeaders": [
@@ -35351,15 +35214,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "545"
+          "Value": "1250"
         },
         {
           "Name": "ETag",
-          "Value": "\"Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0=\""
+          "Value": "\"ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 10:02:01 GMT"
+          "Value": "Thu, 03 Apr 2025 09:00:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35379,13 +35242,150 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY=\""
+          "Value": "W/\"bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY="
+          "Value": "sha256-bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE="
+        }
+      ]
+    },
+    {
+      "Route": "QuanLyDaoTao.bundle.scp.css",
+      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\QuanLyDaoTao.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4497"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Apr 2025 09:00:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE="
+        }
+      ]
+    },
+    {
+      "Route": "QuanLyDaoTao.bundle.scp.css.gz",
+      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\289r32wx08-7boid7meu1.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1250"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Apr 2025 09:00:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ="
+        }
+      ]
+    },
+    {
+      "Route": "QuanLyDaoTao.styles.css",
+      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\hg7yrnw2ud-7boid7meu1.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000799360512"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1250"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Apr 2025 09:00:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE="
         }
       ]
     },
@@ -35400,7 +35400,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1130"
+          "Value": "4497"
         },
         {
           "Name": "Content-Type",
@@ -35408,11 +35408,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY=\""
+          "Value": "\"bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 10:02:01 GMT"
+          "Value": "Thu, 03 Apr 2025 09:00:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35422,13 +35422,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Uv3Z76N2+lGsGW85V+WoSS/eZarLc1Z2ILp9gMiHBzY="
+          "Value": "sha256-bStGAn/KbMiZlxM+WyNJpnufWFtF5+O0T5x+3y+Z0dE="
         }
       ]
     },
     {
       "Route": "QuanLyDaoTao.styles.css.gz",
-      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\hg7yrnw2ud-mq7a9lmh32.gz",
+      "AssetFile": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\Debug\\net9.0\\compressed\\hg7yrnw2ud-7boid7meu1.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -35437,7 +35437,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "545"
+          "Value": "1250"
         },
         {
           "Name": "Content-Type",
@@ -35445,11 +35445,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0=\""
+          "Value": "\"ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 23 Mar 2025 10:02:01 GMT"
+          "Value": "Thu, 03 Apr 2025 09:00:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -35467,7 +35467,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Qabu796tKmMrZTxwQWpbE8awpEPDxUKFyzdRG+3Ffp0="
+          "Value": "sha256-ux14lgE5pb+pK73ueHV5eOtFOXgXSvq8yi40+LquVqQ="
         }
       ]
     }

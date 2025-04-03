@@ -592,8 +592,6 @@ C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\compressed
 C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\compressed\9wkg4uhv3y-9vr69e8ynj.gz
 C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\compressed\6fmdcnpwej-87fc7y1x7t.gz
 C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\compressed\v3ri8ofzvc-mlv21k5csn.gz
-C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\compressed\hg7yrnw2ud-mq7a9lmh32.gz
-C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\compressed\289r32wx08-mq7a9lmh32.gz
 C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\staticwebassets.build.endpoints.json
@@ -609,3 +607,5 @@ C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\refint\Qua
 C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\QuanLyDaoTao.pdb
 C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\QuanLyDaoTao.genruntimeconfig.cache
 C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\ref\QuanLyDaoTao.dll
+C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\compressed\hg7yrnw2ud-7boid7meu1.gz
+C:\Users\Trananh\Downloads\QuanLyDaoTao\QuanLyDaoTao\obj\Debug\net9.0\compressed\289r32wx08-7boid7meu1.gz
