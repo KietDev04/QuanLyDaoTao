@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\QuanLyDaoTao.csproj": {}
+    "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\QuanLyDaoTao.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\QuanLyDaoTao.csproj": {
+    "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\QuanLyDaoTao.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\QuanLyDaoTao.csproj",
+        "projectUniqueName": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\QuanLyDaoTao.csproj",
         "projectName": "QuanLyDaoTao",
-        "projectPath": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\QuanLyDaoTao.csproj",
+        "projectPath": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\QuanLyDaoTao.csproj",
         "packagesPath": "C:\\Users\\Trananh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\obj\\",
+        "outputPath": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

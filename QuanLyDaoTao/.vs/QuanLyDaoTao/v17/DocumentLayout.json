@@ -1,38 +1,35 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\",
+  "WorkspaceRootPath": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|c:\\users\\trananh\\downloads\\quanlydaotao\\quanlydaotao\\views\\sinhvien\\indexsinhvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|solutionrelative:views\\sinhvien\\indexsinhvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\SinhVien\\IndexSinhVien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|c:\\users\\trananh\\downloads\\quanlydaotao\\quanlydaotao\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|c:\\users\\trananh\\downloads\\quanlydaotao1\\quanlydaotao\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|c:\\users\\trananh\\downloads\\quanlydaotao\\quanlydaotao\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|c:\\users\\trananh\\downloads\\quanlydaotao1\\quanlydaotao\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|c:\\users\\trananh\\downloads\\quanlydaotao\\quanlydaotao\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|c:\\users\\trananh\\downloads\\quanlydaotao1\\quanlydaotao\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|c:\\users\\trananh\\downloads\\quanlydaotao\\quanlydaotao\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|c:\\users\\trananh\\downloads\\quanlydaotao1\\quanlydaotao\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|c:\\users\\trananh\\downloads\\quanlydaotao\\quanlydaotao\\views\\admin\\indexadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|solutionrelative:views\\admin\\indexadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|c:\\users\\trananh\\downloads\\quanlydaotao\\quanlydaotao\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|c:\\users\\trananh\\downloads\\quanlydaotao1\\quanlydaotao\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|c:\\users\\trananh\\downloads\\quanlydaotao\\quanlydaotao\\migrations\\20250330075115_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95279EBB-0FE0-F6B6-C1CA-46745A8DDC09}|QuanLyDaoTao.csproj|solutionrelative:migrations\\20250330075115_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\Admin\\IndexAdmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Migrations\\20250330075115_Initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -49,21 +46,19 @@
               "DocumentIndex": 0,
               "Title": "IndexSinhVien.cshtml",
               "DocumentMoniker": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\SinhVien\\IndexSinhVien.cshtml",
-              "RelativeDocumentMoniker": "Views\\SinhVien\\IndexSinhVien.cshtml",
+              "RelativeDocumentMoniker": "..\\..\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\SinhVien\\IndexSinhVien.cshtml",
               "ToolTip": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\SinhVien\\IndexSinhVien.cshtml",
-              "RelativeToolTip": "Views\\SinhVien\\IndexSinhVien.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB8AAAAmAAAAAAAAAA==",
+              "RelativeToolTip": "..\\..\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\SinhVien\\IndexSinhVien.cshtml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-30T07:57:56.944Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T07:57:56.944Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAN4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -73,9 +68,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -83,12 +78,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "IndexAdmin.cshtml",
               "DocumentMoniker": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\Admin\\IndexAdmin.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\IndexAdmin.cshtml",
+              "RelativeDocumentMoniker": "..\\..\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\Admin\\IndexAdmin.cshtml",
               "ToolTip": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\Admin\\IndexAdmin.cshtml",
-              "RelativeToolTip": "Views\\Admin\\IndexAdmin.cshtml",
+              "RelativeToolTip": "..\\..\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\Admin\\IndexAdmin.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-30T07:55:51.588Z"
@@ -98,20 +93,20 @@
               "DocumentIndex": 7,
               "Title": "20250330075115_Initial.cs",
               "DocumentMoniker": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Migrations\\20250330075115_Initial.cs",
-              "RelativeDocumentMoniker": "Migrations\\20250330075115_Initial.cs",
+              "RelativeDocumentMoniker": "..\\..\\QuanLyDaoTao\\QuanLyDaoTao\\Migrations\\20250330075115_Initial.cs",
               "ToolTip": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Migrations\\20250330075115_Initial.cs",
-              "RelativeToolTip": "Migrations\\20250330075115_Initial.cs",
+              "RelativeToolTip": "..\\..\\QuanLyDaoTao\\QuanLyDaoTao\\Migrations\\20250330075115_Initial.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T07:51:15.291Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\appsettings.json",
+              "ToolTip": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -121,9 +116,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\Account\\Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "Views\\Account\\Login.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -133,9 +128,9 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Controllers\\AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao\\QuanLyDaoTao\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Trananh\\Downloads\\QuanLyDaoTao1\\QuanLyDaoTao\\Controllers\\AdminController.cs",
               "RelativeToolTip": "Controllers\\AdminController.cs",
               "ViewState": "AgIAAC4DAAAAAAAAAAAwwFgFAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

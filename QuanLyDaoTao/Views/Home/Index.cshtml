@@ -1,5 +1,5 @@
 @using Microsoft.AspNetCore.Identity
-@using QuanLyDaoTao.Controllers
+@using QuanLyDaoTaoWeb.Controllers
 @using QuanLyDaoTaoWeb.Models
 @inject SignInManager<ApplicationUser> signInManager
 @inject UserManager<ApplicationUser> userManager
@@ -9,8 +9,6 @@
 
 <div class="home-container">
     <header class="home-header">
-        <h1>Chào mừng đến với Khoa Công Nghệ Thông Tin</h1>
-        <p>Hệ thống Quản Lý Đào Tạo</p>
         <link rel="stylesheet" href="~/css/Index.css">
     </header>
 
@@ -24,59 +22,128 @@
                                   "fa-user-graduate")"></i>
                 </div>
                 <h2>Xin chào, @User.Identity.Name!</h2>
-                <p>@(User.IsInRole("Admin") ? "Quản trị viên" : 
-                     User.IsInRole("GiangVien") ? "Giảng viên" : 
-                     "Sinh viên")</p>
+                <p>@(User.IsInRole("Admin") ? "Quản trị viên" :  User.IsInRole("GiangVien") ? "Giảng viên" : "Sinh viên")</p>
+                
+                @if (User.IsInRole("GiangVien") && ViewBag.GiangVien != null)
+                {
+                    var giangVien = ViewBag.GiangVien;
+                    <div class="user-details">
+                        <p><strong>Mã giảng viên:</strong> @giangVien.MaGV</p>
+                        <p><strong>Họ tên:</strong> @giangVien.HoTen</p>
+                        <p><strong>Khoa:</strong> @giangVien.Khoa?.TenKhoa</p>
+                        <p><strong>Số lớp đang giảng dạy:</strong> @ViewBag.LopHocCount</p>
+                    </div>
+                }
+                
+                @if (User.IsInRole("SinhVien") && ViewBag.SinhVien != null)
+                {
+                    var sinhVien = ViewBag.SinhVien;
+                    <div class="user-details">
+                        <p><strong>Mã sinh viên:</strong> @sinhVien.MaSV</p>
+                        <p><strong>Họ tên:</strong> @sinhVien.HoTen</p>
+                        <p><strong>Khoa:</strong> @sinhVien.Khoa?.TenKhoa</p>
+                        <p><strong>Số lớp đã đăng ký:</strong> @ViewBag.LopHocCount</p>
+                    </div>
+                }
             </div>
-
+            
             <nav class="feature-grid">
                 @if (User.IsInRole("Admin"))
                 {
-                    <a asp-action="KhoaIndex" asp-controller="Admin" class="feature-card">
+                    <a asp-controller="ChuongTrinhDaoTao" asp-action="Index" class="feature-card">
+                        <i class="fas fa-university"></i>
+                        <h3>Quản Lý Chương Trình Đào Tạo</h3>
+                    </a>
+                    <a asp-controller="Khoa" asp-action="Index" class="feature-card">
                         <i class="fas fa-university"></i>
                         <h3>Quản Lý Khoa</h3>
                     </a>
-                    <a asp-action="SinhVienIndex" asp-controller="Admin" class="feature-card">
+                    <a asp-controller="SinhVien" asp-action="Index" class="feature-card">
                         <i class="fas fa-user-graduate"></i>
                         <h3>Quản Lý Sinh Viên</h3>
                     </a>
-                    <a asp-action="GiangVienIndex" asp-controller="Admin" class="feature-card">
-                        <i class="fas fa-chalkboard-teacher"></i>
+                    <a asp-controller="GiangVien" asp-action="Index" class="feature-card">
+                        <i class="fa fa-user" aria-hidden="true"></i>
                         <h3>Quản Lý Giảng Viên</h3>
                     </a>
-                    <a asp-action="MonHocIndex" asp-controller="Admin" class="feature-card">
+                    
+                    <a asp-controller="LopHoc" asp-action="Index" class="feature-card">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <h3>Quản Lý Lớp Học</h3>
+                    </a>
+                    <a asp-controller="MonHoc" asp-action="Index" class="feature-card">
                         <i class="fas fa-book"></i>
                         <h3>Quản Lý Môn Học</h3>
+                    </a>
+                    <a asp-controller="BaiGiang" asp-action="Index" class="feature-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Quản Lý Bài Giảng</h3>
+                    </a>
+                    <a asp-controller="TaiLieu" asp-action="Index" class="feature-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Quản Lý Tài Liệu</h3>
+                    </a>
+                    <a asp-controller="DeCuong" asp-action="Index" class="feature-card">
+                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                        <h3>Quản Lý Đề Cương</h3>
+                    </a>
+                    <a asp-controller="DanhGia" asp-action="Index" class="feature-card">
+                        <i class="fas fa-star"></i>
+                        <h3>Quản Lý Đánh Giá</h3>
+                    </a>
+                    <a asp-controller="Admin" asp-action="ApproveGiangVien" class="feature-card">
+                        <i class="fas fa-user-check"></i> 
+                        <h3>Phê duyệt tài khoản Giảng viên</h3>
+                    </a>
+                    <a asp-controller="PhanCongGiangDay" asp-action="Index" class="feature-card">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Phân Công Giảng Dạy</h3>
                     </a>
                 }
                 @if (User.IsInRole("GiangVien"))
                 {
-                    <a asp-action="BaiGiangIndex" asp-controller="GiangVien" class="feature-card">
+                    <a asp-controller="BaiGiang" asp-action="Index" class="feature-card">
                         <i class="fas fa-book"></i>
                         <h3>Quản Lý Bài Giảng</h3>
                     </a>
-                    <a asp-action="DeCuongIndex" asp-controller="GiangVien" class="feature-card">
+                    <a asp-controller="DeCuong" asp-action="Index" class="feature-card">
                         <i class="fas fa-file-alt"></i>
                         <h3>Quản Lý Đề Cương</h3>
                     </a>
-                    <a asp-action="LopHocIndex" asp-controller="GiangVien" class="feature-card">
+                    <a asp-controller="LopHoc" asp-action="Index" class="feature-card">
                         <i class="fas fa-users"></i>
                         <h3>Lớp Học</h3>
+                    </a>
+                    <a asp-controller="PhanCongGiangDay" asp-action="Index" class="feature-card">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Phân Công Giảng Dạy</h3>
+                    </a>
+                    <a asp-controller="TaiLieu" asp-action="Index" class="feature-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Quản Lý Tài Liệu</h3>
                     </a>
                 }
                 @if (User.IsInRole("SinhVien"))
                 {
-                    <a asp-action="DangKyLopHocIndex" asp-controller="SinhVien" class="feature-card">
+                    <a asp-controller="DangKyLopHoc" asp-action="Index" class="feature-card">
                         <i class="fas fa-edit"></i>
                         <h3>Đăng Ký Lớp Học</h3>
                     </a>
-                    <a asp-action="TaiLieuIndex" asp-controller="SinhVien" class="feature-card">
+                    <a asp-controller="TaiLieu" asp-action="Index" class="feature-card">
                         <i class="fas fa-book-open"></i>
                         <h3>Tài Liệu Học Tập</h3>
                     </a>
-                    <a asp-action="DanhGiaIndex" asp-controller="SinhVien" class="feature-card">
+                    <a asp-controller="DanhGia" asp-action="Index" class="feature-card">
                         <i class="fas fa-star"></i>
                         <h3>Đánh Giá</h3>
+                    </a>
+                    <a asp-controller="BaiGiang" asp-action="Index" class="feature-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Bài Giảng</h3>
+                    </a>
+                    <a asp-controller="DeCuong" asp-action="Index" class="feature-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Đề Cương</h3>
                     </a>
                 }
             </nav>
@@ -92,127 +159,4 @@
     </main>
 </div>
 
-@* {<style>
-    .home-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
 
-    .home-header {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-
-    .home-header h1 {
-        color: #2c3e50;
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .home-header p {
-        color: #7f8c8d;
-        font-size: 1.2rem;
-    }
-
-    .dashboard {
-        background: #f8f9fa;
-        border-radius: 1rem;
-        padding: 2rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .user-info {
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    .avatar {
-        width: 80px;
-        height: 80px;
-        background: #3498db;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1rem;
-    }
-
-    .avatar i {
-        font-size: 2rem;
-        color: white;
-    }
-
-    .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    .feature-card {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 0.5rem;
-        text-align: center;
-        text-decoration: none;
-        color: #2c3e50;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .feature-card i {
-        font-size: 2rem;
-        color: #3498db;
-        margin-bottom: 1rem;
-    }
-
-    .feature-card h3 {
-        font-size: 1.2rem;
-        margin: 0;
-    }
-
-    .login-prompt {
-        text-align: center;
-        padding: 3rem;
-    }
-
-    .login-prompt i {
-        font-size: 3rem;
-        color: #95a5a6;
-        margin-bottom: 1rem;
-    }
-
-    .login-button {
-        display: inline-block;
-        background: #3498db;
-        color: white;
-        padding: 0.8rem 2rem;
-        border-radius: 2rem;
-        text-decoration: none;
-        margin-top: 1rem;
-        transition: background 0.3s ease;
-    }
-
-    .login-button:hover {
-        background: #2980b9;
-    }
-
-    @* @media (max-width: 768px) {
-        .home-container {
-            padding: 1rem;
-        }
-
-        .home-header h1 {
-            font-size: 2rem;
-        }
-
-        .feature-grid {
-            grid-template-columns: 1fr;
-        }
-    } 
-</style> }*@

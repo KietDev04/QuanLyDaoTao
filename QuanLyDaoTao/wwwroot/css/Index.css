@@ -6,36 +6,35 @@
 
 .home-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .home-header h1 {
     color: #2c3e50;
+    text-shadow: 1px 1px 2px #ffffff;
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
-.home-header p {
-    color: #7f8c8d;
-    font-size: 1.2rem;
-}
-
 .dashboard {
-    background: #f8f9fa;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .user-info {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
     text-align: center;
     margin-bottom: 2rem;
 }
 
 .avatar {
-    width: 80px;
-    height: 80px;
-    background: #3498db;
+    width: 100px;
+    height: 100px;
+    background-color: #f0f0f0;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -44,79 +43,118 @@
 }
 
 .avatar i {
-    font-size: 2rem;
-    color: white;
+    font-size: 3rem;
+    color: #007bff;
+}
+
+.user-info h2 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.user-info p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.user-details {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.user-details p {
+    margin-bottom: 0.5rem;
+    color: #555;
 }
 
 .feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
-    margin-top: 2rem;
 }
 
 .feature-card {
-    background: white;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
-    border-radius: 0.5rem;
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
     text-decoration: none;
-    color: #2c3e50;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #007bff;
 }
 
 .feature-card i {
-    font-size: 2rem;
-    color: #3498db;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: #007bff;
 }
 
 .feature-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin: 0;
 }
 
 .login-prompt {
-    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 3rem;
+    text-align: center;
 }
 
 .login-prompt i {
     font-size: 3rem;
-    color: #95a5a6;
+    color: #007bff;
     margin-bottom: 1rem;
+}
+
+.login-prompt p {
+    margin-bottom: 1.5rem;
+    color: #666;
 }
 
 .login-button {
     display: inline-block;
-    background: #3498db;
-    color: white;
-    padding: 0.8rem 2rem;
-    border-radius: 2rem;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
     text-decoration: none;
-    margin-top: 1rem;
-    transition: background 0.3s ease;
+    font-weight: 500;
+    transition: background-color 0.3s;
 }
 
 .login-button:hover {
-    background: #2980b9;
+    background-color: #0056b3;
+    color: #fff;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
     .home-container {
         padding: 1rem;
     }
-
-    .home-header h1 {
-        font-size: 2rem;
-    }
-
+    
     .feature-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .user-info {
+        padding: 1.5rem;
     }
 } 

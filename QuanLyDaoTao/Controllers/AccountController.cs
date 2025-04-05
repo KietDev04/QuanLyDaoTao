@@ -4,6 +4,7 @@ using QuanLyDaoTao.Models;
 using QuanLyDaoTaoWeb.Models;
 using System.Threading.Tasks;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
@@ -53,9 +54,11 @@ namespace QuanLyDaoTaoWeb.Controllers
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         if (model.Role == "SinhVien")
-                            return RedirectToAction("IndexSinhVien", "SinhVien");
+                            return RedirectToAction("Index", "SinhVien");
                         else if (model.Role == "GiangVien")
-                            return RedirectToAction("IndexGiangVien", "GiangVien");
+                            return RedirectToAction("Index", "GiangVien");
+                        else if (model.Role == "Admin")
+                            return RedirectToAction("Index", "Admin");
                     }
                     else
                     {
@@ -102,27 +105,7 @@ namespace QuanLyDaoTaoWeb.Controllers
 
                 if (result.Succeeded)
                 {
-                    if (user != null) // Kiểm tra null để tránh cảnh báo
-                    {
-                        var roles = await _userManager.GetRolesAsync(user);
-                        if (roles.Any())
-                        {
-                            await _signInManager.SignInAsync(user, model.RememberMe);
-                        }
-
-                        if (await _userManager.IsInRoleAsync(user, "Admin"))
-                        {
-                            return RedirectToAction("IndexAdmin", "Admin");
-                        }
-                        else if (await _userManager.IsInRoleAsync(user, "GiangVien"))
-                        {
-                            return RedirectToAction("IndexGiangVien", "GiangVien");
-                        }
-                        else if (await _userManager.IsInRoleAsync(user, "SinhVien"))
-                        {
-                            return RedirectToAction("IndexSinhVien", "SinhVien");
-                        }
-                    }
+                    
                     return RedirectToAction("Index", "Home");
                 }
 
@@ -137,6 +120,14 @@ namespace QuanLyDaoTaoWeb.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AccessDenied(string returnUrl = null)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
         }
 
         [HttpGet]

@@ -3,224 +3,195 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using QuanLyDaoTaoWeb.Models;
+using Microsoft.AspNetCore.Identity;
+using System.Linq;
+using System.Security.Claims;
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
-    [Authorize(Roles = "GiangVien")]
-    public class GiangVienController : Controller
+    [Authorize(Roles = "Admin,GiangVien")]
+    public class GiangVienController : AdminController
     {
-        private readonly ApplicationDbContext _context;
-
-        public GiangVienController(ApplicationDbContext context)
+        public GiangVienController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+            : base(context, userManager)
         {
-            _context = context;
         }
 
-        public IActionResult IndexGiangVien()
+        public async Task<IActionResult> Index()
         {
+            var user = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
+
+            if (isAdmin)
+            {
+                var giangVienList = _context.GiangVien
+                    .Include(g => g.Khoa)
+                    .Include(g => g.PhanCongGiangDays)
+                    .ToList();
+                return View(giangVienList);
+            }
+            else
+            {
+                var giangVien = _context.GiangVien
+                    .Include(g => g.Khoa)
+                    .Include(g => g.PhanCongGiangDays)
+                    .FirstOrDefault(g => g.Email == user.Email);
+                if (giangVien == null) return NotFound();
+                return View("Details", giangVien);
+            }
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Create()
+        {
+            ViewBag.KhoaList = new SelectList(_context.Khoa, "MaKhoa", "TenKhoa");
             return View();
         }
 
-        // Xem Khoa
-        public IActionResult KhoaIndex()
-        {
-            var khoaList = _context.Khoa.ToList();
-            if (khoaList == null)
-            {
-                return Content("Khoa list is null");
-            }
-            return View("Khoa/Index", khoaList);
-        }
-
-        // Xem danh sách BaiGiang
-        public IActionResult BaiGiangIndex()
-        {
-            var baiGiangList = _context.BaiGiang
-            .Include(bg => bg.MonHoc) // Lấy thông tin môn học
-            .ToList();
-            return View("BaiGiang/Index", baiGiangList);
-        }
-
-        // Xem danh sách môn học
-        public IActionResult MonHocIndex()
-        {
-            var monHocList = _context.MonHoc
-            .Include(m => m.Khoa) // Lấy thông tin khoa
-            .ToList();
-            return View("MonHoc/Index", monHocList);
-        }
-
-        // Xem danh sách DanhGia
-        public IActionResult DanhGiaIndex()
-        {
-            var danhGiaList = _context.DanhGia
-            .Include(d => d.SinhVien) // Lấy thông tin sinh viên
-            .Include(d => d.MonHoc) // Lấy thông tin môn học
-            .ToList();
-            return View("DanhGia/Index", danhGiaList);
-        }
-
-        // Thêm DanhGia
-        public IActionResult CreateDanhGia()
-        {   
-            ViewBag.SinhVienList = new SelectList(_context.SinhVien, "MaSV", "HoTen");
-            ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH");
-            return View("DanhGia/Create");
-        }
-
         [HttpPost]
-        public async Task<IActionResult> CreateDanhGia(DanhGia danhGia)
-        {   
-            if (_context.DanhGia.Any(d => d.MaDG == danhGia.MaDG))
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Create(GiangVien giangVien)
+        {
+            if (_context.GiangVien.Any(g => g.MaGV == giangVien.MaGV))
             {
-                ModelState.AddModelError("MaDG", "Mã đánh giá này đã tồn tại");
-                return View("DanhGia/Create", danhGia);
+                ModelState.AddModelError("MaGV", "Mã giảng viên này đã tồn tại");
+                return View(giangVien);
             }
+
+            if (_context.GiangVien.Any(g => g.Email == giangVien.Email))
+            {
+                ModelState.AddModelError("Email", "Email này đã được sử dụng");
+                return View(giangVien);
+            }
+
             try
             {
-                _context.DanhGia.Add(danhGia);
-                _context.SaveChanges();
-                return RedirectToAction("DanhGiaIndex");
+                _context.GiangVien.Add(giangVien);
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Thêm mới giảng viên thành công!";
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", "Có lỗi xảy ra khi lưu dữ liệu: " + ex.Message);
             }
-            ViewBag.SinhVienList = new SelectList(_context.SinhVien, "MaSV", "HoTen", danhGia.MaSV);
-            ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH", danhGia.MaMH);
-            return View("DanhGia/Create", danhGia);
+
+            ViewBag.KhoaList = new SelectList(_context.Khoa, "MaKhoa", "TenKhoa");
+            return View(giangVien);
         }
 
-        // Sửa DanhGia
-        public IActionResult EditDanhGia(string id)
+        public async Task<IActionResult> Edit(string id)
         {
-            var danhGia = _context.DanhGia
-                .Include(d => d.SinhVien)
-                .Include(d => d.MonHoc)
-                .FirstOrDefault(d => d.MaDG == id);
+            var user = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
 
-            if (danhGia == null) return NotFound();
+            var giangVien = _context.GiangVien
+                .Include(g => g.Khoa)
+                .Include(g => g.PhanCongGiangDays)
+                .FirstOrDefault(g => g.MaGV == id);
 
-            ViewBag.SinhVienList = new SelectList(_context.SinhVien, "MaSV", "HoTen", danhGia.MaSV);
-            ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH", danhGia.MaMH);
-            return View("DanhGia/Edit", danhGia);
+            if (giangVien == null) return NotFound();
+
+            // Nếu không phải admin, chỉ cho phép sửa thông tin của chính mình
+            if (!isAdmin && giangVien.Email != user.Email)
+            {
+                return Forbid();
+            }
+
+            ViewBag.KhoaList = new SelectList(_context.Khoa, "MaKhoa", "TenKhoa", giangVien.MaKhoa);
+            return View(giangVien);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditDanhGia([Bind("MaDG,MaSV,MaMH,DiemDanhGia,NhanXet,NgayDanhGia")] DanhGia danhGia)
+        public async Task<IActionResult> Edit(string id, [Bind("MaGV,MaKhoa,HoTen,Email,NgayNhanViec")] GiangVien giangVien)
         {
-            // Xóa các lỗi validation liên quan đến navigation properties
-            ModelState.Remove("SinhVien");
-            ModelState.Remove("MonHoc");
+            var user = await _userManager.GetUserAsync(User);
+            var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
 
-            // Kiểm tra xem MaSV có tồn tại trong bảng SinhVien không
-            if (!string.IsNullOrEmpty(danhGia.MaSV) && !_context.SinhVien.Any(sv => sv.MaSV == danhGia.MaSV))
+            if (id != giangVien.MaGV)
             {
-                ModelState.AddModelError("MaSV", "Mã sinh viên không tồn tại.");
+                return NotFound();
             }
 
-            // Kiểm tra xem MaMH có tồn tại trong bảng MonHoc không
-            if (!string.IsNullOrEmpty(danhGia.MaMH) && !_context.MonHoc.Any(mh => mh.MaMH == danhGia.MaMH))
+            // Nếu không phải admin, chỉ cho phép sửa thông tin của chính mình
+            if (!isAdmin)
             {
-                ModelState.AddModelError("MaMH", "Mã môn học không tồn tại.");
+                var existingGiangVien = await _context.GiangVien.FindAsync(id);
+                if (existingGiangVien == null || existingGiangVien.Email != user.Email)
+                {
+                    return Forbid();
+                }
             }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    // Load đánh giá từ cơ sở dữ liệu, bao gồm navigation properties
-                    var existingDanhGia = await _context.DanhGia
-                        .Include(dg => dg.SinhVien)
-                        .Include(dg => dg.MonHoc)
-                        .FirstOrDefaultAsync(dg => dg.MaDG == danhGia.MaDG);
-
-                    if (existingDanhGia == null)
+                    var existingGiangVien = await _context.GiangVien.FindAsync(id);
+                    if (existingGiangVien.Email != giangVien.Email && 
+                        _context.GiangVien.Any(g => g.Email == giangVien.Email))
                     {
-                        ModelState.AddModelError("", $"Không tìm thấy đánh giá với MaDG = {danhGia.MaDG}");
-                        ViewBag.SinhVienList = new SelectList(_context.SinhVien, "MaSV", "HoTen", danhGia.MaSV);
-                        ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH", danhGia.MaMH);
-                        return View("DanhGia/Edit", danhGia);
+                        ModelState.AddModelError("Email", "Email này đã được sử dụng bởi giảng viên khác");
+                        ViewBag.KhoaList = new SelectList(_context.Khoa, "MaKhoa", "TenKhoa", giangVien.MaKhoa);
+                        return View(giangVien);
                     }
 
-                    // Cập nhật các trường cần thiết
-                    existingDanhGia.MaSV = danhGia.MaSV;
-                    existingDanhGia.MaMH = danhGia.MaMH;
-                    existingDanhGia.DiemDanhGia = danhGia.DiemDanhGia;
-                    existingDanhGia.NhanXet = danhGia.NhanXet;
-                    existingDanhGia.NgayDanhGia = danhGia.NgayDanhGia;
-
-                    // Không cần cập nhật navigation properties (SinhVien, MonHoc) vì chúng đã được load từ cơ sở dữ liệu
-
-                    _context.Entry(existingDanhGia).State = EntityState.Modified;
+                    _context.Update(giangVien);
                     await _context.SaveChangesAsync();
-                    TempData["Success"] = "Cập nhật đánh giá thành công!";
-                    return RedirectToAction("DanhGiaIndex");
+                    TempData["Success"] = "Cập nhật thông tin giảng viên thành công!";
+                    return RedirectToAction(nameof(Index));
                 }
-                catch (Exception ex)
+                catch (DbUpdateConcurrencyException)
                 {
-                    Console.WriteLine(ex.Message);
-                    ModelState.AddModelError("", "Có lỗi xảy ra khi lưu dữ liệu: " + ex.Message);
+                    if (!GiangVienExists(giangVien.MaGV))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
             }
-            else
+
+            ViewBag.KhoaList = new SelectList(_context.Khoa, "MaKhoa", "TenKhoa", giangVien.MaKhoa);
+            return View(giangVien);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var giangVien = await _context.GiangVien
+                .Include(g => g.PhanCongGiangDays)
+                .FirstOrDefaultAsync(g => g.MaGV == id);
+                
+            if (giangVien == null)
             {
-                // Ghi log để debug lỗi validation
-                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-                {
-                    Console.WriteLine(error.ErrorMessage);
-                    ModelState.AddModelError("", error.ErrorMessage); // Thêm lỗi vào ModelState để hiển thị trên giao diện
-                }
+                return NotFound();
             }
 
-            // Nếu có lỗi, trả lại view với danh sách sinh viên và môn học
-            ViewBag.SinhVienList = new SelectList(_context.SinhVien, "MaSV", "HoTen", danhGia.MaSV);
-            ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH", danhGia.MaMH);
-            return View("DanhGia/Edit", danhGia);
+            if (giangVien.PhanCongGiangDays.Any())
+            {
+                TempData["Error"] = "Không thể xóa giảng viên này vì đã có phân công giảng dạy!";
+                return RedirectToAction(nameof(Index));
+            }
+
+            // Xóa tài khoản user tương ứng
+            var user = await _userManager.FindByEmailAsync(giangVien.Email);
+            if (user != null)
+            {
+                await _userManager.DeleteAsync(user);
+            }
+
+            _context.GiangVien.Remove(giangVien);
+            await _context.SaveChangesAsync();
+            TempData["Success"] = "Xóa giảng viên thành công!";
+            return RedirectToAction(nameof(Index));
         }
 
-        // Xem danh sách ChuongTrinhDaoTao
-        public IActionResult ChuongTrinhDaoTaoIndex()
+        private bool GiangVienExists(string id)
         {
-            var chuongTrinhDaoTaoList = _context.ChuongTrinhDaoTao
-            .Include(ct => ct.Khoa) // Lấy thông tin Khoa
-            .ToList();
-            return View("ChuongTrinhDaoTao/Index", chuongTrinhDaoTaoList);
-        }
-
-        // Xem danh sách PhanCongGiangDay
-        public IActionResult PhanCongGiangDayIndex()
-        {
-            var phanCongGiangDayList = _context.PhanCongGiangDay.ToList();
-            return View("PhanCongGiangDay/Index", phanCongGiangDayList);
-        }
-
-        // Xem danh sách LopHoc
-        public IActionResult LopHocIndex()
-        {
-            var lopHocList = _context.LopHoc
-            .Include(l => l.ChuongTrinhDaoTao) // Include ChuongTrinhDaoTao
-            .Include(l => l.DangKyLopHocs) // Include DangKyLopHocs
-            .ToList();
-            return View("LopHoc/Index", lopHocList);
-        }
-
-        // Xem danh sách DeCuong
-        public IActionResult DeCuongIndex()
-        {
-            var deCuongList = _context.DeCuong
-            .Include(d => d.MonHoc) // Lấy thông tin môn học
-            .ToList();
-            return View("DeCuong/Index", deCuongList);
-        }
-
-        // Xem danh sách TaiLieu
-        public IActionResult TaiLieuIndex()
-        {
-            var taiLieuList = _context.TaiLieu
-            .Include(t => t.BaiGiang) // Lấy thông tin bài giảng
-            .ToList();
-            return View("TaiLieu/Index", taiLieuList);
+            return _context.GiangVien.Any(e => e.MaGV == id);
         }
     }
 }
