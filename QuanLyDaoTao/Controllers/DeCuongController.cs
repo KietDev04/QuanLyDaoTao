@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,GiangVien")]
     public class DeCuongController : AdminController
     {
         public DeCuongController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
@@ -16,7 +16,7 @@ namespace QuanLyDaoTaoWeb.Controllers
         {
         }
 
-        public IActionResult DeCuongIndex()
+        public IActionResult Index()
         {
             var deCuongList = _context.DeCuong
                 .Include(d => d.MonHoc)
@@ -24,14 +24,14 @@ namespace QuanLyDaoTaoWeb.Controllers
             return View("~/Views/Shared/DeCuong/Index.cshtml", deCuongList);
         }
 
-        public IActionResult CreateDeCuong()
+        public IActionResult Create()
         {
             ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH");
             return View("~/Views/Shared/DeCuong/Create.cshtml");
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateDeCuong(DeCuong deCuong)
+        public async Task<IActionResult> Create(DeCuong deCuong)
         {
             if (_context.DeCuong.Any(d => d.MaDC == deCuong.MaDC))
             {
@@ -68,7 +68,7 @@ namespace QuanLyDaoTaoWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditDeCuong([Bind("MaDC,MaMH,MoTa,MucTieu,NgayCapNhat")] DeCuong deCuong)
+        public async Task<IActionResult> Edit([Bind("MaDC,MaMH,MoTa,MucTieu,NgayCapNhat")] DeCuong deCuong)
         {
             ModelState.Remove("MonHoc");
 
@@ -112,7 +112,7 @@ namespace QuanLyDaoTaoWeb.Controllers
             return View("DeCuong/Edit", deCuong);
         }
 
-        public IActionResult DeleteDeCuong(string id)
+        public IActionResult Delete(string id)
         {
             var deCuong = _context.DeCuong.Find(id);
             if (deCuong == null) return NotFound();

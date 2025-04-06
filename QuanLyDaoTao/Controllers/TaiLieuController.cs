@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
-    [Authorize(Roles = "Admin,SinhVien")]
+    [Authorize(Roles = "Admin,GiangVien,SinhVien")]
     public class TaiLieuController : AdminController
     {
         public TaiLieuController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)

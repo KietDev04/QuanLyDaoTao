@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,GiangVien")]
     public class MonHocController : AdminController
     {
         public MonHocController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)

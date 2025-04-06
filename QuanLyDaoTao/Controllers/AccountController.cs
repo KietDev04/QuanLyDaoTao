@@ -1,9 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using QuanLyDaoTao.Models;
 using QuanLyDaoTaoWeb.Models;
-using System.Threading.Tasks;
-using System;
 using Microsoft.AspNetCore.Authorization;
 
 namespace QuanLyDaoTaoWeb.Controllers
@@ -36,14 +33,14 @@ namespace QuanLyDaoTaoWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser 
-                { 
-                    UserName = model.Email, 
-                    Email = model.Email, 
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
                     IsApproved = model.Role != "GiangVien",
                     CreatedDate = DateTime.Now
                 };
-                
+
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
@@ -105,7 +102,6 @@ namespace QuanLyDaoTaoWeb.Controllers
 
                 if (result.Succeeded)
                 {
-                    
                     return RedirectToAction("Index", "Home");
                 }
 

@@ -9,7 +9,7 @@ using System.Security.Claims;
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
-    [Authorize(Roles = "Admin,SinhVien")]
+    [Authorize(Roles = "Admin,GiangVien,SinhVien")]
     public class DanhGiaController : AdminController
     {
         public DanhGiaController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)

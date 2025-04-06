@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,GiangVien")]
     public class LopHocController : AdminController
     {
         public LopHocController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
