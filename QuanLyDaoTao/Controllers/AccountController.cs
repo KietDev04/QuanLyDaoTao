@@ -50,12 +50,8 @@ namespace QuanLyDaoTaoWeb.Controllers
                     if (model.Role != "GiangVien" || user.IsApproved)
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
-                        if (model.Role == "SinhVien")
-                            return RedirectToAction("Index", "SinhVien");
-                        else if (model.Role == "GiangVien")
-                            return RedirectToAction("Index", "GiangVien");
-                        else if (model.Role == "Admin")
-                            return RedirectToAction("Index", "Admin");
+                        
+                            return RedirectToAction("Index", "Home");
                     }
                     else
                     {
@@ -137,6 +133,11 @@ namespace QuanLyDaoTaoWeb.Controllers
         public async Task<IActionResult> AssignRole(string email, string role)
         {
             var user = await _userManager.FindByEmailAsync(email);
+            if (user != null)
+            {
+                ModelState.AddModelError(string.Empty, "Email này đã được sử dụng.");
+                return View();
+            }
             if (user == null)
             {
                 ViewBag.ErrorMessage = "Không tìm thấy người dùng với email này.";

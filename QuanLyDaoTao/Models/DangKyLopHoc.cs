@@ -9,12 +9,12 @@ namespace QuanLyDaoTaoWeb.Models
         [Required]
         [StringLength(10)]
         [Display(Name = "Mã sinh viên")]
-        public string MaSV { get; set; }
+        public required string MaSV { get; set; }
 
         [Required]
         [StringLength(10)]
         [Display(Name = "Mã lớp học")]
-        public string MaLopHoc { get; set; }
+        public required string MaLopHoc { get; set; }
 
         [Required]
         [Display(Name = "Ngày đăng ký")]
@@ -22,9 +22,9 @@ namespace QuanLyDaoTaoWeb.Models
         public DateTime NgayDangKy { get; set; } = DateTime.Now;
 
         [ForeignKey("MaSV")]
-        public virtual SinhVien SinhVien { get; set; }
+        public required virtual SinhVien SinhVien { get; set; }
 
         [ForeignKey("MaLopHoc")]
-        public virtual LopHoc LopHoc { get; set; }
+        public required virtual LopHoc LopHoc { get; set; }
     }
 }

@@ -1,15 +1,10 @@
 using System.Diagnostics;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using QuanLyDaoTao.Models;
 using QuanLyDaoTaoWeb.Models;
-using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
-using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
-
 namespace QuanLyDaoTaoWeb.Controllers;
-
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -29,7 +24,7 @@ public class HomeController : Controller
         {
             var user = await _userManager.GetUserAsync(User);
             var roles = await _userManager.GetRolesAsync(user);
-            
+
             if (roles.Contains("Admin"))
             {
                 // Không cần thêm dữ liệu cho admin
@@ -41,7 +36,7 @@ public class HomeController : Controller
                     .Include(g => g.PhanCongGiangDays)
                         .ThenInclude(p => p.LopHoc)
                     .FirstOrDefaultAsync(g => g.Email == user.Email);
-                
+
                 if (giangVien != null)
                 {
                     ViewBag.GiangVien = giangVien;
@@ -55,7 +50,7 @@ public class HomeController : Controller
                     .Include(s => s.DangKyLopHocs)
                         .ThenInclude(d => d.LopHoc)
                     .FirstOrDefaultAsync(s => s.Email == user.Email);
-                
+
                 if (sinhVien != null)
                 {
                     ViewBag.SinhVien = sinhVien;
@@ -63,7 +58,7 @@ public class HomeController : Controller
                 }
             }
         }
-        
+
         return View();
     }
 

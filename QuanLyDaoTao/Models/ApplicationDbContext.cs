@@ -11,18 +11,18 @@ namespace QuanLyDaoTaoWeb.Models
         {
         }
 
-        public DbSet<Khoa> Khoa { get; set; }
-        public DbSet<GiangVien> GiangVien { get; set; }
-        public DbSet<SinhVien> SinhVien { get; set; }
-        public DbSet<MonHoc> MonHoc { get; set; }
-        public DbSet<ChuongTrinhDaoTao> ChuongTrinhDaoTao { get; set; }
-        public DbSet<LopHoc> LopHoc { get; set; }
-        public DbSet<DangKyLopHoc> DangKyLopHoc { get; set; }
-        public DbSet<DeCuong> DeCuong { get; set; }
-        public DbSet<BaiGiang> BaiGiang { get; set; }
-        public DbSet<PhanCongGiangDay> PhanCongGiangDay { get; set; }
-        public DbSet<TaiLieu> TaiLieu { get; set; }
-        public DbSet<DanhGia> DanhGia { get; set; }
+        public required DbSet<Khoa> Khoa { get; set; }
+        public required DbSet<GiangVien> GiangVien { get; set; }
+        public required DbSet<SinhVien> SinhVien { get; set; }
+        public required DbSet<MonHoc> MonHoc { get; set; }
+        public required DbSet<ChuongTrinhDaoTao> ChuongTrinhDaoTao { get; set; }
+        public required DbSet<LopHoc> LopHoc { get; set; }
+        public required DbSet<DangKyLopHoc> DangKyLopHoc { get; set; }
+        public required DbSet<DeCuong> DeCuong { get; set; }
+        public required DbSet<BaiGiang> BaiGiang { get; set; }
+        public required DbSet<PhanCongGiangDay> PhanCongGiangDay { get; set; }
+        public required DbSet<TaiLieu> TaiLieu { get; set; }
+        public required DbSet<DanhGia> DanhGia { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -62,7 +62,7 @@ namespace QuanLyDaoTaoWeb.Models
                 entity.Property(e => e.Email).HasMaxLength(50);
                 entity.Property(e => e.MaKhoa).HasColumnType("nvarchar(10)").HasMaxLength(10);
                 entity.HasOne(sv => sv.Khoa)
-                      .WithMany(sv => sv.SinhViens) 
+                      .WithMany(sv => sv.SinhViens)
                       .HasForeignKey(sv => sv.MaKhoa);
             });
 
@@ -241,4 +241,4 @@ namespace QuanLyDaoTaoWeb.Models
             }
         }
     }
-}   
+}

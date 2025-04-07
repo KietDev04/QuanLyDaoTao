@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using QuanLyDaoTaoWeb.Models;
 using Microsoft.AspNetCore.Identity;
-using System.Linq;
-using System.Security.Claims;
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
@@ -45,7 +43,7 @@ namespace QuanLyDaoTaoWeb.Controllers
         }
 
         public async Task<IActionResult> Create()
-        {   
+        {
             var user = await _userManager.GetUserAsync(User);
             var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
 
@@ -66,7 +64,7 @@ namespace QuanLyDaoTaoWeb.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Create(DanhGia danhGia)
-        {   
+        {
             var user = await _userManager.GetUserAsync(User);
             var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
 

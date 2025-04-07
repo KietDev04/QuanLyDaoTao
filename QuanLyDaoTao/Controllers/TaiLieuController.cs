@@ -4,7 +4,7 @@ using QuanLyDaoTaoWeb.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Linq;
+
 
 namespace QuanLyDaoTaoWeb.Controllers
 {

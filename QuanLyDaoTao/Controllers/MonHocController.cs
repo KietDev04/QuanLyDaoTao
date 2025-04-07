@@ -4,7 +4,7 @@ using QuanLyDaoTaoWeb.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Linq;
+
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
@@ -16,7 +16,7 @@ namespace QuanLyDaoTaoWeb.Controllers
         {
         }
 
-        public new IActionResult Index()
+        public IActionResult Index()
         {
             var monHocList = _context.MonHoc
                 .Include(m => m.Khoa)

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/run/media/trananh28/FA6A8E886A8E40FD/Users/Trananh/Downloads/QuanLyDaoTao1/QuanLyDaoTao/QuanLyDaoTao.csproj": {}
+    "/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/QuanLyDaoTao.csproj": {}
   },
   "projects": {
-    "/run/media/trananh28/FA6A8E886A8E40FD/Users/Trananh/Downloads/QuanLyDaoTao1/QuanLyDaoTao/QuanLyDaoTao.csproj": {
+    "/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/QuanLyDaoTao.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/run/media/trananh28/FA6A8E886A8E40FD/Users/Trananh/Downloads/QuanLyDaoTao1/QuanLyDaoTao/QuanLyDaoTao.csproj",
+        "projectUniqueName": "/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/QuanLyDaoTao.csproj",
         "projectName": "QuanLyDaoTao",
-        "projectPath": "/run/media/trananh28/FA6A8E886A8E40FD/Users/Trananh/Downloads/QuanLyDaoTao1/QuanLyDaoTao/QuanLyDaoTao.csproj",
+        "projectPath": "/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/QuanLyDaoTao.csproj",
         "packagesPath": "/home/trananh28/.nuget/packages/",
-        "outputPath": "/run/media/trananh28/FA6A8E886A8E40FD/Users/Trananh/Downloads/QuanLyDaoTao1/QuanLyDaoTao/obj/",
+        "outputPath": "/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/trananh28/.nuget/NuGet/NuGet.Config"

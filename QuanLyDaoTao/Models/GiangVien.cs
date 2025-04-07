@@ -9,23 +9,23 @@ namespace QuanLyDaoTaoWeb.Models
         [Key]
         [StringLength(10)]
         [Display(Name = "Mã giảng viên")]
-        public string MaGV { get; set; }
+        public required string MaGV { get; set; }
 
         [Required]
         [StringLength(100)]
         [Display(Name = "Họ tên")]
-        public string HoTen { get; set; }
+        public required string HoTen { get; set; }
 
         [Required]
         [StringLength(50)]
         [EmailAddress]
         [Display(Name = "Email")]
-        public string Email { get; set; }
+        public required string Email { get; set; }
 
         [Required]
         [StringLength(10)]
         [Display(Name = "Mã khoa")]
-        public string MaKhoa { get; set; }
+        public required string MaKhoa { get; set; }
 
         [Required]
         [Display(Name = "Ngày nhận việc")]
@@ -33,8 +33,8 @@ namespace QuanLyDaoTaoWeb.Models
         public DateTime NgayNhanViec { get; set; }
 
         [ForeignKey("MaKhoa")]
-        public virtual Khoa Khoa { get; set; }
+        public required virtual Khoa Khoa { get; set; }
 
-        public virtual ICollection<PhanCongGiangDay> PhanCongGiangDays { get; set; }
+        public required virtual ICollection<PhanCongGiangDay> PhanCongGiangDays { get; set; }
     }
 }

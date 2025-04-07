@@ -1,23 +1,5 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\forms.css'))">
-      <SourceType>Package</SourceType>
-      <SourceId>QuanLyDaoTao</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QuanLyDaoTao</BasePath>
-      <RelativePath>css/forms.css</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>x1k5ix3ibh</Fingerprint>
-      <Integrity>xRq9ZvGIFZhVRlds42Ks+32YUJ5PCNwUS9UixXFmbKI=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\forms.css'))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Index.css'))">
       <SourceType>Package</SourceType>
       <SourceId>QuanLyDaoTao</SourceId>
@@ -30,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>a21dn83ip5</Fingerprint>
-      <Integrity>oo02q9MojFY3tnnXiPPvJ7/nlAztf3IRhdoWt/MWESY=</Integrity>
+      <Fingerprint>ww4y9ux1t7</Fingerprint>
+      <Integrity>oIH56Ak2Ns7o3pB04SSUAHJbymxc7lPHrNNihvnPdps=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Index.css'))</OriginalItemSpec>
@@ -48,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ktfpzw1rdk</Fingerprint>
-      <Integrity>qJB7jqvqYpKiFLI4OUT8z/j4YTgAZLgNWLwQBCPAzUk=</Integrity>
+      <Fingerprint>q7cx4y1jtk</Fingerprint>
+      <Integrity>Fthyze4YLqZguUpZZxAP1q9S/8Am5TB/lNStVNpqag8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\sharedIndex.css'))</OriginalItemSpec>
@@ -66,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>z6x1c4kjhe</Fingerprint>
-      <Integrity>tYWLrpTYhJvy5JgAEqkN1tLLAlEc1PQW9NzZRHZh+y4=</Integrity>
+      <Fingerprint>vhktvjadj5</Fingerprint>
+      <Integrity>A5igX1crtd1MQJRDZ2ZokAAdBvKiURGDiAnKHSMwh9o=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\_Layout.css'))</OriginalItemSpec>
@@ -120,8 +102,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>3r8b2a0bt1</Fingerprint>
-      <Integrity>8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=</Integrity>
+      <Fingerprint>nwn4ruiwvz</Fingerprint>
+      <Integrity>B6U4biY6IsJXzCAOb4Ur20zkSBcP5loBBmSttus3gCA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</OriginalItemSpec>

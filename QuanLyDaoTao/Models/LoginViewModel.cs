@@ -7,12 +7,12 @@ namespace QuanLyDaoTaoWeb.Models
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
-        public string Email { get; set; }
+        public required string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Mật khẩu")]
-        public string Password { get; set; }
+        public required string Password { get; set; }
 
         [Display(Name = "Ghi nhớ đăng nhập?")]
         public bool RememberMe { get; set; }

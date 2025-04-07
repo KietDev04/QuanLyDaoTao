@@ -4,8 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using QuanLyDaoTaoWeb.Models;
 using Microsoft.AspNetCore.Identity;
-using System.Linq;
-using System.Security.Claims;
+
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
@@ -20,6 +19,11 @@ namespace QuanLyDaoTaoWeb.Controllers
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                // Nếu không lấy được user (chưa đăng nhập hoặc token hỏng), trả về trang AccessDenied hoặc chuyển hướng
+                return RedirectToAction("AccessDenied", "Account");
+            }
             var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
 
             if (isAdmin)
@@ -128,7 +132,7 @@ namespace QuanLyDaoTaoWeb.Controllers
                 try
                 {
                     var existingGiangVien = await _context.GiangVien.FindAsync(id);
-                    if (existingGiangVien.Email != giangVien.Email && 
+                    if (existingGiangVien.Email != giangVien.Email &&
                         _context.GiangVien.Any(g => g.Email == giangVien.Email))
                     {
                         ModelState.AddModelError("Email", "Email này đã được sử dụng bởi giảng viên khác");
@@ -164,7 +168,7 @@ namespace QuanLyDaoTaoWeb.Controllers
             var giangVien = await _context.GiangVien
                 .Include(g => g.PhanCongGiangDays)
                 .FirstOrDefaultAsync(g => g.MaGV == id);
-                
+
             if (giangVien == null)
             {
                 return NotFound();

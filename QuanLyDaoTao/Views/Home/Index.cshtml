@@ -5,6 +5,7 @@
 @inject UserManager<ApplicationUser> userManager
 @{
     ViewData["Title"] = "Quản Lý Đào Tạo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="home-container">
@@ -17,13 +18,13 @@
         {
             <div class="user-info">
                 <div class="avatar">
-                    <i class="fas @(User.IsInRole("Admin") ? "fa-user-shield" : 
-                                  User.IsInRole("GiangVien") ? "fa-chalkboard-teacher" : 
+                    <i class="fas @(User.IsInRole("Admin") ? "fa-user-shield" :
+                                  User.IsInRole("GiangVien") ? "fa-chalkboard-teacher" :
                                   "fa-user-graduate")"></i>
                 </div>
                 <h2>Xin chào, @User.Identity.Name!</h2>
                 <p>@(User.IsInRole("Admin") ? "Quản trị viên" :  User.IsInRole("GiangVien") ? "Giảng viên" : "Sinh viên")</p>
-                
+
                 @if (User.IsInRole("GiangVien") && ViewBag.GiangVien != null)
                 {
                     var giangVien = ViewBag.GiangVien;
@@ -34,7 +35,7 @@
                         <p><strong>Số lớp đang giảng dạy:</strong> @ViewBag.LopHocCount</p>
                     </div>
                 }
-                
+
                 @if (User.IsInRole("SinhVien") && ViewBag.SinhVien != null)
                 {
                     var sinhVien = ViewBag.SinhVien;
@@ -46,7 +47,7 @@
                     </div>
                 }
             </div>
-            
+
             <nav class="feature-grid">
                 @if (User.IsInRole("Admin"))
                 {
@@ -66,7 +67,7 @@
                         <i class="fa fa-user" aria-hidden="true"></i>
                         <h3>Quản Lý Giảng Viên</h3>
                     </a>
-                    
+
                     <a asp-controller="LopHoc" asp-action="Index" class="feature-card">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
                         <h3>Quản Lý Lớp Học</h3>
@@ -92,7 +93,7 @@
                         <h3>Quản Lý Đánh Giá</h3>
                     </a>
                     <a asp-controller="Admin" asp-action="ApproveGiangVien" class="feature-card">
-                        <i class="fas fa-user-check"></i> 
+                        <i class="fas fa-user-check"></i>
                         <h3>Phê duyệt tài khoản Giảng viên</h3>
                     </a>
                     <a asp-controller="PhanCongGiangDay" asp-action="Index" class="feature-card">
@@ -158,5 +159,3 @@
         }
     </main>
 </div>
-
-

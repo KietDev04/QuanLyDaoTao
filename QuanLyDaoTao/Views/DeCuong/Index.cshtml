@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Quản Lý Đề Cương";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="page-container">
@@ -36,11 +37,11 @@
                         <td>@item.NgayCapNhat.ToString("dd/MM/yyyy")</td>
                         <td>
                             <div class="table-actions">
-                                <a asp-action="Edit" asp-route-id="@item.MaDC" 
+                                <a asp-action="Edit" asp-route-id="@item.MaDC"
                                    class="btn btn-secondary" title="Sửa">
                                     <i class="fas fa-edit"></i> Sửa
                                 </a>
-                                <a asp-action="Delete" asp-route-id="@item.MaDC" 
+                                <a asp-action="Delete" asp-route-id="@item.MaDC"
                                    class="btn btn-danger" title="Xóa">
                                     <i class="fas fa-trash"></i> Xóa
                                 </a>

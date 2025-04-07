@@ -8,22 +8,22 @@ namespace QuanLyDaoTaoWeb.Models
         [Key]
         [StringLength(10)]
         [Display(Name = "Mã phân công")]
-        public string MaPCGD { get; set; }
+        public required string MaPCGD { get; set; }
 
         [Required]
         [StringLength(10)]
         [Display(Name = "Mã giảng viên")]
-        public string MaGV { get; set; }
+        public required string MaGV { get; set; }
 
         [Required]
         [StringLength(10)]
         [Display(Name = "Mã môn học")]
-        public string MaMH { get; set; }
+        public required string MaMH { get; set; }
 
         [Required]
         [StringLength(10)]
         [Display(Name = "Mã lớp")]
-        public string MaLop { get; set; }
+        public required string MaLop { get; set; }
 
         [Required]
         [Range(1, 3)]
@@ -36,12 +36,12 @@ namespace QuanLyDaoTaoWeb.Models
         public int NamHoc { get; set; }
 
         [ForeignKey("MaGV")]
-        public virtual GiangVien GiangVien { get; set; }
+        public required virtual GiangVien GiangVien { get; set; }
 
         [ForeignKey("MaMH")]
-        public virtual MonHoc MonHoc { get; set; }
+        public required virtual MonHoc MonHoc { get; set; }
 
         [ForeignKey("MaLop")]
-        public virtual LopHoc LopHoc { get; set; }
+        public required virtual LopHoc LopHoc { get; set; }
     }
 }

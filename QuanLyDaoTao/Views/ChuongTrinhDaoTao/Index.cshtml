@@ -7,6 +7,7 @@
 
 @{
     ViewData["Title"] = "Danh Sách Chương Trình Đào Tạo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     var user = await userManager.GetUserAsync(User);
     bool isAdmin = User.IsInRole("Admin");
     bool isGiangVien = User.IsInRole("GiangVien");
@@ -55,13 +56,13 @@
                         </td>
                         <td>
                             <div class="table-actions">
-                                <a asp-action="Edit" asp-route-id="@item.MaCTDT" 
+                                <a asp-action="Edit" asp-route-id="@item.MaCTDT"
                                    class="btn btn-secondary" title="Sửa">
                                     <i class="fas fa-edit"></i> Sửa
                                 </a>
                                 @if (isAdmin)
                                 {
-                                <a asp-action="Delete" asp-route-id="@item.MaCTDT" 
+                                <a asp-action="Delete" asp-route-id="@item.MaCTDT"
                                    class="btn btn-danger" title="Xóa">
                                     <i class="fas fa-trash"></i> Xóa
                                 </a>

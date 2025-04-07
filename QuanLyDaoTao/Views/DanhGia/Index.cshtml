@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Quản Lý Đánh Giá";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="page-container">
@@ -40,11 +41,11 @@
                         <td>@item.NgayDanhGia.ToString("dd/MM/yyyy HH:mm")</td>
                         <td>
                             <div class="table-actions">
-                                <a asp-action="Edit" asp-route-id="@item.MaDG" 
+                                <a asp-action="Edit" asp-route-id="@item.MaDG"
                                    class="btn btn-secondary" title="Sửa">
                                     <i class="fas fa-edit"></i> Sửa
                                 </a>
-                                <a asp-action="Delete" asp-route-id="@item.MaDG" 
+                                <a asp-action="Delete" asp-route-id="@item.MaDG"
                                    class="btn btn-danger" title="Xóa">
                                     <i class="fas fa-trash"></i> Xóa
                                 </a>

@@ -4,8 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using QuanLyDaoTaoWeb.Models;
 using Microsoft.AspNetCore.Identity;
-using System.Linq;
-using System.Security.Claims;
+
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
@@ -131,7 +130,7 @@ namespace QuanLyDaoTaoWeb.Controllers
                 try
                 {
                     var existingSinhVien = await _context.SinhVien.FindAsync(id);
-                    if (existingSinhVien.Email != sinhVien.Email && 
+                    if (existingSinhVien.Email != sinhVien.Email &&
                         _context.SinhVien.Any(s => s.Email == sinhVien.Email))
                     {
                         ModelState.AddModelError("Email", "Email này đã được sử dụng bởi sinh viên khác");
@@ -168,7 +167,7 @@ namespace QuanLyDaoTaoWeb.Controllers
                 .Include(s => s.DangKyLopHocs)
                 .Include(s => s.DanhGias)
                 .FirstOrDefaultAsync(s => s.MaSV == id);
-                
+
             if (sinhVien == null)
             {
                 return NotFound();

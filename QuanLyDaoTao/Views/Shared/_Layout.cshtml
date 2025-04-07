@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="~/css/sharedIndex.css" asp-append-version="true" />
-   
+
     @await RenderSectionAsync("Styles", required: false)
 </head>
 
 <body>
-    <header class="main-header">
-        <nav class="nav-container">
+
+        <nav class="nav-container hidden-xs scroll-to-fixed-fixed">
             <div class="nav-brand">
                 <h1>Quản Lý Đào Tạo</h1>
             </div>
@@ -40,31 +40,31 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a asp-controller="Admin" asp-action="KhoaIndex">
+                                    <a asp-controller="Khoa" asp-action="Index">
                                         <i class="fa fa-bookmark" aria-hidden="true"></i>
                                         <span>Quản Lý Khoa</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a asp-controller="Admin" asp-action="GiangVienIndex">
+                                    <a asp-controller="GiangVien" asp-action="Index">
                                         <i class="fa fa-user" aria-hidden="true"></i>
                                         <span>Quản Lý Giảng Viên</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a asp-controller="Admin" asp-action="SinhVienIndex">
+                                    <a asp-controller="SinhVien" asp-action="Index">
                                         <i class="fas fa-users"></i>
                                         <span>Quản Lý Sinh Viên</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a asp-controller="Admin" asp-action="LopHocIndex">
+                                    <a asp-controller="LopHoc" asp-action="Index">
                                         <i class="fa fa-calendar" aria-hidden="true"></i>
                                         <span>Quản Lý Lớp Học</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a asp-controller="Admin" asp-action="MonHocIndex">
+                                    <a asp-controller="MonHoc" asp-action="Index">
                                         <i class="fas fa-book"></i>
                                         <span>Quản Lý Môn Học</span>
                                     </a>
@@ -79,25 +79,25 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a asp-controller="Admin" asp-action="TaiLieuIndex">
+                                    <a asp-controller="TaiLieu" asp-action="Index">
                                         <i class="fa fa-paperclip" aria-hidden="true"></i>
                                         <span>Tài Liệu</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a asp-controller="Admin" asp-action="BaiGiangIndex">
+                                    <a asp-controller="BaiGiang" asp-action="Index">
                                         <i class="fas fa-book"></i>
                                         <span>Bài Giảng</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a asp-controller="Admin" asp-action="DeCuongIndex">
+                                    <a asp-controller="DeCuong" asp-action="Index">
                                         <i class="fa fa-bookmark" aria-hidden="true"></i>
                                         <span>Đề Cương</span>
                                     </a>
                                 </li>
                             </ul>
-                        </li> 
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle">
                                 <i class="fa-solid fa-circle-info"></i>
@@ -106,26 +106,26 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a asp-controller="Admin" asp-action="ChuongTrinhDaoTaoIndex">
+                                    <a asp-controller="ChuongTrinhDaoTao" asp-action="Index">
                                         <i class="fas fa-university"></i>
                                         <span>Chương Trình Đào Tạo</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a asp-controller="Admin" asp-action="LopHocIndex">
+                                    <a asp-controller="LopHoc" asp-action="Index">
                                         <i class="fas fa-book"></i>
                                         <span>Đăng Ký Lớp Học</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a asp-controller="Admin" asp-action="DanhGiaIndex">
+                                    <a asp-controller="DanhGia" asp-action="Index">
                                         <i class="fas fa-star"></i>
                                         <span>Đánh Giá</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        
+
                     }
                     @if (User.IsInRole("GiangVien"))
                     {
@@ -200,7 +200,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li> 
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle">
                                 <i class="fa-solid fa-circle-info"></i>
@@ -263,7 +263,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li> 
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle">
                                 <i class="fa-solid fa-circle-info"></i>
@@ -317,7 +317,7 @@
                 </div>
             </div>
         </nav>
-    </header>
+
 
     <main class="main-content">
         @RenderBody()
@@ -328,7 +328,7 @@
             <div class="footer-section">
                 <h3>Liên Hệ</h3>
                 <p><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận X, TP. HCM</p>
-                
+
                 <p><i class="fas fa-envelope"></i> support@quanlydaotao.com</p>
                 <p><i class="fas fa-phone"></i> (028) 1234 5678</p>
             </div>
@@ -352,7 +352,7 @@
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.126492843966!2d106.71188097583854!3d10.80162275872682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528a459cb43ab%3A0x6c3d29d370b52a7e!2zSFVURUNIIC0gxJDhuqFpIGjhu41jIEPDtG5nIG5naOG7hyBUUC5IQ00gKFNhaSBHb24gQ2FtcHVzKQ!5e0!3m2!1svi!2s!4v1743715417440!5m2!1svi!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </h3>
 </div>
-            
+
         </div>
         <div class="footer-bottom">
             <p>&copy; 2025 Hệ Thống Quản Lý Đào Tạo. All Rights Reserved.</p>
@@ -401,9 +401,9 @@
             });
         });
     </script>
-  
-   
- 
+
+
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

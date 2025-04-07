@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G+5BYsPEjFw=",
+  "dgSpecHash": "oYDD8AvaIHA=",
   "success": true,
-  "projectFilePath": "/run/media/trananh28/FA6A8E886A8E40FD/Users/Trananh/Downloads/QuanLyDaoTao1/QuanLyDaoTao/QuanLyDaoTao.csproj",
+  "projectFilePath": "/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/QuanLyDaoTao.csproj",
   "expectedPackageFiles": [
     "/home/trananh28/.nuget/packages/anglesharp/0.17.1/anglesharp.0.17.1.nupkg.sha512",
     "/home/trananh28/.nuget/packages/anglesharp.css/0.17.0/anglesharp.css.0.17.0.nupkg.sha512",
