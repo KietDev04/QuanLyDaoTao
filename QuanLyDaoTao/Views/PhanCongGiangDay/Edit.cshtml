@@ -4,8 +4,12 @@
     ViewData["Title"] = "Chỉnh sửa Phân công Giảng dạy";
 }
 
-<h1>Chỉnh sửa Phân công Giảng dạy</h1>
+<div class="page-container">
 
+    <div class="page-header">
+        <h1 class="page-title">Chỉnh sửa Phân công Giảng dạy</h1>
+    </div>
+<div class="card-body">
 <form asp-action="Edit" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
@@ -49,7 +53,8 @@
         <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
     </div>
 </form>
-
+</div>
+</div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

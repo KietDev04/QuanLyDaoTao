@@ -3,25 +3,17 @@
 @using QuanLyDaoTaoWeb.Controllers
 @using QuanLyDaoTaoWeb.Models
 
-@inject SignInManager<ApplicationUser> signInManager
-@inject UserManager<ApplicationUser> userManager
+
 
 @{
     ViewData["Title"] = "Danh Sách Tài Liệu";
-    var user = await userManager.GetUserAsync(User);
-    bool isAdmin = User.IsInRole("Admin");
-    bool isGiangVien = User.IsInRole("GiangVien");
-    bool isSinhVien = User.IsInRole("SinhVien");
+
 }
 
 <div class="page-container">
     <div class="page-header">
         <h1 class="page-title">Danh Sách Tài Liệu</h1>
-        <div class="action-buttons">
-            <a asp-action="Create" class="btn btn-primary">
-                <i class="fas fa-plus"></i> Thêm mới
-            </a>
-        </div>
+
     </div>
     <div class="table-responsive">
         <table class="data-table">
@@ -31,7 +23,9 @@
                     <th>@Html.DisplayNameFor(m => m.TenTL)</th>
                     <th>@Html.DisplayNameFor(m => m.BaiGiang.MaBG)</th>
                     <th>@Html.DisplayNameFor(m => m.DuongDan)</th>
-                    <th>Thao tác</th>
+                    @if(User.IsInRole("Admin")){
+                        <th>Thao tác</th>
+                    }
                 </tr>
             </thead>
             <tbody>
@@ -47,21 +41,29 @@
                             </a>
                         </td>
                         <td>
+                        @if(User.IsInRole("Admin") || User.IsInRole("GiangVien")){
                             <div class="table-actions">
-                                <a asp-action="Edit" asp-route-id="@item.MaTL" 
+                                <a asp-action="Edit" asp-route-id="@item.MaTL"
                                    class="btn btn-secondary" title="Sửa">
                                     <i class="fas fa-edit"></i> Sửa
                                 </a>
-                                @if(isAdmin){
-                                <a asp-action="Delete" asp-route-id="@item.MaTL" 
+
+                                <a asp-action="Delete" asp-route-id="@item.MaTL"
                                    class="btn btn-danger" title="Xóa">
                                     <i class="fas fa-trash"></i> Xóa
-                                </a>}
-                            </div>
+                                </a>
+                            </div>}
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
+    @if(User.IsInRole("Admin")){
+<div class="action-buttons">
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Thêm mới
+            </a>
+        </div>
+        }
 </div>

@@ -3,15 +3,11 @@
 @{
     ViewData["Title"] = "Quản Lý Lớp Học";
 }
-
+@if(User.IsInRole("Admin") || User.IsInRole("GiangVien")){
 <div class="page-container">
     <div class="page-header">
         <h1 class="page-title">Danh Sách Lớp Học</h1>
-        <div class="action-buttons">
-            <a asp-action="Create" class="btn btn-primary">
-                <i class="fas fa-plus"></i> Thêm mới
-            </a>
-        </div>
+
     </div>
     <div class="table-responsive">
         <table class="data-table">
@@ -20,8 +16,10 @@
                     <th>@Html.DisplayNameFor(m => m.MaLop)</th>
                     <th>@Html.DisplayNameFor(m => m.TenLop)</th>
                     <th>@Html.DisplayNameFor(m => m.ChuongTrinhDaoTao.TenCTDT)</th>
-                    <th>@Html.DisplayNameFor(m => m.DangKyLopHocs.Count)</th>
-                    <th>Thao tác</th>
+                    <th>SSL</th>
+                    @if(User.IsInRole("Admin")){
+                        <th>Thao tác</th>
+                    }
                 </tr>
             </thead>
             <tbody>
@@ -34,19 +32,21 @@
                         <td>@item.DangKyLopHocs?.Count()</td>
                         <td>
                             <div class="table-actions">
-                                <a asp-action="Edit" asp-route-id="@item.MaLop" 
+                                <a asp-action="Edit" asp-route-id="@item.MaLop"
                                    class="btn btn-secondary" title="Sửa">
                                     <i class="fas fa-edit"></i> Sửa
                                 </a>
-                                <a asp-action="Delete" asp-route-id="@item.MaLop" 
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <a asp-action="Delete" asp-route-id="@item.MaLop"
                                    class="btn btn-danger" title="Xóa">
                                     <i class="fas fa-trash"></i> Xóa
                                 </a>
-                                <a asp-controller="SinhVien" asp-action="Index" asp-route-id="@item.MaLop" 
+                                }
+                                <a asp-controller="SinhVien" asp-action="Index" asp-route-id="@item.MaLop"
    class="btn btn-info" title="Danh sách sinh viên">
     <i class="fas fa-users"></i> Danh sách sinh viên
 </a>
-
                             </div>
                         </td>
                     </tr>
@@ -54,7 +54,16 @@
             </tbody>
         </table>
     </div>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="action-buttons">
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Thêm mới
+            </a>
+        </div>
+    }
 </div>
+}
 
 @section Scripts {
     <script>

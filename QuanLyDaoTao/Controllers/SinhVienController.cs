@@ -8,12 +8,16 @@ using Microsoft.AspNetCore.Identity;
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
-    [Authorize(Roles = "Admin,SinhVien")]
-    public class SinhVienController : AdminController
+    [Authorize(Roles = "Admin,GiangVien")]
+    public class SinhVienController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+
         public SinhVienController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
-            : base(context, userManager)
         {
+            _context = context;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()

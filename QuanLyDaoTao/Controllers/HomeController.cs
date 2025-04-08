@@ -5,6 +5,7 @@ using QuanLyDaoTaoWeb.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 namespace QuanLyDaoTaoWeb.Controllers;
+
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;

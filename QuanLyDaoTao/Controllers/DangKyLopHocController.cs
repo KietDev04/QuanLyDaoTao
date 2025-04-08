@@ -4,36 +4,40 @@ using QuanLyDaoTaoWeb.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Linq;
+
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
     [Authorize(Roles = "Admin,SinhVien")]
-    public class DangKyLopHocController : AdminController
+    public class DangKyLopHocController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+
         public DangKyLopHocController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
-            : base(context, userManager)
         {
+            _context = context;
+            _userManager = userManager;
         }
 
-        public IActionResult DangKyLopHocIndex()
+        public IActionResult Index()
         {
             var dangKyList = _context.DangKyLopHoc
                 .Include(d => d.SinhVien)
                 .Include(d => d.LopHoc)
                 .ToList();
-            return View("~/Views/Shared/DangKyLopHoc/Index.cshtml", dangKyList);
+            return View(dangKyList);
         }
 
-        public IActionResult CreateDangKyLopHoc()
+        public IActionResult Create()
         {
             ViewBag.SinhVienList = new SelectList(_context.SinhVien, "MaSV", "HoTen");
             ViewBag.LopHocList = new SelectList(_context.LopHoc, "MaLop", "TenLop");
-            return View("~/Views/Shared/DangKyLopHoc/Create.cshtml");
+            return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateDangKyLopHoc(DangKyLopHoc dangKy)
+        public async Task<IActionResult> Create(DangKyLopHoc dangKy)
         {
             if (_context.DangKyLopHoc.Any(d => d.MaSV == dangKy.MaSV && d.MaLopHoc == dangKy.MaLopHoc))
             {
@@ -58,7 +62,7 @@ namespace QuanLyDaoTaoWeb.Controllers
             return View("DangKyLopHoc/Create", dangKy);
         }
 
-        public IActionResult EditDangKyLopHoc(string maSV, string maLopHoc)
+        public IActionResult Edit(string maSV, string maLopHoc)
         {
             var dangKy = _context.DangKyLopHoc
                 .Include(d => d.SinhVien)
@@ -73,7 +77,7 @@ namespace QuanLyDaoTaoWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditDangKyLopHoc([Bind("MaSV,MaLopHoc,NgayDangKy")] DangKyLopHoc dangKy)
+        public async Task<IActionResult> Edit([Bind("MaSV,MaLopHoc,NgayDangKy")] DangKyLopHoc dangKy)
         {
             ModelState.Remove("SinhVien");
             ModelState.Remove("LopHoc");
@@ -123,7 +127,7 @@ namespace QuanLyDaoTaoWeb.Controllers
             return View("DangKyLopHoc/Edit", dangKy);
         }
 
-        public IActionResult DeleteDangKyLopHoc(string maSV, string maLopHoc)
+        public IActionResult Delete(string maSV, string maLopHoc)
         {
             var dangKy = _context.DangKyLopHoc.Find(maSV, maLopHoc);
             if (dangKy == null) return NotFound();

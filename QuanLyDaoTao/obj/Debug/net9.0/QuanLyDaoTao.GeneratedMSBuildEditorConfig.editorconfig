@@ -48,14 +48,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmFpR2lhbmcvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/BaiGiang/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmFpR2lhbmcvRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/BaiGiang/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmFpR2lhbmcvRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/BaiGiang/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmFpR2lhbmcvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,10 +58,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/ChuongTrinhDaoTao/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2h1b25nVHJpbmhEYW9UYW8vQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/ChuongTrinhDaoTao/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2h1b25nVHJpbmhEYW9UYW8vRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/ChuongTrinhDaoTao/Edit.cshtml]
@@ -84,10 +72,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFuZ0t5TG9wSG9jL0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/DangKyLopHoc/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFuZ0t5TG9wSG9jL0RlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/DangKyLopHoc/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFuZ0t5TG9wSG9jL0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -98,10 +82,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/DanhGia/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFuaEdpYS9DcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/DanhGia/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFuaEdpYS9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/DanhGia/Edit.cshtml]
@@ -116,10 +96,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGVDdW9uZy9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/DeCuong/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGVDdW9uZy9EZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/DeCuong/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGVDdW9uZy9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -130,10 +106,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/GiangVien/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR2lhbmdWaWVuL0NyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/GiangVien/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR2lhbmdWaWVuL0RlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/GiangVien/Edit.cshtml]
@@ -156,10 +128,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2hvYS9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/Khoa/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2hvYS9EZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/Khoa/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2hvYS9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -170,10 +138,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/LopHoc/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTG9wSG9jL0NyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/LopHoc/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTG9wSG9jL0RlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/LopHoc/Edit.cshtml]
@@ -188,10 +152,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW9uSG9jL0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/MonHoc/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW9uSG9jL0RlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/MonHoc/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW9uSG9jL0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -202,10 +162,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/PhanCongGiangDay/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGhhbkNvbmdHaWFuZ0RheS9DcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/PhanCongGiangDay/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGhhbkNvbmdHaWFuZ0RheS9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/PhanCongGiangDay/Edit.cshtml]
@@ -240,10 +196,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2luaFZpZW4vQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/SinhVien/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2luaFZpZW4vRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/SinhVien/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2luaFZpZW4vRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -254,10 +206,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/TaiLieu/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGFpTGlldS9DcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/TaiLieu/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGFpTGlldS9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/Views/TaiLieu/Edit.cshtml]

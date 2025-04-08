@@ -4,16 +4,20 @@ using QuanLyDaoTaoWeb.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Linq;
+
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
-    [Authorize(Roles = "Admin,GiangVien")]
-    public class ChuongTrinhDaoTaoController : AdminController
+    [Authorize(Roles = "Admin,GiangVien,SinhVien")]
+    public class ChuongTrinhDaoTaoController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+
         public ChuongTrinhDaoTaoController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
-            : base(context, userManager)
         {
+            _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult Index()

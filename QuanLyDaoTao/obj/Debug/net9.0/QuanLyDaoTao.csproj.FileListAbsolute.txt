@@ -1821,7 +1821,7 @@ C:/Users/Trananh/Downloads/QuanLyDaoTao1/QuanLyDaoTao/obj/Debug/net9.0/compresse
 /home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/obj/Debug/net9.0/QuanLyDaoTao.pdb
 /home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/obj/Debug/net9.0/QuanLyDaoTao.genruntimeconfig.cache
 /home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/obj/Debug/net9.0/ref/QuanLyDaoTao.dll
-/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/obj/Debug/net9.0/compressed/75qrl1isdg-q7cx4y1jtk.gz
 /home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/obj/Debug/net9.0/compressed/0utis3w1xr-nwn4ruiwvz.gz
-/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/obj/Debug/net9.0/compressed/z3sbily87w-ww4y9ux1t7.gz
-/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/obj/Debug/net9.0/compressed/yg3bdsm46a-vhktvjadj5.gz
+/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/obj/Debug/net9.0/compressed/yg3bdsm46a-pbv0p5whda.gz
+/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/obj/Debug/net9.0/compressed/75qrl1isdg-clvesaut5o.gz
+/home/trananh28/Downloads/QuanLyDaoTao/QuanLyDaoTao/obj/Debug/net9.0/compressed/z3sbily87w-604z88ky15.gz

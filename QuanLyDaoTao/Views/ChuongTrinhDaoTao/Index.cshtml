@@ -1,30 +1,15 @@
 @model IEnumerable<QuanLyDaoTaoWeb.Models.ChuongTrinhDaoTao>
-@using Microsoft.AspNetCore.Identity
-@using QuanLyDaoTaoWeb.Controllers
-@using QuanLyDaoTaoWeb.Models
-@inject SignInManager<ApplicationUser> signInManager
-@inject UserManager<ApplicationUser> userManager
 
 @{
     ViewData["Title"] = "Danh Sách Chương Trình Đào Tạo";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var user = await userManager.GetUserAsync(User);
-    bool isAdmin = User.IsInRole("Admin");
-    bool isGiangVien = User.IsInRole("GiangVien");
-    bool isSinhVien = User.IsInRole("SinhVien");
 }
+
 
 <div class="page-container">
     <div class="page-header">
         <h1 class="page-title">Danh Sách Chương Trình Đào Tạo</h1>
-        @if (isAdmin || isGiangVien)
-        {
-        <div class="action-buttons">
-            <a asp-action="Create" class="btn btn-primary">
-                <i class="fas fa-plus"></i> Thêm mới
-            </a>
-        </div>
-        }
+
     </div>
     <div class="table-responsive">
         <table class="data-table">
@@ -35,10 +20,7 @@
                     <th>@Html.DisplayNameFor(m => m.NamBatDau)</th>
                     <th>@Html.DisplayNameFor(m => m.Khoa.TenKhoa)</th>
                     <th>@Html.DisplayNameFor(m => m.TrangThai)</th>
-                    @if (isAdmin || isGiangVien)
-                    {
-                        <th>Thao tác</th>
-                    }
+@if (User.IsInRole("Admin")){<th>Thao tác</th>}
                 </tr>
             </thead>
             <tbody>
@@ -55,26 +37,38 @@
                             </span>
                         </td>
                         <td>
+                            @if(User.IsInRole("Admin")){
                             <div class="table-actions">
                                 <a asp-action="Edit" asp-route-id="@item.MaCTDT"
                                    class="btn btn-secondary" title="Sửa">
                                     <i class="fas fa-edit"></i> Sửa
                                 </a>
-                                @if (isAdmin)
-                                {
+
                                 <a asp-action="Delete" asp-route-id="@item.MaCTDT"
                                    class="btn btn-danger" title="Xóa">
                                     <i class="fas fa-trash"></i> Xóa
                                 </a>
-                                }
+
                             </div>
+                            }
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
+
     </div>
+    @if (User.IsInRole("Admin"))
+    {
+    <div class="action-buttons">
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Thêm mới
+        </a>
+    </div>
+    }
 </div>
+
+
 
 @section Scripts {
     <script>

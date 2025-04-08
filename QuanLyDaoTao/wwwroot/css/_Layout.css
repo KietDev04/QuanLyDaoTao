@@ -89,18 +89,18 @@ body {
     list-style: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 0; /* Cố định vị trí trái */
     background: white;
     color: #000000;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    min-width: 200px;
+    min-width: auto;
     display: none;
     z-index: 1000;
 }
 
 .dropdown:hover .dropdown-menu {
-    display: flex;
+    display: block; /* Sửa lại ở đây */
 }
 
 .dropdown-menu a {
@@ -111,8 +111,11 @@ body {
     align-items: center;
     gap: 0.5rem;
     border-radius: 10px;
+    width: 100%; /* Đảm bảo các link chiếm toàn bộ chiều ngang */
 }
-
+.dropdown-menu a span {
+    white-space: nowrap; /* Không cho phép văn bản ngắt dòng */
+}
 .dropdown-menu a:hover {
     color: #3498db;
 }
@@ -154,8 +157,8 @@ body {
 
 /* Main content */
 .main-content {
-    margin: 1rem auto;
-    padding: 3rem 1rem 0 1rem;
+    /* margin: 1rem auto;*/
+    padding: 3rem 1rem 0 1rem; 
 }
 
 /* Footer */

@@ -9,27 +9,23 @@
     ViewData["Title"] = "Danh Sách Đăng Ký Lớp Học";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@if(User.IsInRole("Admin") || User.IsInRole("SinhVien")){
+<div class="page-container">
+    <div class="page-header">
+        <h1 class="page-title">Đăng Ký Lớp Học</h1>
+    </div>
 
-<div class="container-fluid py-4">
-    
-    <div class="card shadow">
-        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Danh Sách Đăng Ký Lớp Học</h5>
-            
-            <a asp-action="Create" class="btn btn-light">
-                <i class="fas fa-plus"></i> Thêm mới
-            </a>
-            
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover datatable">
+    <div class="table-responsive">
+
+        <div class="data-table">
                     <thead>
                         <tr>
                             <th>@Html.DisplayNameFor(m => m.SinhVien.MaSV)</th>
                             <th>@Html.DisplayNameFor(m => m.LopHoc.MaLop)</th>
                             <th>@Html.DisplayNameFor(m => m.NgayDangKy)</th>
-                            <th>Thao tác</th>
+
+                        <th>Thao tác</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -41,12 +37,12 @@
                                 <td>@item.NgayDangKy.ToString("dd/MM/yyyy HH:mm")</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a asp-action="Edit" asp-route-maSV="@item.MaSV" 
+                                        <a asp-action="Edit" asp-route-maSV="@item.MaSV"
                                            asp-route-MaLopHoc="@item.MaLopHoc"
                                            class="btn btn-sm btn-warning" title="Sửa">
                                             <i class="fas fa-edit"></i> Sửa
                                         </a>
-                                        <a asp-action="Delete" asp-route-maSV="@item.MaSV" 
+                                        <a asp-action="Delete" asp-route-maSV="@item.MaSV"
                                            asp-route-MaLopHoc="@item.MaLopHoc"
                                            class="btn btn-sm btn-danger" title="Xóa">
                                             <i class="fas fa-trash"></i> Xóa
@@ -56,12 +52,18 @@
                             </tr>
                         }
                     </tbody>
-                </table>
+
             </div>
         </div>
+        <div class="action-buttons">
+                    <a asp-action="Create" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Thêm mới
+                    </a>
+                </div>
+                }
     </div>
-</div>
 
+}
 @section Scripts {
     <script>
         $(document).ready(function() {

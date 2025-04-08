@@ -5,15 +5,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-
 namespace QuanLyDaoTaoWeb.Controllers
 {
     [Authorize(Roles = "Admin,GiangVien")]
-    public class LopHocController : AdminController
+    public class LopHocController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+
         public LopHocController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
-            : base(context, userManager)
         {
+            _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -27,13 +30,26 @@ namespace QuanLyDaoTaoWeb.Controllers
 
         public IActionResult Create()
         {
-            ViewBag.ChuongTrinhDaoTaoList = new SelectList(_context.ChuongTrinhDaoTao, "MaCT", "TenCT");
+            // Ensure data exists for ChuongTrinhDaoTao
+            var data = _context.ChuongTrinhDaoTao.ToList();
+
+            if (data.Any())
+            {
+                ViewBag.ChuongTrinhDaoTaoList = new SelectList(data, "MaCT", "TenCT");
+            }
+            else
+            {
+                // Handle case where there are no ChuongTrinhDaoTao
+                ViewBag.ChuongTrinhDaoTaoList = new SelectList(Enumerable.Empty<SelectListItem>());
+            }
+
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(LopHoc lopHoc)
         {
+            // Ensure MaLop is unique
             if (_context.LopHoc.Any(l => l.MaLop == lopHoc.MaLop))
             {
                 ModelState.AddModelError("MaLop", "Mã lớp học này đã tồn tại");
@@ -50,6 +66,7 @@ namespace QuanLyDaoTaoWeb.Controllers
             }
             catch (Exception ex)
             {
+                // Log exception here for debugging
                 ModelState.AddModelError("", "Có lỗi xảy ra khi lưu dữ liệu: " + ex.Message);
             }
 
@@ -65,7 +82,17 @@ namespace QuanLyDaoTaoWeb.Controllers
 
             if (lopHoc == null) return NotFound();
 
-            ViewBag.ChuongTrinhDaoTaoList = new SelectList(_context.ChuongTrinhDaoTao, "MaCT", "TenCT", lopHoc.MaCTDT);
+            // Populate the dropdown list for ChuongTrinhDaoTao
+            var data = _context.ChuongTrinhDaoTao.ToList();
+            if (data.Any())
+            {
+                ViewBag.ChuongTrinhDaoTaoList = new SelectList(data, "MaCTDT", "TenCTDT", lopHoc.MaCTDT);
+            }
+            else
+            {
+                ViewBag.ChuongTrinhDaoTaoList = new SelectList(Enumerable.Empty<SelectListItem>());
+            }
+
             return View(lopHoc);
         }
 
@@ -99,6 +126,7 @@ namespace QuanLyDaoTaoWeb.Controllers
                 }
                 catch (Exception ex)
                 {
+                    // Log exception here for debugging
                     ModelState.AddModelError("", "Có lỗi xảy ra khi lưu dữ liệu: " + ex.Message);
                 }
             }

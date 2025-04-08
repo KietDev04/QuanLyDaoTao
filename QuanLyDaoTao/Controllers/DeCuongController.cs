@@ -8,26 +8,28 @@ using System.Linq;
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
-    [Authorize(Roles = "Admin,GiangVien")]
-    public class DeCuongController : AdminController
+    [Authorize(Roles = "Admin,GiangVien,SinhVien")]
+    public class DeCuongController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+
         public DeCuongController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
-            : base(context, userManager)
         {
+            _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
         {
-            var deCuongList = _context.DeCuong
-                .Include(d => d.MonHoc)
-                .ToList();
-            return View("~/Views/Shared/DeCuong/Index.cshtml", deCuongList);
+            var deCuongList = _context.DeCuong.Include(d => d.MonHoc).ToList();
+            return View(deCuongList);
         }
 
         public IActionResult Create()
         {
             ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH");
-            return View("~/Views/Shared/DeCuong/Create.cshtml");
+            return View();
         }
 
         [HttpPost]
@@ -55,7 +57,7 @@ namespace QuanLyDaoTaoWeb.Controllers
             return View("DeCuong/Create", deCuong);
         }
 
-        public IActionResult EditDeCuong(string id)
+        public IActionResult Edit(string id)
         {
             var deCuong = _context.DeCuong
                 .Include(d => d.MonHoc)

@@ -7,74 +7,84 @@ using Microsoft.AspNetCore.Identity;
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
-    [Authorize(Roles = "Admin,GiangVien,SinhVien")]
-    public class DanhGiaController : AdminController
+    [Authorize(Roles = "Admin,SinhVien")]
+    public class DanhGiaController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+
         public DanhGiaController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
-            : base(context, userManager)
         {
+            _context = context;
+            _userManager = userManager;
+        }
+
+        private async Task<SinhVien> GetCurrentSinhVienAsync()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            return await _context.SinhVien.FirstOrDefaultAsync(s => s.Email == user.Email);
+        }
+
+        private async Task<bool> IsUserAdminAsync()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            return await _userManager.IsInRoleAsync(user, "Admin");
         }
 
         public async Task<IActionResult> Index()
         {
-            var user = await _userManager.GetUserAsync(User);
-            var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
+            var isAdmin = await IsUserAdminAsync();
 
             if (isAdmin)
             {
-                var danhGiaList = _context.DanhGia
+                var danhGiaList = await _context.DanhGia
                     .Include(d => d.SinhVien)
                     .Include(d => d.MonHoc)
-                    .ToList();
+                    .ToListAsync();
                 return View(danhGiaList);
             }
             else
             {
-                var sinhVien = _context.SinhVien.FirstOrDefault(s => s.Email == user.Email);
+                var sinhVien = await GetCurrentSinhVienAsync();
                 if (sinhVien == null) return NotFound();
 
-                var danhGiaList = _context.DanhGia
+                var danhGiaList = await _context.DanhGia
                     .Include(d => d.SinhVien)
                     .Include(d => d.MonHoc)
                     .Where(d => d.MaSV == sinhVien.MaSV)
-                    .ToList();
+                    .ToListAsync();
+
                 return View(danhGiaList);
             }
         }
 
         public async Task<IActionResult> Create()
         {
-            var user = await _userManager.GetUserAsync(User);
-            var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
+            var isAdmin = await IsUserAdminAsync();
+            var sinhVien = isAdmin ? null : await GetCurrentSinhVienAsync();
 
-            if (isAdmin)
-            {
-                ViewBag.SinhVienList = new SelectList(_context.SinhVien, "MaSV", "HoTen");
-            }
-            else
-            {
-                var sinhVien = _context.SinhVien.FirstOrDefault(s => s.Email == user.Email);
-                if (sinhVien == null) return NotFound();
-                ViewBag.SinhVienList = new SelectList(_context.SinhVien.Where(s => s.MaSV == sinhVien.MaSV), "MaSV", "HoTen");
-            }
+            if (!isAdmin && sinhVien == null) return NotFound();
+
+            ViewBag.SinhVienList = new SelectList(
+                isAdmin ? _context.SinhVien : _context.SinhVien.Where(s => s.MaSV == sinhVien.MaSV),
+                "MaSV", "HoTen");
 
             ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH");
+
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(DanhGia danhGia)
         {
-            var user = await _userManager.GetUserAsync(User);
-            var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
+            var isAdmin = await IsUserAdminAsync();
+            var sinhVien = isAdmin ? null : await GetCurrentSinhVienAsync();
 
-            if (!isAdmin)
+            if (!isAdmin && sinhVien == null) return NotFound();
+
+            if (!isAdmin && sinhVien.MaSV != danhGia.MaSV)
             {
-                var sinhVien = _context.SinhVien.FirstOrDefault(s => s.Email == user.Email);
-                if (sinhVien == null || sinhVien.MaSV != danhGia.MaSV)
-                {
-                    return Forbid();
-                }
+                return Forbid();
             }
 
             if (_context.DanhGia.Any(d => d.MaDG == danhGia.MaDG))
@@ -102,49 +112,31 @@ namespace QuanLyDaoTaoWeb.Controllers
                 ModelState.AddModelError("", "Có lỗi xảy ra khi lưu dữ liệu: " + ex.Message);
             }
 
-            if (isAdmin)
-            {
-                ViewBag.SinhVienList = new SelectList(_context.SinhVien, "MaSV", "HoTen", danhGia.MaSV);
-            }
-            else
-            {
-                var sinhVien = _context.SinhVien.FirstOrDefault(s => s.Email == user.Email);
-                ViewBag.SinhVienList = new SelectList(_context.SinhVien.Where(s => s.MaSV == sinhVien.MaSV), "MaSV", "HoTen", danhGia.MaSV);
-            }
+            ViewBag.SinhVienList = new SelectList(_context.SinhVien, "MaSV", "HoTen", danhGia.MaSV);
             ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH", danhGia.MaMH);
             return View(danhGia);
         }
 
         public async Task<IActionResult> Edit(string id)
         {
-            var user = await _userManager.GetUserAsync(User);
-            var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
-
-            var danhGia = _context.DanhGia
+            var isAdmin = await IsUserAdminAsync();
+            var danhGia = await _context.DanhGia
                 .Include(d => d.SinhVien)
                 .Include(d => d.MonHoc)
-                .FirstOrDefault(d => d.MaDG == id);
+                .FirstOrDefaultAsync(d => d.MaDG == id);
 
             if (danhGia == null) return NotFound();
 
-            if (!isAdmin)
+            var sinhVien = isAdmin ? null : await GetCurrentSinhVienAsync();
+            if (!isAdmin && sinhVien.MaSV != danhGia.MaSV)
             {
-                var sinhVien = _context.SinhVien.FirstOrDefault(s => s.Email == user.Email);
-                if (sinhVien == null || sinhVien.MaSV != danhGia.MaSV)
-                {
-                    return Forbid();
-                }
+                return Forbid();
             }
 
-            if (isAdmin)
-            {
-                ViewBag.SinhVienList = new SelectList(_context.SinhVien, "MaSV", "HoTen", danhGia.MaSV);
-            }
-            else
-            {
-                var sinhVien = _context.SinhVien.FirstOrDefault(s => s.Email == user.Email);
-                ViewBag.SinhVienList = new SelectList(_context.SinhVien.Where(s => s.MaSV == sinhVien.MaSV), "MaSV", "HoTen", danhGia.MaSV);
-            }
+            ViewBag.SinhVienList = new SelectList(
+                isAdmin ? _context.SinhVien : _context.SinhVien.Where(s => s.MaSV == sinhVien.MaSV),
+                "MaSV", "HoTen", danhGia.MaSV);
+
             ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH", danhGia.MaMH);
             return View(danhGia);
         }
@@ -152,21 +144,14 @@ namespace QuanLyDaoTaoWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(string id, [Bind("MaDG,MaSV,MaMH,DiemDanhGia,NhanXet")] DanhGia danhGia)
         {
-            var user = await _userManager.GetUserAsync(User);
-            var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
+            if (id != danhGia.MaDG) return NotFound();
 
-            if (id != danhGia.MaDG)
-            {
-                return NotFound();
-            }
+            var isAdmin = await IsUserAdminAsync();
+            var sinhVien = isAdmin ? null : await GetCurrentSinhVienAsync();
 
-            if (!isAdmin)
+            if (!isAdmin && sinhVien.MaSV != danhGia.MaSV)
             {
-                var sinhVien = _context.SinhVien.FirstOrDefault(s => s.Email == user.Email);
-                if (sinhVien == null || sinhVien.MaSV != danhGia.MaSV)
-                {
-                    return Forbid();
-                }
+                return Forbid();
             }
 
             if (danhGia.DiemDanhGia < 1 || danhGia.DiemDanhGia > 10)
@@ -175,59 +160,32 @@ namespace QuanLyDaoTaoWeb.Controllers
                 return View(danhGia);
             }
 
-            if (ModelState.IsValid)
+            try
             {
-                try
-                {
-                    var existingDanhGia = await _context.DanhGia.FindAsync(id);
-                    if (existingDanhGia == null)
-                    {
-                        return NotFound();
-                    }
+                var existingDanhGia = await _context.DanhGia.FindAsync(id);
+                if (existingDanhGia == null) return NotFound();
 
-                    existingDanhGia.MaSV = danhGia.MaSV;
-                    existingDanhGia.MaMH = danhGia.MaMH;
-                    existingDanhGia.DiemDanhGia = danhGia.DiemDanhGia;
-                    existingDanhGia.NhanXet = danhGia.NhanXet;
+                existingDanhGia.MaSV = danhGia.MaSV;
+                existingDanhGia.MaMH = danhGia.MaMH;
+                existingDanhGia.DiemDanhGia = danhGia.DiemDanhGia;
+                existingDanhGia.NhanXet = danhGia.NhanXet;
 
-                    await _context.SaveChangesAsync();
-                    TempData["Success"] = "Cập nhật đánh giá thành công!";
-                    return RedirectToAction(nameof(Index));
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!DanhGiaExists(danhGia.MaDG))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                await _context.SaveChangesAsync();
+                TempData["Success"] = "Cập nhật đánh giá thành công!";
+                return RedirectToAction(nameof(Index));
             }
-
-            if (isAdmin)
+            catch (DbUpdateConcurrencyException)
             {
-                ViewBag.SinhVienList = new SelectList(_context.SinhVien, "MaSV", "HoTen", danhGia.MaSV);
+                if (!DanhGiaExists(danhGia.MaDG)) return NotFound();
+                throw;
             }
-            else
-            {
-                var sinhVien = _context.SinhVien.FirstOrDefault(s => s.Email == user.Email);
-                ViewBag.SinhVienList = new SelectList(_context.SinhVien.Where(s => s.MaSV == sinhVien.MaSV), "MaSV", "HoTen", danhGia.MaSV);
-            }
-            ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH", danhGia.MaMH);
-            return View(danhGia);
         }
 
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
             var danhGia = await _context.DanhGia.FindAsync(id);
-            if (danhGia == null)
-            {
-                return NotFound();
-            }
+            if (danhGia == null) return NotFound();
 
             _context.DanhGia.Remove(danhGia);
             await _context.SaveChangesAsync();

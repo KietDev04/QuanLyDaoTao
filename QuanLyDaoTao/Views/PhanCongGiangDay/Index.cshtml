@@ -3,15 +3,11 @@
 @{
     ViewData["Title"] = "Danh sách Phân Công Giảng Dạy";
 }
-
+@if(User.IsInRole("Admin")){
 <div class="page-container">
     <div class="page-header">
         <h1 class="page-title">Danh Sách Phân Công Giảng Dạy</h1>
-        <div class="action-buttons">
-            <a asp-action="Create" class="btn btn-primary">
-                <i class="fas fa-plus"></i> Thêm mới
-            </a>
-        </div>
+
     </div>
     <div class="table-responsive">
         <table class="data-table">
@@ -38,23 +34,28 @@
                         <td>@Html.DisplayFor(modelItem => item.NamHoc)</td>
                         <td>
                             <div class="table-actions">
-                                <a asp-action="Edit" asp-route-id="@item.MaPCGD" 
+                                <a asp-action="Edit" asp-route-id="@item.MaPCGD"
                                     class="btn btn-secondary" title="Sửa">
                                     <i class="fas fa-edit"></i> Sửa
                                 </a>
-                                <a asp-action="Delete" asp-route-id="@item.MaPCGD" 
+                                <a asp-action="Delete" asp-route-id="@item.MaPCGD"
                                     class="btn btn-danger" title="Xóa">
                                     <i class="fas fa-trash"></i> Xóa
-                                </a>   
-                            </div>                 
+                                </a>
+                            </div>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
+    <div class="action-buttons">
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Thêm mới
+            </a>
+        </div>
 </div>
-
+}
 @section Scripts {
     <script>
         $(document).ready(function() {

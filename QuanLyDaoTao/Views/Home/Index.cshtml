@@ -1,8 +1,7 @@
 @using Microsoft.AspNetCore.Identity
 @using QuanLyDaoTaoWeb.Controllers
 @using QuanLyDaoTaoWeb.Models
-@inject SignInManager<ApplicationUser> signInManager
-@inject UserManager<ApplicationUser> userManager
+
 @{
     ViewData["Title"] = "Quản Lý Đào Tạo";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -103,29 +102,59 @@
                 }
                 @if (User.IsInRole("GiangVien"))
                 {
+                    <a asp-controller="ChuongTrinhDaoTao" asp-action="Index" class="feature-card">
+                        <i class="fas fa-university"></i>
+                        <h3>Quản Lý Chương Trình Đào Tạo</h3>
+                    </a>
+                    <a asp-controller="Khoa" asp-action="Index" class="feature-card">
+                        <i class="fas fa-university"></i>
+                        <h3>Quản Lý Khoa</h3>
+                    </a>
+                    <a asp-controller="SinhVien" asp-action="Index" class="feature-card">
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>Quản Lý Sinh Viên</h3>
+                    </a>
+                    <a asp-controller="GiangVien" asp-action="Index" class="feature-card">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <h3>Quản Lý Giảng Viên</h3>
+                    </a>
+
+                    <a asp-controller="LopHoc" asp-action="Index" class="feature-card">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <h3>Quản Lý Lớp Học</h3>
+                    </a>
+                    <a asp-controller="MonHoc" asp-action="Index" class="feature-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Quản Lý Môn Học</h3>
+                    </a>
                     <a asp-controller="BaiGiang" asp-action="Index" class="feature-card">
                         <i class="fas fa-book"></i>
                         <h3>Quản Lý Bài Giảng</h3>
-                    </a>
-                    <a asp-controller="DeCuong" asp-action="Index" class="feature-card">
-                        <i class="fas fa-file-alt"></i>
-                        <h3>Quản Lý Đề Cương</h3>
-                    </a>
-                    <a asp-controller="LopHoc" asp-action="Index" class="feature-card">
-                        <i class="fas fa-users"></i>
-                        <h3>Lớp Học</h3>
-                    </a>
-                    <a asp-controller="PhanCongGiangDay" asp-action="Index" class="feature-card">
-                        <i class="fas fa-tasks"></i>
-                        <h3>Phân Công Giảng Dạy</h3>
                     </a>
                     <a asp-controller="TaiLieu" asp-action="Index" class="feature-card">
                         <i class="fas fa-file-alt"></i>
                         <h3>Quản Lý Tài Liệu</h3>
                     </a>
+                    <a asp-controller="DeCuong" asp-action="Index" class="feature-card">
+                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                        <h3>Quản Lý Đề Cương</h3>
+                    </a>
+
                 }
                 @if (User.IsInRole("SinhVien"))
                 {
+                    <a asp-controller="ChuongTrinhDaoTao" asp-action="Index" class="feature-card">
+                        <i class="fas fa-university"></i>
+                        <h3>Quản Lý Chương Trình Đào Tạo</h3>
+                    </a>
+                    <a asp-controller="Khoa" asp-action="Index" class="feature-card">
+                        <i class="fas fa-university"></i>
+                        <h3>Quản Lý Khoa</h3>
+                    </a>
+                    <a asp-controller="GiangVien" asp-action="Index" class="feature-card">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <h3>Quản Lý Giảng Viên</h3>
+                    </a>
                     <a asp-controller="DangKyLopHoc" asp-action="Index" class="feature-card">
                         <i class="fas fa-edit"></i>
                         <h3>Đăng Ký Lớp Học</h3>

@@ -8,23 +8,13 @@
 @{
     ViewData["Title"] = "Danh Sách Bài Giảng";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var user = await userManager.GetUserAsync(User);
-    bool isAdmin = User.IsInRole("Admin");
-    bool isGiangVien = User.IsInRole("GiangVien");
-    bool isSinhVien = User.IsInRole("SinhVien");
+
 }
 
 <div class="page-container">
     <div class="page-header">
         <h1 class="page-title">Danh Sách Bài Giảng</h1>
-        @if (isAdmin || isGiangVien)
-        {
-            <div class="action-buttons">
-                <a asp-action="Create" class="btn btn-primary">
-                    <i class="fas fa-plus"></i> Thêm mới
-                </a>
-            </div>
-        }
+
     </div>
     <div class="table-responsive">
         <table class="data-table">
@@ -34,7 +24,9 @@
                     <th>Mã Môn Học</th>
                     <th>Tiêu Đề</th>
                     <th>Nội Dung</th>
-                    <th>Thao Tác</th>
+                    @if(User.IsInRole("Admin")||User.IsInRole("GiangVien")){
+                        <th>Thao tác</th>
+                    }
                 </tr>
             </thead>
             <tbody id="tableBody">
@@ -46,23 +38,33 @@
                         <td>@item.TieuDe</td>
                         <td>@item.NoiDung</td>
                         <td>
+                        @if(User.IsInRole("Admin") || User.IsInRole("GiangVien")){
                             <div class="table-actions">
                                 <a asp-action="Edit" asp-route-id="@item.MaBG" class="btn btn-secondary">
                                     <i class="fas fa-edit"></i>
                                     <span>Sửa</span>
                                 </a>
-                                
+                        @if(User.IsInRole("Admin")){
                                 <button onclick="deleteItem(@item.MaBG)" class="btn btn-danger">
                                     <i class="fas fa-trash"></i>
                                     <span>Xóa</span>
                                 </button>
+                            }
                             </div>
+                            }
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
+    @if(User.IsInRole("Admin")|| User.IsInRole("GiangVien")){
+<div class="action-buttons">
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Thêm mới
+            </a>
+        </div>
+        }
 </div>
 
 @section Scripts {

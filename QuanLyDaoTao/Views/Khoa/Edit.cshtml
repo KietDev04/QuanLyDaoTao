@@ -2,50 +2,60 @@
 
 @{
     ViewData["Title"] = "Chỉnh Sửa Khoa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container-fluid py-4">
-    <div class="card shadow">
-        <div class="card-header bg-warning text-dark">
-            <h5 class="mb-0">Chỉnh Sửa Thông Tin Khoa</h5>
-        </div>
-        <div class="card-body">
-            <form asp-action="Edit" method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="MaKhoa" />
+<div class="page-container">
 
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label asp-for="TenKhoa" class="form-label"></label>
-                        <input asp-for="TenKhoa" class="form-control" />
-                        <span asp-validation-for="TenKhoa" class="text-danger"></span>
-                    </div>
+    <div class="page-header">
+        <h1 class="page-title">Chỉnh Sửa Thông Tin Khoa</h1>
+    </div>
 
-                    <div class="col-md-6 mb-3">
-                        <label asp-for="DiaChi" class="form-label"></label>
-                        <input asp-for="DiaChi" class="form-control" />
-                        <span asp-validation-for="DiaChi" class="text-danger"></span>
-                    </div>
-                </div>
+    <div class="card-body">
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach (var modelError in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        <li>@modelError.ErrorMessage</li>
+                    }
+                </ul>
+            </div>
+        }
+        
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label asp-for="DienThoai" class="form-label"></label>
-                        <input asp-for="DienThoai" class="form-control" type="tel" pattern="[0-9]{10}" />
-                        <span asp-validation-for="DienThoai" class="text-danger"></span>
-                    </div>
-                </div>
+            <input type="hidden" asp-for="MaKhoa" />
 
-                <div class="mt-4">
-                    <button type="submit" class="btn btn-warning">
-                        <i class="fas fa-save"></i> Cập nhật
-                    </button>
-                    <a asp-action="Index" class="btn btn-secondary">
-                        <i class="fas fa-arrow-left"></i> Quay lại
-                    </a>
-                </div>
-            </form>
-        </div>
+            <div class="form-group">
+                <label asp-for="TenKhoa" class="control-label">Tên khoa <span class="text-danger">*</span></label>
+                <input asp-for="TenKhoa" class="form-control" required />
+                <span asp-validation-for="TenKhoa" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DiaChi" class="control-label">Địa chỉ</label>
+                <input asp-for="DiaChi" class="form-control" />
+                <span asp-validation-for="DiaChi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DienThoai" class="control-label">Điện thoại</label>
+                <input asp-for="DienThoai" class="form-control" type="tel" pattern="[0-9]{10}" />
+                <span asp-validation-for="DienThoai" class="text-danger"></span>
+            </div>
+
+            <div class="form-group d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Cập nhật
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Quay lại
+                </a>
+            </div>
+        </form>
     </div>
 </div>
 

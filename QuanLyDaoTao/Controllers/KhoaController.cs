@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using QuanLyDaoTaoWeb.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,GiangVien,SinhVien")]
     public class KhoaController : Controller
     {
         private readonly ApplicationDbContext _context;

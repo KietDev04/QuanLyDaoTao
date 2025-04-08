@@ -8,12 +8,16 @@ using Microsoft.AspNetCore.Identity;
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
-    [Authorize(Roles = "Admin,GiangVien")]
-    public class GiangVienController : AdminController
+    [Authorize(Roles = "Admin,GiangVien,SinhVien")]
+    public class GiangVienController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+
         public GiangVienController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
-            : base(context, userManager)
         {
+            _context = context;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()
@@ -26,23 +30,13 @@ namespace QuanLyDaoTaoWeb.Controllers
             }
             var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
 
-            if (isAdmin)
-            {
-                var giangVienList = _context.GiangVien
-                    .Include(g => g.Khoa)
-                    .Include(g => g.PhanCongGiangDays)
-                    .ToList();
-                return View(giangVienList);
-            }
-            else
-            {
-                var giangVien = _context.GiangVien
-                    .Include(g => g.Khoa)
-                    .Include(g => g.PhanCongGiangDays)
-                    .FirstOrDefault(g => g.Email == user.Email);
-                if (giangVien == null) return NotFound();
-                return View("Details", giangVien);
-            }
+
+            var giangVienList = _context.GiangVien
+                .Include(g => g.Khoa)
+                .Include(g => g.PhanCongGiangDays)
+                .ToList();
+            return View(giangVienList);
+
         }
 
         [Authorize(Roles = "Admin")]

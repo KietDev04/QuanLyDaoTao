@@ -8,12 +8,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace QuanLyDaoTaoWeb.Controllers
 {
-    [Authorize(Roles = "Admin,GiangVien")]
-    public class BaiGiangController : AdminController
+    [Authorize(Roles = "Admin,GiangVien,SinhVien")]
+    public class BaiGiangController : Controller
     {
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
+
         public BaiGiangController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
-            : base(context, userManager)
         {
+            _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
