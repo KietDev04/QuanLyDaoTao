@@ -23,7 +23,7 @@
                     <th>@Html.DisplayNameFor(m => m.TenTL)</th>
                     <th>@Html.DisplayNameFor(m => m.BaiGiang.MaBG)</th>
                     <th>@Html.DisplayNameFor(m => m.DuongDan)</th>
-                    @if(User.IsInRole("Admin")){
+                    @if(User.IsInRole("Admin")|| User.IsInRole("GiangVien")){
                         <th>Thao tác</th>
                     }
                 </tr>

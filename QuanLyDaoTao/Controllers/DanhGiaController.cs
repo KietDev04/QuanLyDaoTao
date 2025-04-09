@@ -22,7 +22,8 @@ namespace QuanLyDaoTaoWeb.Controllers
         private async Task<SinhVien> GetCurrentSinhVienAsync()
         {
             var user = await _userManager.GetUserAsync(User);
-            return await _context.SinhVien.FirstOrDefaultAsync(s => s.Email == user.Email);
+            Console.WriteLine("Current user email: " + user.Email);
+            return await _context.SinhVien.FirstOrDefaultAsync(s => s.MaSV == user.UserName);
         }
 
         private async Task<bool> IsUserAdminAsync()

@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-
 namespace QuanLyDaoTaoWeb.Controllers
 {
     [Authorize(Roles = "Admin,GiangVien,SinhVien")]

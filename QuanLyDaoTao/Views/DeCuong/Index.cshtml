@@ -40,10 +40,12 @@
                                    class="btn btn-secondary" title="Sửa">
                                     <i class="fas fa-edit"></i> Sửa
                                 </a>
+                                @if(User.IsInRole("Admin")){
                                 <a asp-action="Delete" asp-route-id="@item.MaDC"
                                    class="btn btn-danger" title="Xóa">
                                     <i class="fas fa-trash"></i> Xóa
                                 </a>
+                                }
                             </div>
                             }
                         </td>

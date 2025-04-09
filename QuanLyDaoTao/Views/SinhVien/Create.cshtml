@@ -2,56 +2,56 @@
 
 @{
     ViewData["Title"] = "Thêm Sinh Viên";
+    Layout= "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container-fluid py-4">
-    <div class="card shadow">
+<div class="page-container">
+    <div class="page-header">
+        <h1 class="page-title">Thêm Mới Sinh Viên</h1>
+    </div>
+
+    <div class="card">
         <div class="card-header bg-primary text-white">
-            <h5 class="mb-0">Thêm Mới Sinh Viên</h5>
+            <h2 class="card-title">Thông Tin Sinh Viên</h2>
         </div>
+
         <div class="card-body">
             <form asp-action="Create" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label asp-for="MaSV" class="form-label"></label>
-                        <input asp-for="MaSV" class="form-control" maxlength="10" />
-                        <span asp-validation-for="MaSV" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                        <label asp-for="HoTen" class="form-label"></label>
-                        <input asp-for="HoTen" class="form-control" maxlength="100" />
-                        <span asp-validation-for="HoTen" class="text-danger"></span>
-                    </div>
+                <div class="form-group">
+                    <label asp-for="MaSV" class="control-label">Mã Sinh Viên</label>
+                    <input asp-for="MaSV" class="form-control" maxlength="10" />
+                    <span asp-validation-for="MaSV" class="text-danger"></span>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label asp-for="NgaySinh" class="form-label"></label>
-                        <input asp-for="NgaySinh" class="form-control" type="date" />
-                        <span asp-validation-for="NgaySinh" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                        <label asp-for="Email" class="form-label"></label>
-                        <input asp-for="Email" class="form-control" type="email" maxlength="50" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
+                <div class="form-group">
+                    <label asp-for="HoTen" class="control-label">Họ Tên</label>
+                    <input asp-for="HoTen" class="form-control" maxlength="100" />
+                    <span asp-validation-for="HoTen" class="text-danger"></span>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label asp-for="MaKhoa" class="form-label"></label>
-                        <select asp-for="MaKhoa" asp-items="ViewBag.KhoaList" class="form-select">
-                            <option value="">-- Chọn Khoa --</option>
-                        </select>
-                        <span asp-validation-for="MaKhoa" class="text-danger"></span>
-                    </div>
+                <div class="form-group">
+                    <label asp-for="NgaySinh" class="control-label">Ngày Sinh</label>
+                    <input asp-for="NgaySinh" class="form-control" type="date" />
+                    <span asp-validation-for="NgaySinh" class="text-danger"></span>
                 </div>
 
-                <div class="mt-4">
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label">Email</label>
+                    <input asp-for="Email" class="form-control" type="email" maxlength="50" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MaKhoa" class="control-label">Khoa</label>
+                    <select asp-for="MaKhoa" asp-items="ViewBag.KhoaList" class="form-control select2">
+                        <option value="">-- Chọn Khoa --</option>
+                    </select>
+                    <span asp-validation-for="MaKhoa" class="text-danger"></span>
+                </div>
+
+                <div class="form-group d-flex gap-2">
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-save"></i> Lưu
                     </button>
@@ -66,4 +66,12 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            $('.select2').select2({
+                theme: 'default',
+                placeholder: '-- Chọn Khoa --'
+            });
+        });
+    </script>
 }

@@ -2,55 +2,55 @@
 
 @{
     ViewData["Title"] = "Thêm Chương Trình Đào Tạo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container-fluid py-4">
-    <div class="card shadow">
+<div class="page-container">
+    <div class="page-header">
+        <h1 class="page-title">Thêm Mới Chương Trình Đào Tạo</h1>
+    </div>
+
+    <div class="card">
         <div class="card-header bg-primary text-white">
-            <h5 class="mb-0">Thêm Mới Chương Trình Đào Tạo</h5>
+            <h2 class="card-title">Thông Tin Chương Trình</h2>
         </div>
+
         <div class="card-body">
             <form asp-action="Create" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label asp-for="MaCTDT" class="form-label"></label>
-                        <input asp-for="MaCTDT" class="form-control" />
-                        <span asp-validation-for="MaCTDT" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                        <label asp-for="MaKhoa" class="form-label"></label>
-                        <select asp-for="MaKhoa" asp-items="ViewBag.KhoaList" class="form-select">
-                            <option value="">-- Chọn Khoa --</option>
-                        </select>
-                        <span asp-validation-for="MaKhoa" class="text-danger"></span>
-                    </div>
+                <div class="form-group">
+                    <label asp-for="MaCTDT" class="control-label">Mã CTĐT</label>
+                    <input asp-for="MaCTDT" class="form-control" />
+                    <span asp-validation-for="MaCTDT" class="text-danger"></span>
                 </div>
 
-                <div class="mb-3">
-                    <label asp-for="TenCTDT" class="form-label"></label>
+                <div class="form-group">
+                    <label asp-for="MaKhoa" class="control-label">Khoa</label>
+                    <select asp-for="MaKhoa" asp-items="ViewBag.KhoaList" class="form-control">
+                        <option value="">-- Chọn Khoa --</option>
+                    </select>
+                    <span asp-validation-for="MaKhoa" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="TenCTDT" class="control-label">Tên CTĐT</label>
                     <input asp-for="TenCTDT" class="form-control" />
                     <span asp-validation-for="TenCTDT" class="text-danger"></span>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label asp-for="NamBatDau" class="form-label"></label>
-                        <input asp-for="NamBatDau" class="form-control" type="number" min="2000" max="2030" />
-                        <span asp-validation-for="NamBatDau" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                        <div class="form-check mt-4">
-                            <input asp-for="TrangThai" class="form-check-input" />
-                            <label asp-for="TrangThai" class="form-check-label"></label>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label asp-for="NamBatDau" class="control-label">Năm Bắt Đầu</label>
+                    <input asp-for="NamBatDau" class="form-control" type="number" min="2000" max="2030" />
+                    <span asp-validation-for="NamBatDau" class="text-danger"></span>
                 </div>
 
-                <div class="mt-4">
+                <div class="form-group form-check">
+                    <input asp-for="TrangThai" class="form-check-input" />
+                    <label asp-for="TrangThai" class="form-check-label">Đang hoạt động</label>
+                </div>
+
+                <div class="form-group d-flex gap-2">
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-save"></i> Lưu
                     </button>

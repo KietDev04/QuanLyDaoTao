@@ -66,7 +66,7 @@ namespace QuanLyDaoTaoWeb.Controllers
             if (deCuong == null) return NotFound();
 
             ViewBag.MonHocList = new SelectList(_context.MonHoc, "MaMH", "TenMH", deCuong.MaMH);
-            return View("DeCuong/Edit", deCuong);
+            return View(deCuong);
         }
 
         [HttpPost]
